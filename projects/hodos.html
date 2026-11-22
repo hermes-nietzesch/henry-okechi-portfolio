@@ -3,151 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
-  <meta name="description" content="A conversational AI career-navigation app integrating the Anthropic API, Netlify serverless functions, and Airtable.">
+  <meta name="theme-color" content="#10131A">
+  <meta name="description" content="An AI career-direction web application combining conversational assessment, personalized pathways, skill-gap diagnostics, and serverless Anthropic &amp; Airtable functions.">
   <meta property="og:title" content="Hodos — Case Study — Henry Okechi">
-  <meta property="og:description" content="A conversational AI career-navigation app integrating the Anthropic API, Netlify serverless functions, and Airtable.">
+  <meta property="og:description" content="An AI career-direction web application combining conversational assessment, personalized pathways, skill-gap diagnostics, and serverless Anthropic &amp; Airtable functions.">
   <meta property="og:type" content="website">
   <title>Hodos — Case Study — Henry Okechi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body data-root="../">
+<body>
   
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="Dr. Henry Okechi home">
-      <span class="brand-mark">HO</span>
-      <span class="brand-text">
-        <strong>Henry Okechi</strong>
-        <small>MD (MBBS) · Clinical AI · Web3 AM</small>
-      </span>
+<header class="site-header" data-site-header data-scrolled="false">
+  <div class="container nav-inner">
+    <a class="brand-wordmark" href="../index.html" aria-label="Henry Okechi home">
+      <span class="brand-monogram" aria-hidden="true">HO</span>
+      <span>HENRY OKECHI</span>
     </a>
-    <nav class="nav-links" id="site-navigation" data-menu aria-label="Primary navigation">
-      <a href="../index.html">Overview</a><a href="../work.html" aria-current="page">Selected Work</a><a href="../about.html">Background</a><a href="../contact.html">Hire Me</a>
-    </nav>
-    <div class="nav-utilities">
-      <button type="button" class="cmd-trigger" data-cmd-open aria-label="Open quick jump menu">
-        <span>Quick Jump</span>
-        <kbd>⌘K</kbd>
-      </button>
-      <a class="nav-cv" href="../assets/Henry_Okechi_CV.pdf" download>CV ↓</a>
-      <a class="nav-hire" href="../contact.html">Work With Me ↗</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>☰</button>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../work.html" aria-current="page">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle reading theme" aria-pressed="false">◐</button>
+      <button type="button" class="nav-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
     </div>
   </div>
 </header>
+<div class="mobile-drawer" id="mobile-drawer" data-mobile-drawer>
+  <nav aria-label="Mobile navigation">
+    <a href="../index.html">Overview</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a><a href="../assets/Henry_Okechi_CV.pdf">Curriculum Vitae (PDF)</a>
+  </nav>
+  <div class="mobile-drawer-foot">
+    <span>enryvanie@gmail.com</span>
+    <span>t.me/enryvanie · @Vanieofweb3</span>
+  </div>
+</div>
 
   <main id="main">
     
-<section class="page-hero">
+<section class="band-obsidian page-header" style="padding-bottom:44px">
   <div class="container">
-    <a class="back-link" href="../work.html">← Back to all 12 projects</a>
-    <div><span class="eyebrow">AI &amp; Career Tech · Serverless Codebase</span></div>
+    <a class="btn-link" href="../work.html" style="margin-bottom:28px;color:var(--champagne)">← Back to Selected Work</a>
+    <div class="eyebrow" style="display:flex">08 — AI / CAREER TECHNOLOGY</div>
     <h1>Hodos<em>.</em></h1>
-    <p>A conversational AI career-navigation app integrating the Anthropic API, Netlify serverless functions, and Airtable.</p>
+    <p>An AI career-direction web application combining conversational assessment, personalized pathways, skill-gap diagnostics, and serverless Anthropic &amp; Airtable functions.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:10px">
+<section class="band-obsidian" style="padding-bottom:clamp(52px,6vw,84px)">
   <div class="container">
     
-    <div class="case-hero-media">
-      <img src="../assets/images/art-hodos.jpg" alt="Hodos showcase">
-      <div class="case-caption">Visual identity for Hodos — guided career pathways powered by Claude.</div>
+    <div class="case-hero-media" id="media-player">
+      <img src="../assets/images/art-hodos.jpg" alt="Hodos — AI Career Direction &amp; Skill Mapping">
+      <div class="case-caption">CONCEPTUAL EDITORIAL PLATE · SOURCE ON GITHUB — Editorial visual plate representing Hodos&#x27;s guided AI career-pathway architecture (codebase inspected on GitHub).</div>
     </div>
 
+  </div>
+</section>
 
-    <div class="case-grid">
-      <div class="case-content">
-        <h2>The Challenge</h2>
-        <p>Ambitious talent entering the AI economy face overwhelming noise and generic advice that ignores their existing strengths and local market realities.</p>
+<section class="band-ivory section">
+  <div class="container">
+    <div class="case-layout">
+      <div class="case-prose">
+        <h2>Overview</h2>
+        <p>Hodos is built for people entering the AI economy who want clarity on where their existing strengths fit. A guided conversational assessment routes through serverless Netlify Functions calling the Anthropic API to generate tailored career pathways, skill-gap breakdowns, and starter projects, persisted in Airtable.</p>
 
-        <h2>What I Built &amp; Directed</h2>
-        <p>Hodos guides users through a structured conversational assessment, calling serverless Anthropic Claude endpoints to synthesize tailored career directions, pinpoint skill gaps, and recommend starter projects—persisted via Airtable.</p>
+        <h2>The Problem</h2>
+        <p>Generic career advice ignores individual backgrounds, actionable skill gaps, and locally relevant opportunities in fast-moving AI markets.</p>
 
-        <h2>Key Proof &amp; Outcomes</h2>
-        <ul class="case-list">
-          <li>End-to-end serverless AI pipeline connecting frontend assessment flows to Anthropic Claude and Airtable.</li><li>Structured prompt engineering that outputs actionable skill-gap maps instead of generic advice.</li><li>Fast multi-page web architecture (index, assessment, results) built for global accessibility.</li>
+        <h2>Product Concept</h2>
+        <p>Guide users through a lightweight multi-step web assessment (index, assessment, results) backed by structured Claude prompts and Airtable persistence.</p>
+
+        <h2>Approach &amp; Implementation</h2>
+        <p>Implemented the frontend flow in HTML, CSS, and JavaScript connected to serverless Netlify Functions integrating the Anthropic API and Airtable.</p>
+
+        <h2>Key Features</h2>
+        <ul class="editorial-list">
+          <li>Conversational strengths and career-direction assessment workflow</li><li>Serverless Netlify Functions orchestrating Anthropic Claude API calls</li><li>AI-generated personalized direction summaries, skill-gap diagnostics, and starter project ideas</li><li>Airtable integration for structured assessment persistence</li>
         </ul>
 
-        <h2>Core Features &amp; Architecture</h2>
-        <ul class="case-list">
-          <li>Conversational career-strengths and goals assessment workflow</li><li>Serverless Netlify Functions orchestrating Anthropic Claude API calls</li><li>Personalized career-fit summaries, skill-gap diagnostics, and starter project blueprints</li><li>Airtable integration for structured response persistence</li>
-        </ul>
+        <h2>Challenges &amp; Decisions</h2>
+        <p>Keeping the frontend dependency-free while isolating Anthropic API keys inside Netlify Functions created a fast, auditable serverless architecture.</p>
+
+        <h2>Outcome &amp; Current Status</h2>
+        <p>Functional codebase published publicly on GitHub (hermes-nietzesch/hodos-site); public deployment pending.</p>
 
         
       </div>
 
-      <aside class="case-aside" aria-label="Project specifications">
+      <aside class="case-aside" aria-label="Project metadata">
         <dl>
-          <dt>Discipline</dt>
-          <dd>AI &amp; Career Tech</dd>
           <dt>Status</dt>
-          <dd>Serverless Codebase</dd>
+          <dd>Functional Codebase</dd>
+          <dt>Category</dt>
+          <dd>AI / CAREER TECHNOLOGY</dd>
           <dt>My Role</dt>
-          <dd>Product Builder &amp; Serverless AI Engineer</dd>
+          <dd>Product &amp; Application Development</dd>
           <dt>Year</dt>
           <dd>2026</dd>
-          <dt>Stack &amp; Tooling</dt>
-          <dd><div class="tag-row" style="margin-top:6px"><span class="tag">Anthropic API</span><span class="tag">Netlify Functions</span><span class="tag">Airtable</span><span class="tag">JavaScript</span><span class="tag">Prompt Engineering</span></div></dd>
+          <dt>Technology Stack</dt>
+          <dd>HTML / CSS / JavaScript · Netlify Functions · Anthropic API · Airtable</dd>
         </dl>
-        <div class="aside-actions">
-          <a class="btn btn-primary" href="https://github.com/hermes-nietzesch/hodos-site" target="_blank" rel="noopener noreferrer">View GitHub Repo ↗</a><a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>
+        <div class="case-aside-actions">
+          <a class="btn-primary" href="https://github.com/hermes-nietzesch/hodos-site" target="_blank" rel="noopener noreferrer">View GitHub Repository ↗</a><a class="btn-link" href="../contact.html">Discuss a Similar Build <span class="arrow">→</span></a>
         </div>
       </aside>
     </div>
 
-    <div style="margin-top:72px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <a class="btn btn-ghost" href="medforge.html">← MedForge AI</a>
-      <a class="btn btn-secondary" href="vitalpulse.html">Next: VitalPulse →</a>
+    <div class="case-nav">
+      <a class="btn-link" href="naija-undead.html">← 07 Naija Undead</a>
+      <a class="btn-link" href="medforge.html">09 MedForge AI →</a>
     </div>
   </div>
 </section>
 
   </main>
   
-<footer class="site-footer">
+<footer class="band-obsidian closing-frame" id="contact">
   <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">HO</span>
-        <span class="brand-text">
-          <strong>Dr. Henry Okechi</strong>
-          <small>Clinical AI Training · Web3 Account Management · Product Builder</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-        <a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X ↗</a>
-        <a href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="../assets/Henry_Okechi_CV.pdf" download>Download CV ↓</a>
-      </div>
+    
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
+      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Dr. Henry Okechi · Remote Worldwide (UTC+1 · Lagos, Nigeria)</span>
-      <span>English (Native) · Russian (B1) · French (A2)</span>
+
+    <div class="oversized-email-wrap reveal">
+      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+    </div>
+
+    <div class="closing-links reveal">
+      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      <a class="btn-link" href="../assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
+      <a class="btn-link" href="../contact.html">Write a Brief <span class="arrow">→</span></a>
+    </div>
+
+    <div class="site-footer-bar">
+      <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
+      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
     </div>
   </div>
 </footer>
-
-<div class="cmd-backdrop" data-cmd-backdrop role="dialog" aria-modal="true" aria-label="Quick jump command palette">
-  <div class="cmd-dialog">
-    <div class="cmd-input-wrap">
-      <span class="mono" style="color:var(--gold);font-size:13px">⌘</span>
-      <input type="text" data-cmd-input placeholder="Jump to Clinical AI proof, Web3 track, Azarun reel, CV, or email..." autocomplete="off">
-    </div>
-    <div class="cmd-list" data-cmd-list></div>
-    <div class="cmd-foot">
-      <span>Type to filter · Click to open</span>
-      <span>ESC to close</span>
-    </div>
-  </div>
-</div>
-
 <script src="../site.js" defer></script>
 
 </body>

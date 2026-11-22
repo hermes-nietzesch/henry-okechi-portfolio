@@ -3,151 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
-  <meta name="description" content="A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force raids.">
-  <meta property="og:title" content="Wayo — Case Study — Henry Okechi">
-  <meta property="og:description" content="A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force raids.">
+  <meta name="theme-color" content="#10131A">
+  <meta name="description" content="A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force searches before time runs out.">
+  <meta property="og:title" content="Wayo: Naija Hide &amp; Seek — Case Study — Henry Okechi">
+  <meta property="og:description" content="A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force searches before time runs out.">
   <meta property="og:type" content="website">
-  <title>Wayo — Case Study — Henry Okechi</title>
+  <title>Wayo: Naija Hide &amp; Seek — Case Study — Henry Okechi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body data-root="../">
+<body>
   
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="Dr. Henry Okechi home">
-      <span class="brand-mark">HO</span>
-      <span class="brand-text">
-        <strong>Henry Okechi</strong>
-        <small>MD (MBBS) · Clinical AI · Web3 AM</small>
-      </span>
+<header class="site-header" data-site-header data-scrolled="false">
+  <div class="container nav-inner">
+    <a class="brand-wordmark" href="../index.html" aria-label="Henry Okechi home">
+      <span class="brand-monogram" aria-hidden="true">HO</span>
+      <span>HENRY OKECHI</span>
     </a>
-    <nav class="nav-links" id="site-navigation" data-menu aria-label="Primary navigation">
-      <a href="../index.html">Overview</a><a href="../work.html" aria-current="page">Selected Work</a><a href="../about.html">Background</a><a href="../contact.html">Hire Me</a>
-    </nav>
-    <div class="nav-utilities">
-      <button type="button" class="cmd-trigger" data-cmd-open aria-label="Open quick jump menu">
-        <span>Quick Jump</span>
-        <kbd>⌘K</kbd>
-      </button>
-      <a class="nav-cv" href="../assets/Henry_Okechi_CV.pdf" download>CV ↓</a>
-      <a class="nav-hire" href="../contact.html">Work With Me ↗</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>☰</button>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../work.html" aria-current="page">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle reading theme" aria-pressed="false">◐</button>
+      <button type="button" class="nav-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
     </div>
   </div>
 </header>
+<div class="mobile-drawer" id="mobile-drawer" data-mobile-drawer>
+  <nav aria-label="Mobile navigation">
+    <a href="../index.html">Overview</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a><a href="../assets/Henry_Okechi_CV.pdf">Curriculum Vitae (PDF)</a>
+  </nav>
+  <div class="mobile-drawer-foot">
+    <span>enryvanie@gmail.com</span>
+    <span>t.me/enryvanie · @Vanieofweb3</span>
+  </div>
+</div>
 
   <main id="main">
     
-<section class="page-hero">
+<section class="band-obsidian page-header" style="padding-bottom:44px">
   <div class="container">
-    <a class="back-link" href="../work.html">← Back to all 12 projects</a>
-    <div><span class="status-pill"><span class="pulse-dot"></span>Live · Playable</span></div>
-    <h1>Wayo<em>.</em></h1>
-    <p>A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force raids.</p>
+    <a class="btn-link" href="../work.html" style="margin-bottom:28px;color:var(--champagne)">← Back to Selected Work</a>
+    <div class="eyebrow" style="display:flex">06 — GAME DEVELOPMENT / MULTIPLAYER</div>
+    <h1>Wayo: Naija Hide &amp; Seek<em>.</em></h1>
+    <p>A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force searches before time runs out.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:10px">
+<section class="band-obsidian" style="padding-bottom:clamp(52px,6vw,84px)">
   <div class="container">
     
-    <div class="case-hero-media">
-      <img src="../assets/images/live-wayo.png" alt="Wayo showcase">
-      <div class="case-caption">Live multiplayer lobby at playwayo.netlify.app — Raid in Progress.</div>
+    <div class="case-hero-media" id="media-player">
+      <img src="../assets/images/live-wayo.png" alt="Wayo: Naija Hide &amp; Seek — A Computer Village 3D Prop Hunt">
+      <div class="case-caption">ACTUAL DEPLOYED CAPTURE · PLAYABLE — Live lobby capture from playwayo.netlify.app — Raid in Progress.</div>
     </div>
 
+  </div>
+</section>
 
-    <div class="case-grid">
-      <div class="case-content">
-        <h2>The Challenge</h2>
-        <p>Most social party games ignore mobile-first browser ergonomics and local humor. Wayo turns an iconic Nigerian street-market dynamic into an instantly shareable multiplayer web game.</p>
+<section class="band-ivory section">
+  <div class="container">
+    <div class="case-layout">
+      <div class="case-prose">
+        <h2>Overview</h2>
+        <p>Wayo transforms an iconic Lagos street-market dynamic into an accessible 3D multiplayer game. Traders disguise themselves as everyday marketplace objects while the Task Force conducts a four-minute raid.</p>
 
-        <h2>What I Built &amp; Directed</h2>
-        <p>In Wayo, traders transform into ordinary Computer Village merchandise to survive a four-minute Task Force raid. Players spin up online lobbies with 5-letter room codes or jump straight into bot practice mode.</p>
+        <h2>The Problem</h2>
+        <p>Social prop-hunt games are typically desktop-bound and detached from local Nigerian humor and mobile-first play patterns.</p>
 
-        <h2>Key Proof &amp; Outcomes</h2>
-        <ul class="case-list">
-          <li>Open-source 3D multiplayer browser game playable instantly on mobile and desktop.</li><li>Frictionless 5-letter invite codes plus solo bot practice mode for zero-wait onboarding.</li><li>Distinctive visual identity, custom soundtrack, and configurable look sensitivity.</li>
+        <h2>Product Concept</h2>
+        <p>Design a landscape-first 3D browser prop hunt with instant five-letter room codes, host-controlled match starts, and solo bot practice.</p>
+
+        <h2>Approach &amp; Implementation</h2>
+        <p>Built as a lightweight HTML/JavaScript 3D web application with online room lobbies, configurable look-speed controls, custom soundtrack toggles, and Netlify deployment.</p>
+
+        <h2>Key Features</h2>
+        <ul class="editorial-list">
+          <li>3D prop-hunt gameplay modeled on Computer Village, Ikeja</li><li>Online multiplayer rooms with five-letter join codes and shareable invitations</li><li>Solo bot practice mode alongside timed four-minute multiplayer raids</li><li>Mobile landscape-first ergonomics with full desktop support and sensitivity settings</li>
         </ul>
 
-        <h2>Core Features &amp; Architecture</h2>
-        <ul class="case-list">
-          <li>3D prop-hunt gameplay modeled on Computer Village, Ikeja</li><li>Instant online multiplayer rooms via 5-letter join codes and host controls</li><li>Solo practice mode with AI bots for immediate onboarding</li><li>Four-minute timed raid matches, look-speed settings, and custom audio</li>
-        </ul>
+        <h2>Challenges &amp; Decisions</h2>
+        <p>Keeping room joining to a five-letter code and adding a &#x27;Practise with bots&#x27; link directly under the lobby actions minimized friction for mobile players.</p>
+
+        <h2>Outcome &amp; Current Status</h2>
+        <p>Live and playable at playwayo.netlify.app with source available on GitHub.</p>
 
         
       </div>
 
-      <aside class="case-aside" aria-label="Project specifications">
+      <aside class="case-aside" aria-label="Project metadata">
         <dl>
-          <dt>Discipline</dt>
-          <dd>3D Web Games</dd>
           <dt>Status</dt>
-          <dd>Live · Playable</dd>
+          <dd>Playable Web Game</dd>
+          <dt>Category</dt>
+          <dd>GAME DEVELOPMENT / MULTIPLAYER</dd>
           <dt>My Role</dt>
-          <dd>Game Director, Designer &amp; Developer</dd>
+          <dd>Game Direction &amp; Implementation</dd>
           <dt>Year</dt>
           <dd>2026</dd>
-          <dt>Stack &amp; Tooling</dt>
-          <dd><div class="tag-row" style="margin-top:6px"><span class="tag">3D Browser Game</span><span class="tag">Multiplayer Rooms</span><span class="tag">HTML / JavaScript</span><span class="tag">Netlify</span></div></dd>
+          <dt>Technology Stack</dt>
+          <dd>3D Web Game · Multiplayer Rooms · HTML / JavaScript · Netlify</dd>
         </dl>
-        <div class="aside-actions">
-          <a class="btn btn-primary" href="https://playwayo.netlify.app" target="_blank" rel="noopener noreferrer">Play Wayo Live ↗</a><a class="btn btn-secondary" href="https://github.com/hermes-nietzesch/wayo" target="_blank" rel="noopener noreferrer">View GitHub Repo ↗</a><a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>
+        <div class="case-aside-actions">
+          <a class="btn-primary" href="https://playwayo.netlify.app" target="_blank" rel="noopener noreferrer">Play Wayo Live ↗</a><a class="btn-link" href="https://github.com/hermes-nietzesch/wayo" target="_blank" rel="noopener noreferrer">View GitHub Repository ↗</a><a class="btn-link" href="../contact.html">Discuss a Similar Build <span class="arrow">→</span></a>
         </div>
       </aside>
     </div>
 
-    <div style="margin-top:72px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <a class="btn btn-ghost" href="kasala.html">← Kasala</a>
-      <a class="btn btn-secondary" href="naija-undead.html">Next: Naija Undead →</a>
+    <div class="case-nav">
+      <a class="btn-link" href="kasala.html">← 05 Kasala</a>
+      <a class="btn-link" href="naija-undead.html">07 Naija Undead →</a>
     </div>
   </div>
 </section>
 
   </main>
   
-<footer class="site-footer">
+<footer class="band-obsidian closing-frame" id="contact">
   <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">HO</span>
-        <span class="brand-text">
-          <strong>Dr. Henry Okechi</strong>
-          <small>Clinical AI Training · Web3 Account Management · Product Builder</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-        <a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X ↗</a>
-        <a href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="../assets/Henry_Okechi_CV.pdf" download>Download CV ↓</a>
-      </div>
+    
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
+      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Dr. Henry Okechi · Remote Worldwide (UTC+1 · Lagos, Nigeria)</span>
-      <span>English (Native) · Russian (B1) · French (A2)</span>
+
+    <div class="oversized-email-wrap reveal">
+      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+    </div>
+
+    <div class="closing-links reveal">
+      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      <a class="btn-link" href="../assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
+      <a class="btn-link" href="../contact.html">Write a Brief <span class="arrow">→</span></a>
+    </div>
+
+    <div class="site-footer-bar">
+      <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
+      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
     </div>
   </div>
 </footer>
-
-<div class="cmd-backdrop" data-cmd-backdrop role="dialog" aria-modal="true" aria-label="Quick jump command palette">
-  <div class="cmd-dialog">
-    <div class="cmd-input-wrap">
-      <span class="mono" style="color:var(--gold);font-size:13px">⌘</span>
-      <input type="text" data-cmd-input placeholder="Jump to Clinical AI proof, Web3 track, Azarun reel, CV, or email..." autocomplete="off">
-    </div>
-    <div class="cmd-list" data-cmd-list></div>
-    <div class="cmd-foot">
-      <span>Type to filter · Click to open</span>
-      <span>ESC to close</span>
-    </div>
-  </div>
-</div>
-
 <script src="../site.js" defer></script>
 
 </body>

@@ -2,7 +2,13 @@
   'use strict';
 
   const EMAIL = 'enryvanie@gmail.com';
-  const rootPrefix = document.body.dataset.root || '';
+  const html = document.documentElement;
+
+  // Apply saved theme before paint adjustments
+  const savedTheme = localStorage.getItem('ho-theme');
+  if (savedTheme === 'dark') {
+    html.setAttribute('data-theme', 'dark');
+  }
 
   // Toast helper
   let toastTimer = null;
@@ -19,7 +25,7 @@
     el.textContent = msg;
     el.classList.add('is-visible');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2800);
+    toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2600);
   }
 
   async function copyText(text, label) {
@@ -39,348 +45,118 @@
     }
   }
 
-  // Copy email buttons
   document.querySelectorAll('[data-copy-email]').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      copyText(EMAIL, `Copied ${EMAIL} to clipboard`);
+      copyText(EMAIL, `Copied ${EMAIL}`);
     });
   });
 
-  // Mobile nav toggle
-  const toggle = document.querySelector('[data-menu-toggle]');
-  const menu = document.querySelector('[data-menu]');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
+  // Discreet Theme Toggle (Obsidian & Ivory default <-> All-Dark Editorial)
+  const themeBtn = document.querySelector('[data-theme-toggle]');
+  function syncThemeLabel() {
+    if (!themeBtn) return;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    themeBtn.textContent = isDark ? '☀' : '◐';
+    themeBtn.setAttribute('aria-label', isDark ? 'Switch to Obsidian & Ivory theme' : 'Switch to Dark reading theme');
+    themeBtn.setAttribute('aria-pressed', String(isDark));
+  }
+  syncThemeLabel();
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') html.setAttribute('data-theme', 'dark');
+      else html.removeAttribute('data-theme');
+      localStorage.setItem('ho-theme', next);
+      syncThemeLabel();
     });
   }
 
-  // Hero Interactive Proof Console
-  const consoleEl = document.querySelector('[data-proof-console]');
-  if (consoleEl) {
-    const tabs = [...consoleEl.querySelectorAll('[data-console-tab]')];
-    const img = consoleEl.querySelector('[data-console-img]');
-    const stage = consoleEl.querySelector('[data-console-stage]');
-    const urlEl = consoleEl.querySelector('[data-console-url]');
-    const statusEl = consoleEl.querySelector('[data-console-status]');
-    const titleEl = consoleEl.querySelector('[data-console-title]');
-    const subEl = consoleEl.querySelector('[data-console-sub]');
-    const ctaEl = consoleEl.querySelector('[data-console-cta]');
+  // Header scroll transition + 2px top progress bar
+  const header = document.querySelector('[data-site-header]');
+  const progressBar = document.querySelector('[data-scroll-progress]');
+  let ticking = false;
 
-    let idx = 0;
-    let paused = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY || window.pageYOffset;
+      if (header) {
+        header.setAttribute('data-scrolled', y > 36 ? 'true' : 'false');
+      }
+      if (progressBar) {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? Math.min(100, Math.max(0, (y / docH) * 100)) : 0;
+        progressBar.style.width = `${pct}%`;
+      }
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-    function activateTab(tab) {
-      tabs.forEach((t) => {
-        const active = t === tab;
-        t.classList.toggle('is-active', active);
-        t.setAttribute('aria-selected', String(active));
-      });
-      if (img) {
-        img.src = tab.dataset.img;
-        img.alt = tab.dataset.title;
-      }
-      if (stage) {
-        stage.classList.toggle('is-portrait', tab.dataset.portrait === 'true');
-      }
-      if (urlEl) urlEl.textContent = tab.dataset.urlLabel;
-      if (statusEl) {
-        const isLive = tab.dataset.live === 'true';
-        statusEl.innerHTML = isLive
-          ? '<span class="pulse-dot"></span>LIVE'
-          : 'AI FILM';
-        statusEl.style.color = isLive ? 'var(--emerald)' : 'var(--gold-bright)';
-      }
-      if (titleEl) titleEl.textContent = tab.dataset.title;
-      if (subEl) subEl.textContent = tab.dataset.sub;
-      if (ctaEl) {
-        ctaEl.href = tab.dataset.href;
-        ctaEl.textContent = tab.dataset.cta;
-        if (tab.dataset.external === 'true') {
-          ctaEl.target = '_blank';
-          ctaEl.rel = 'noopener noreferrer';
-        } else {
-          ctaEl.removeAttribute('target');
-          ctaEl.removeAttribute('rel');
-        }
-      }
-      idx = tabs.indexOf(tab);
+  // Accessible Mobile Menu Drawer
+  const menuBtn = document.querySelector('[data-menu-toggle]');
+  const drawer = document.querySelector('[data-mobile-drawer]');
+  if (menuBtn && drawer) {
+    function setDrawer(open) {
+      drawer.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? 'Close' : 'Menu';
+      document.body.style.overflow = open ? 'hidden' : '';
     }
-
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        paused = true;
-        activateTab(tab);
-      });
+    menuBtn.addEventListener('click', () => {
+      setDrawer(!drawer.classList.contains('is-open'));
     });
-
-    consoleEl.addEventListener('mouseenter', () => { paused = true; });
-    consoleEl.addEventListener('mouseleave', () => { paused = false; });
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduceMotion && tabs.length > 1) {
-      setInterval(() => {
-        if (!paused) {
-          idx = (idx + 1) % tabs.length;
-          activateTab(tabs[idx]);
-        }
-      }, 5200);
-    }
-  }
-
-  // Interactive Hiring Lens Tabs
-  const lensTabs = [...document.querySelectorAll('[data-lens-tab]')];
-  const lensPanels = [...document.querySelectorAll('[data-lens-panel]')];
-  if (lensTabs.length && lensPanels.length) {
-    lensTabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.lensTab;
-        lensTabs.forEach((t) => {
-          const active = t === tab;
-          t.classList.toggle('is-active', active);
-          t.setAttribute('aria-selected', String(active));
-        });
-        lensPanels.forEach((p) => {
-          p.classList.toggle('is-active', p.dataset.lensPanel === target);
-        });
-      });
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setDrawer(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        setDrawer(false);
+        menuBtn.focus();
+      }
     });
   }
 
-  // Pre-select brief chip when clicking track CTAs
-  document.querySelectorAll('[data-prefill-topic]').forEach((el) => {
-    el.addEventListener('click', () => {
-      const topic = el.dataset.prefillTopic;
-      const chip = document.querySelector(`[data-topic-chip="${topic}"]`);
-      if (chip) chip.click();
-    });
-  });
-
-  // Work page filters (with optional ?filter= query)
+  // Accessible Work Page Filters
   const filterBtns = [...document.querySelectorAll('[data-filter]')];
-  const projectCards = [...document.querySelectorAll('[data-project-category]')];
-  if (filterBtns.length && projectCards.length) {
+  const workItems = [...document.querySelectorAll('[data-work-item]')];
+  if (filterBtns.length && workItems.length) {
     function applyFilter(code) {
       filterBtns.forEach((b) => {
         const active = b.dataset.filter === code;
         b.classList.toggle('is-active', active);
         b.setAttribute('aria-pressed', String(active));
       });
-      let visible = 0;
-      projectCards.forEach((card) => {
+      let count = 0;
+      workItems.forEach((item) => {
         const show =
           code === 'all' ||
-          (code === 'live' && card.dataset.projectLive === 'true') ||
-          card.dataset.projectCategory === code;
-        card.hidden = !show;
-        if (show) visible += 1;
+          (code === 'live' && item.dataset.live === 'true') ||
+          item.dataset.category === code;
+        item.hidden = !show;
+        if (show) {
+          count += 1;
+          item.classList.add('is-in');
+        }
       });
       const countEl = document.querySelector('[data-result-count]');
       if (countEl) {
-        countEl.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'} shown`;
+        countEl.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
       }
     }
-
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
     });
-
-    const params = new URLSearchParams(window.location.search);
-    const initial = params.get('filter');
+    const initial = new URLSearchParams(window.location.search).get('filter');
     if (initial && filterBtns.some((b) => b.dataset.filter === initial)) {
       applyFilter(initial);
     }
   }
 
-  // Interactive Hire / Brief Composer (Homepage & Contact page)
-  document.querySelectorAll('[data-brief-form]').forEach((form) => {
-    const topicChips = [...form.querySelectorAll('[data-topic-chip]')];
-    const timelineChips = [...form.querySelectorAll('[data-timeline-chip]')];
-    let selectedTopic = topicChips.find((c) => c.classList.contains('is-selected'))?.dataset.topicChip || 'AI Training & Clinical Evaluation';
-    let selectedTimeline = timelineChips.find((c) => c.classList.contains('is-selected'))?.dataset.timelineChip || 'Immediate';
-
-    topicChips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        topicChips.forEach((c) => c.classList.remove('is-selected'));
-        chip.classList.add('is-selected');
-        selectedTopic = chip.dataset.topicChip;
-      });
-    });
-
-    timelineChips.forEach((chip) => {
-      chip.addEventListener('click', () => {
-        timelineChips.forEach((c) => c.classList.remove('is-selected'));
-        chip.classList.add('is-selected');
-        selectedTimeline = chip.dataset.timelineChip;
-      });
-    });
-
-    function buildPayload() {
-      const fd = new FormData(form);
-      const name = String(fd.get('name') || '').trim();
-      const org = String(fd.get('org') || '').trim();
-      const notes = String(fd.get('notes') || '').trim();
-      const subject = `[${selectedTopic}] ${org ? org + ' — ' : ''}Inquiry from ${name || 'Hiring / Project Lead'}`;
-      const body = [
-        `Hi Henry,`,
-        ``,
-        `Inquiry Type: ${selectedTopic}`,
-        `Timeline: ${selectedTimeline}`,
-        name ? `From: ${name}${org ? ' (' + org + ')' : ''}` : null,
-        ``,
-        notes || 'Would love to connect about working together.',
-        ``,
-        `— Sent via henryokechi portfolio`
-      ].filter((line) => line !== null).join('\n');
-      return { name, notes, subject, body };
-    }
-
-    const statusEl = form.querySelector('[data-form-status]');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const { name, notes, subject, body } = buildPayload();
-      if (!name || !notes) {
-        if (statusEl) {
-          statusEl.style.color = 'var(--gold-bright)';
-          statusEl.textContent = 'Add your name and a quick note about the role or project first.';
-        }
-        return;
-      }
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      if (statusEl) {
-        statusEl.style.color = 'var(--emerald)';
-        statusEl.textContent = 'Opening your email app with the brief ready—or click "Copy Brief" for Gmail/browser email.';
-      }
-    });
-
-    const copyBtn = form.querySelector('[data-copy-brief]');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        const { subject, body } = buildPayload();
-        copyText(`To: ${EMAIL}\nSubject: ${subject}\n\n${body}`, 'Full inquiry brief & email copied!');
-        if (statusEl) {
-          statusEl.style.color = 'var(--emerald)';
-          statusEl.textContent = `Copied brief + ${EMAIL} to clipboard—paste straight into Gmail or LinkedIn.`;
-        }
-      });
-    }
-  });
-
-  // Command Palette (⌘K / Ctrl+K)
-  const cmdItems = [
-    { label: 'Home — Overview & Hiring Tracks', meta: 'Page', action: () => (window.location.href = `${rootPrefix}index.html`) },
-    { label: 'All 10 Case Studies & Live Builds', meta: 'Page', action: () => (window.location.href = `${rootPrefix}work.html`) },
-    { label: 'About, Clinical Credentials & Experience', meta: 'Page', action: () => (window.location.href = `${rootPrefix}about.html`) },
-    { label: 'Hire Henry / Scope a Role or Sprint', meta: 'Contact', action: () => (window.location.href = `${rootPrefix}contact.html`) },
-    { label: 'Copy Email (enryvanie@gmail.com)', meta: 'Action', action: () => copyText(EMAIL, `Copied ${EMAIL}`) },
-    { label: 'Message on Telegram (@enryvanie)', meta: 'Telegram ↗', action: () => window.open('https://t.me/enryvanie', '_blank', 'noopener') },
-    { label: 'Download CV (PDF)', meta: 'PDF', action: () => (window.location.href = `${rootPrefix}assets/Henry_Okechi_CV.pdf`) },
-    { label: 'Play Kasala — 3D Battle Royale', meta: 'Live ↗', action: () => window.open('https://kasala.kasala.workers.dev', '_blank', 'noopener') },
-    { label: 'Launch MedFlash — Board Review App', meta: 'Live ↗', action: () => window.open('https://mcqrecall.netlify.app', '_blank', 'noopener') },
-    { label: 'Open Project Mucci — Mentorship Platform', meta: 'Live ↗', action: () => window.open('https://project-mucci.web.app', '_blank', 'noopener') },
-    { label: 'Play Wayo — 3D Prop Hunt', meta: 'Live ↗', action: () => window.open('https://playwayo.netlify.app', '_blank', 'noopener') },
-    { label: 'Play Naija Undead — 3D Zombie Survival', meta: 'Live ↗', action: () => window.open('https://naijaundead.fun', '_blank', 'noopener') },
-    { label: 'Case Study: Azarun (Generative Cinema + Runpod)', meta: 'Case', action: () => (window.location.href = `${rootPrefix}projects/azarun.html`) },
-    { label: 'Case Study: MedForge AI (Clinical Workspace)', meta: 'Case', action: () => (window.location.href = `${rootPrefix}projects/medforge.html`) },
-    { label: 'Case Study: Hodos (Anthropic API Career App)', meta: 'Case', action: () => (window.location.href = `${rootPrefix}projects/hodos.html`) },
-    { label: 'Case Study: VitalPulse (Blood Donation UX)', meta: 'Case', action: () => (window.location.href = `${rootPrefix}projects/vitalpulse.html`) },
-    { label: 'Web3 Growth, Community & Ecosystem Section', meta: 'Web3', action: () => (window.location.href = `${rootPrefix}index.html#web3-growth`) },
-    { label: 'Case Study: HERMES ALPHA ZONE (50+ Campaigns · 75K+)', meta: 'Web3', action: () => (window.location.href = `${rootPrefix}projects/hermes-growth.html`) },
-    { label: 'Case Study: Tier-1 Web3 Ops (DeGods · Pudgy Penguins)', meta: 'Web3', action: () => (window.location.href = `${rootPrefix}projects/web3-community-ops.html`) },
-    { label: 'Case Study: Irysnameservice (#1 Irys dApp)', meta: 'Web3', action: () => (window.location.href = `${rootPrefix}projects/irysnameservice.html`) }
-  ];
-
-  const backdrop = document.querySelector('[data-cmd-backdrop]');
-  const cmdInput = document.querySelector('[data-cmd-input]');
-  const cmdList = document.querySelector('[data-cmd-list]');
-
-  if (backdrop && cmdInput && cmdList) {
-    function renderCmd(query) {
-      const q = (query || '').toLowerCase().trim();
-      const filtered = cmdItems.filter((item) =>
-        item.label.toLowerCase().includes(q) || item.meta.toLowerCase().includes(q)
-      );
-      cmdList.innerHTML = '';
-      filtered.forEach((item) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'cmd-item';
-        btn.innerHTML = `<span>${item.label}</span><small>${item.meta}</small>`;
-        btn.addEventListener('click', () => {
-          closeCmd();
-          item.action();
-        });
-        cmdList.appendChild(btn);
-      });
-      if (!filtered.length) {
-        const empty = document.createElement('div');
-        empty.className = 'cmd-item';
-        empty.textContent = 'No matching actions or projects.';
-        cmdList.appendChild(empty);
-      }
-    }
-
-    function openCmd() {
-      backdrop.classList.add('is-open');
-      cmdInput.value = '';
-      renderCmd('');
-      setTimeout(() => cmdInput.focus(), 20);
-    }
-
-    function closeCmd() {
-      backdrop.classList.remove('is-open');
-    }
-
-    document.querySelectorAll('[data-cmd-open]').forEach((btn) => {
-      btn.addEventListener('click', openCmd);
-    });
-
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) closeCmd();
-    });
-
-    cmdInput.addEventListener('input', () => renderCmd(cmdInput.value));
-
-    document.addEventListener('keydown', (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (backdrop.classList.contains('is-open')) closeCmd();
-        else openCmd();
-      } else if (e.key === 'Escape' && backdrop.classList.contains('is-open')) {
-        closeCmd();
-      }
-    });
-  }
-
-  // Scroll reveal
-  const reveals = [...document.querySelectorAll('.reveal')];
-  if (reveals.length && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-    );
-    reveals.forEach((el) => io.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add('is-in'));
-  }
-
-  // Interactive Video Reel Player (Azarun)
+  // Interactive HTML5 Video Reel Player
   document.querySelectorAll('[data-video-reel]').forEach((reel) => {
     const video = reel.querySelector('[data-reel-video]');
     const titleEl = reel.querySelector('[data-reel-title]');
@@ -407,7 +183,80 @@
     });
   });
 
-  // Dynamic year
+  // Contact Brief Composer
+  document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    const statusEl = form.querySelector('[data-form-status]');
+
+    function buildPayload() {
+      const fd = new FormData(form);
+      const name = String(fd.get('name') || '').trim();
+      const org = String(fd.get('org') || '').trim();
+      const subject = String(fd.get('subject') || 'Portfolio Inquiry').trim();
+      const message = String(fd.get('message') || '').trim();
+      const body = [
+        'Hi Henry,',
+        '',
+        name ? `From: ${name}${org ? ` (${org})` : ''}` : null,
+        '',
+        message,
+      ].filter((l) => l !== null).join('\n');
+      return { name, message, subject, body };
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const { name, message, subject, body } = buildPayload();
+      if (!name || !message) {
+        if (statusEl) statusEl.textContent = 'Please include your name and a short note.';
+        return;
+      }
+      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (statusEl) statusEl.textContent = 'Opening your email app—or use "Copy Brief" to paste directly into webmail.';
+    });
+
+    const copyBtn = form.querySelector('[data-copy-brief]');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const { subject, body } = buildPayload();
+        copyText(`To: ${EMAIL}\nSubject: ${subject}\n\n${body}`, 'Brief and email address copied');
+        if (statusEl) statusEl.textContent = `Copied brief and ${EMAIL} to clipboard.`;
+      });
+    }
+  });
+
+  // Scroll Reveal Observer (progressive enhancement: never traps elements invisible)
+  const reveals = [...document.querySelectorAll('.reveal')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && reveals.length && 'IntersectionObserver' in window) {
+    html.classList.add('js-motion');
+    const revealInView = () => {
+      const vh = window.innerHeight || 900;
+      reveals.forEach((el) => {
+        if (el.classList.contains('is-in')) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh + 100 && rect.bottom > -40) {
+          el.classList.add('is-in');
+        }
+      });
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.01, rootMargin: '120px 0px 120px 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+    revealInView();
+    window.addEventListener('scroll', revealInView, { passive: true });
+  } else {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  }
+
   document.querySelectorAll('[data-year]').forEach((el) => {
     el.textContent = String(new Date().getFullYear());
   });

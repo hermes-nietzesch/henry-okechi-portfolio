@@ -3,151 +3,153 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
-  <meta name="description" content="A production cohort mentorship platform with daily progress check-ins, image-annotated feedback, and automated Firebase RBAC security tests.">
+  <meta name="theme-color" content="#10131A">
+  <meta name="description" content="A cohort mentorship command center for running structured programs, reviewing daily check-ins, and delivering image-annotated feedback with Firebase RBAC.">
   <meta property="og:title" content="Project Mucci — Case Study — Henry Okechi">
-  <meta property="og:description" content="A production cohort mentorship platform with daily progress check-ins, image-annotated feedback, and automated Firebase RBAC security tests.">
+  <meta property="og:description" content="A cohort mentorship command center for running structured programs, reviewing daily check-ins, and delivering image-annotated feedback with Firebase RBAC.">
   <meta property="og:type" content="website">
   <title>Project Mucci — Case Study — Henry Okechi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body data-root="../">
+<body>
   
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="Dr. Henry Okechi home">
-      <span class="brand-mark">HO</span>
-      <span class="brand-text">
-        <strong>Henry Okechi</strong>
-        <small>MD (MBBS) · Clinical AI · Web3 AM</small>
-      </span>
+<header class="site-header" data-site-header data-scrolled="false">
+  <div class="container nav-inner">
+    <a class="brand-wordmark" href="../index.html" aria-label="Henry Okechi home">
+      <span class="brand-monogram" aria-hidden="true">HO</span>
+      <span>HENRY OKECHI</span>
     </a>
-    <nav class="nav-links" id="site-navigation" data-menu aria-label="Primary navigation">
-      <a href="../index.html">Overview</a><a href="../work.html" aria-current="page">Selected Work</a><a href="../about.html">Background</a><a href="../contact.html">Hire Me</a>
-    </nav>
-    <div class="nav-utilities">
-      <button type="button" class="cmd-trigger" data-cmd-open aria-label="Open quick jump menu">
-        <span>Quick Jump</span>
-        <kbd>⌘K</kbd>
-      </button>
-      <a class="nav-cv" href="../assets/Henry_Okechi_CV.pdf" download>CV ↓</a>
-      <a class="nav-hire" href="../contact.html">Work With Me ↗</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>☰</button>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../work.html" aria-current="page">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle reading theme" aria-pressed="false">◐</button>
+      <button type="button" class="nav-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
     </div>
   </div>
 </header>
+<div class="mobile-drawer" id="mobile-drawer" data-mobile-drawer>
+  <nav aria-label="Mobile navigation">
+    <a href="../index.html">Overview</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a><a href="../assets/Henry_Okechi_CV.pdf">Curriculum Vitae (PDF)</a>
+  </nav>
+  <div class="mobile-drawer-foot">
+    <span>enryvanie@gmail.com</span>
+    <span>t.me/enryvanie · @Vanieofweb3</span>
+  </div>
+</div>
 
   <main id="main">
     
-<section class="page-hero">
+<section class="band-obsidian page-header" style="padding-bottom:44px">
   <div class="container">
-    <a class="back-link" href="../work.html">← Back to all 12 projects</a>
-    <div><span class="status-pill"><span class="pulse-dot"></span>Live · Platform</span></div>
+    <a class="btn-link" href="../work.html" style="margin-bottom:28px;color:var(--champagne)">← Back to Selected Work</a>
+    <div class="eyebrow" style="display:flex">03 — SAAS / MENTORSHIP PLATFORM</div>
     <h1>Project Mucci<em>.</em></h1>
-    <p>A production cohort mentorship platform with daily progress check-ins, image-annotated feedback, and automated Firebase RBAC security tests.</p>
+    <p>A cohort mentorship command center for running structured programs, reviewing daily check-ins, and delivering image-annotated feedback with Firebase RBAC.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:10px">
+<section class="band-obsidian" style="padding-bottom:clamp(52px,6vw,84px)">
   <div class="container">
     
-    <div class="case-hero-media framed-light">
-      <img src="../assets/images/live-mucci.png" alt="Project Mucci showcase">
-      <div class="case-caption">Live Firebase-authenticated entry portal at project-mucci.web.app.</div>
+    <div class="case-hero-media is-ui" id="media-player">
+      <img src="../assets/images/live-mucci.png" alt="Project Mucci — Mentorship, Made Accountable">
+      <div class="case-caption">ACTUAL DEPLOYED CAPTURE · LIVE — Live authentication entry portal at project-mucci.web.app (Google OAuth &amp; invitation-gated cohort onboarding).</div>
     </div>
 
+  </div>
+</section>
 
-    <div class="case-grid">
-      <div class="case-content">
-        <h2>The Challenge</h2>
-        <p>Cohort mentorship programs routinely fragment across chat threads and spreadsheets, leaving mentors without structured visibility and mentees without consistent feedback loops.</p>
+<section class="band-ivory section">
+  <div class="container">
+    <div class="case-layout">
+      <div class="case-prose">
+        <h2>Overview</h2>
+        <p>Project Mucci gives mentors and cohorts a dedicated workspace for daily accountability. Mentors create programs, invite cohorts securely, track daily mentee check-ins, and return annotated visual feedback—backed by Firebase authentication, Firestore membership rules, and automated authorization tests.</p>
 
-        <h2>What I Built &amp; Directed</h2>
-        <p>Project Mucci is a mentor-and-mentee command center engineered in React, TypeScript, and Firebase. Mentors launch cohorts, onboard members via invite links or Google OAuth, review daily check-ins, and annotate visual feedback.</p>
+        <h2>The Problem</h2>
+        <p>Mentorship cohorts frequently scatter across messaging apps and shared spreadsheets, making it difficult to enforce program membership boundaries, track consistent daily progress, or preserve structured feedback over time.</p>
 
-        <h2>Key Proof &amp; Outcomes</h2>
-        <ul class="case-list">
-          <li>Implemented strict role-based access control using Firebase Auth, Firestore rules, and Storage rules.</li><li>Backed membership boundaries and member-removal authorization with automated Vitest security test suites.</li><li>Live on Firebase Hosting with Google OAuth and invitation-based onboarding.</li>
+        <h2>Product Concept</h2>
+        <p>Build an invitation-gated mentor-and-mentee command center where daily progress logs, visual critique, and strict Firestore access controls live in a single reliable workspace.</p>
+
+        <h2>Approach &amp; Implementation</h2>
+        <p>Engineered the frontend in React, TypeScript, and Vite backed by Firebase Auth, Firestore, and Storage rules, with Vitest authorization tests validating program access and member removal.</p>
+
+        <h2>Key Features</h2>
+        <ul class="editorial-list">
+          <li>Cohort program setup with Google OAuth and email-invitation onboarding</li><li>Daily mentee progress check-ins with status tracking and mentor review queues</li><li>Mentor feedback supporting direct image annotations for visual correction</li><li>Firebase authentication, Firestore-backed membership schema, and Storage security rules</li><li>Vitest security and authorization tests covering program access and member removal</li>
         </ul>
 
-        <h2>Core Features &amp; Architecture</h2>
-        <ul class="case-list">
-          <li>Cohort program creation with Google OAuth and email-invitation onboarding</li><li>Daily mentee progress check-ins with status tracking and mentor review queues</li><li>Direct image-annotation feedback tools for clear visual critique</li><li>Production Firebase Auth, Firestore membership schema, and Vitest security test coverage</li>
-        </ul>
+        <h2>Challenges &amp; Decisions</h2>
+        <p>Assignments, grading, and analytics modules were intentionally kept locked in the current build so core check-in workflows and Firestore authorization boundaries could be hardened first.</p>
+
+        <h2>Outcome &amp; Current Status</h2>
+        <p>Deployed live on Firebase Hosting (project-mucci.web.app) with public source and authorization tests documented in GitHub.</p>
 
         
       </div>
 
-      <aside class="case-aside" aria-label="Project specifications">
+      <aside class="case-aside" aria-label="Project metadata">
         <dl>
-          <dt>Discipline</dt>
-          <dd>Full-Stack Products</dd>
           <dt>Status</dt>
-          <dd>Live · Platform</dd>
+          <dd>Deployed Platform · Evolving</dd>
+          <dt>Category</dt>
+          <dd>SAAS / MENTORSHIP PLATFORM</dd>
           <dt>My Role</dt>
-          <dd>Product Architecture, Full-Stack Engineering &amp; Security Testing</dd>
+          <dd>Product Direction, Full-Stack Implementation &amp; Authorization Testing</dd>
           <dt>Year</dt>
           <dd>2026</dd>
-          <dt>Stack &amp; Tooling</dt>
-          <dd><div class="tag-row" style="margin-top:6px"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Vite</span><span class="tag">Vitest</span></div></dd>
+          <dt>Technology Stack</dt>
+          <dd>React · TypeScript · Firebase · Firestore · Vite · Vitest</dd>
         </dl>
-        <div class="aside-actions">
-          <a class="btn btn-primary" href="https://project-mucci.web.app" target="_blank" rel="noopener noreferrer">Open Project Mucci ↗</a><a class="btn btn-secondary" href="https://github.com/hermes-nietzesch/Project-Mucci" target="_blank" rel="noopener noreferrer">View GitHub Repo ↗</a><a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>
+        <div class="case-aside-actions">
+          <a class="btn-primary" href="https://project-mucci.web.app" target="_blank" rel="noopener noreferrer">Visit Live Platform ↗</a><a class="btn-link" href="https://github.com/hermes-nietzesch/Project-Mucci" target="_blank" rel="noopener noreferrer">View GitHub Repository ↗</a><a class="btn-link" href="../contact.html">Discuss a Similar Build <span class="arrow">→</span></a>
         </div>
       </aside>
     </div>
 
-    <div style="margin-top:72px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <a class="btn btn-ghost" href="web3-community-ops.html">← Tier-1 Web3 Community &amp; Ecosystem Ops</a>
-      <a class="btn btn-secondary" href="kasala.html">Next: Kasala →</a>
+    <div class="case-nav">
+      <a class="btn-link" href="irysnameservice.html">← 02 Irysnameservice</a>
+      <a class="btn-link" href="mcq-recall.html">04 MedFlash (MCQ Recall) →</a>
     </div>
   </div>
 </section>
 
   </main>
   
-<footer class="site-footer">
+<footer class="band-obsidian closing-frame" id="contact">
   <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">HO</span>
-        <span class="brand-text">
-          <strong>Dr. Henry Okechi</strong>
-          <small>Clinical AI Training · Web3 Account Management · Product Builder</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-        <a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X ↗</a>
-        <a href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="../assets/Henry_Okechi_CV.pdf" download>Download CV ↓</a>
-      </div>
+    
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
+      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Dr. Henry Okechi · Remote Worldwide (UTC+1 · Lagos, Nigeria)</span>
-      <span>English (Native) · Russian (B1) · French (A2)</span>
+
+    <div class="oversized-email-wrap reveal">
+      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+    </div>
+
+    <div class="closing-links reveal">
+      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      <a class="btn-link" href="../assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
+      <a class="btn-link" href="../contact.html">Write a Brief <span class="arrow">→</span></a>
+    </div>
+
+    <div class="site-footer-bar">
+      <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
+      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
     </div>
   </div>
 </footer>
-
-<div class="cmd-backdrop" data-cmd-backdrop role="dialog" aria-modal="true" aria-label="Quick jump command palette">
-  <div class="cmd-dialog">
-    <div class="cmd-input-wrap">
-      <span class="mono" style="color:var(--gold);font-size:13px">⌘</span>
-      <input type="text" data-cmd-input placeholder="Jump to Clinical AI proof, Web3 track, Azarun reel, CV, or email..." autocomplete="off">
-    </div>
-    <div class="cmd-list" data-cmd-list></div>
-    <div class="cmd-foot">
-      <span>Type to filter · Click to open</span>
-      <span>ESC to close</span>
-    </div>
-  </div>
-</div>
-
 <script src="../site.js" defer></script>
 
 </body>

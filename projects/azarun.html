@@ -3,205 +3,207 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
-  <meta name="description" content="Cinematic AI trailer introducing an African mythological hero—backed by custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.">
+  <meta name="theme-color" content="#10131A">
+  <meta name="description" content="A cinematic AI trailer introducing an African mythological hero—engineered with custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.">
   <meta property="og:title" content="Azarun — Case Study — Henry Okechi">
-  <meta property="og:description" content="Cinematic AI trailer introducing an African mythological hero—backed by custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.">
+  <meta property="og:description" content="A cinematic AI trailer introducing an African mythological hero—engineered with custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.">
   <meta property="og:type" content="website">
   <title>Azarun — Case Study — Henry Okechi</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body data-root="../">
+<body>
   
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="../index.html" aria-label="Dr. Henry Okechi home">
-      <span class="brand-mark">HO</span>
-      <span class="brand-text">
-        <strong>Henry Okechi</strong>
-        <small>MD (MBBS) · Clinical AI · Web3 AM</small>
-      </span>
+<header class="site-header" data-site-header data-scrolled="false">
+  <div class="container nav-inner">
+    <a class="brand-wordmark" href="../index.html" aria-label="Henry Okechi home">
+      <span class="brand-monogram" aria-hidden="true">HO</span>
+      <span>HENRY OKECHI</span>
     </a>
-    <nav class="nav-links" id="site-navigation" data-menu aria-label="Primary navigation">
-      <a href="../index.html">Overview</a><a href="../work.html" aria-current="page">Selected Work</a><a href="../about.html">Background</a><a href="../contact.html">Hire Me</a>
-    </nav>
-    <div class="nav-utilities">
-      <button type="button" class="cmd-trigger" data-cmd-open aria-label="Open quick jump menu">
-        <span>Quick Jump</span>
-        <kbd>⌘K</kbd>
-      </button>
-      <a class="nav-cv" href="../assets/Henry_Okechi_CV.pdf" download>CV ↓</a>
-      <a class="nav-hire" href="../contact.html">Work With Me ↗</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>☰</button>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="../work.html" aria-current="page">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a>
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle reading theme" aria-pressed="false">◐</button>
+      <button type="button" class="nav-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
     </div>
   </div>
 </header>
+<div class="mobile-drawer" id="mobile-drawer" data-mobile-drawer>
+  <nav aria-label="Mobile navigation">
+    <a href="../index.html">Overview</a><a href="../work.html">Work</a><a href="../about.html">About</a><a href="../index.html#experience">Experience</a><a href="../contact.html">Contact</a><a href="../assets/Henry_Okechi_CV.pdf">Curriculum Vitae (PDF)</a>
+  </nav>
+  <div class="mobile-drawer-foot">
+    <span>enryvanie@gmail.com</span>
+    <span>t.me/enryvanie · @Vanieofweb3</span>
+  </div>
+</div>
 
   <main id="main">
     
-<section class="page-hero">
+<section class="band-obsidian page-header" style="padding-bottom:44px">
   <div class="container">
-    <a class="back-link" href="../work.html">← Back to all 12 projects</a>
-    <div><span class="status-pill"><span class="pulse-dot"></span>Playable Reel · LoRA</span></div>
+    <a class="btn-link" href="../work.html" style="margin-bottom:28px;color:var(--champagne)">← Back to Selected Work</a>
+    <div class="eyebrow" style="display:flex">01 — GENERATIVE CINEMA / AI MODEL TRAINING</div>
     <h1>Azarun<em>.</em></h1>
-    <p>Cinematic AI trailer introducing an African mythological hero—backed by custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.</p>
+    <p>A cinematic AI trailer introducing an African mythological hero—engineered with custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:10px">
+<section class="band-obsidian" style="padding-bottom:clamp(52px,6vw,84px)">
   <div class="container">
     
-    <div class="video-reel" id="trailer-reel" data-video-reel>
+    <div class="video-reel" id="media-player" data-video-reel>
       <div class="reel-bar">
-        <strong data-reel-title>Shot 01 · Kling AI Cinematic Slow Reveal</strong>
-        <span data-reel-meta>Kling AI · Motion Direction</span>
+        <strong data-reel-title>Shot 01 — Kling AI Cinematic Slow Reveal</strong>
+        <span data-reel-meta>KLING AI · MOTION DIRECTION</span>
       </div>
       <div class="reel-stage">
         <video data-reel-video controls playsinline preload="metadata" poster="../assets/images/azarun-cover.jpg" src="../assets/video/azarun-shot-1.mp4"></video>
       </div>
-      <div class="reel-tabs" role="tablist" aria-label="Select video clip"><button type="button" class="reel-tab is-active" role="tab" aria-selected="true"
+      <div class="reel-tabs" role="tablist" aria-label="Select clip"><button type="button" class="reel-tab is-active" role="tab" aria-selected="true"
                   data-reel-tab
                   data-src="../assets/video/azarun-shot-1.mp4"
                   data-poster="../assets/images/azarun-cover.jpg"
-                  data-title="Shot 01 · Kling AI Cinematic Slow Reveal"
-                  data-meta="Kling AI · Motion Direction">
+                  data-title="Shot 01 — Kling AI Cinematic Slow Reveal"
+                  data-meta="KLING AI · MOTION DIRECTION">
                   <small>Clip 01</small>
                   <strong>Kling AI Cinematic Slow Reveal</strong>
                 </button><button type="button" class="reel-tab" role="tab" aria-selected="false"
                   data-reel-tab
                   data-src="../assets/video/azarun-shot-2.mp4"
                   data-poster="../assets/images/azarun-hero-axe.jpg"
-                  data-title="Shot 02 · Audio-Synced Hero Sequence"
-                  data-meta="Generative Video + Sound Design">
+                  data-title="Shot 02 — Audio-Synced Hero Sequence"
+                  data-meta="GENERATIVE VIDEO · SOUND DESIGN">
                   <small>Clip 02</small>
                   <strong>Audio-Synced Hero Sequence</strong>
                 </button><button type="button" class="reel-tab" role="tab" aria-selected="false"
                   data-reel-tab
                   data-src="../assets/video/azarun-shot-3.mp4"
                   data-poster="../assets/images/azarun-chains.jpg"
-                  data-title="Shot 03 · Volcanic Chains Atmosphere"
-                  data-meta="Environment Continuity &amp; Lighting">
+                  data-title="Shot 03 — Volcanic Chains Atmosphere"
+                  data-meta="ENVIRONMENT CONTINUITY · LIGHTING">
                   <small>Clip 03</small>
                   <strong>Volcanic Chains Atmosphere</strong>
                 </button><button type="button" class="reel-tab" role="tab" aria-selected="false"
                   data-reel-tab
                   data-src="../assets/video/azarun-endscreen.mp4"
                   data-poster="../assets/images/azarun-cover.jpg"
-                  data-title="Shot 04 · Horizontal Trailer End Screen"
-                  data-meta="Title Treatment &amp; Finishing">
+                  data-title="Shot 04 — Horizontal Trailer End Screen"
+                  data-meta="TITLE TREATMENT · FINISHING">
                   <small>Clip 04</small>
                   <strong>Horizontal Trailer End Screen</strong>
                 </button></div>
     </div>
 
+  </div>
+</section>
 
-    <div class="case-grid">
-      <div class="case-content">
-        <h2>The Challenge</h2>
-        <p>Generative video pipelines break down across edits when characters morph between cuts. Achieving studio-grade continuity requires disciplined dataset curation, custom GPU LoRA training, and strict visual evaluation.</p>
+<section class="band-ivory section">
+  <div class="container">
+    <div class="case-layout">
+      <div class="case-prose">
+        <h2>Overview</h2>
+        <p>Azarun is the debut installment in a generative visual storytelling series showcasing African mythological heroes. Developed across Kling AI, Seedance, Gemini, and ChatGPT—and anchored by custom character-consistency models trained on Runpod GPU infrastructure—the project demonstrates disciplined visual continuity across multi-shot AI cinema.</p>
 
-        <h2>What I Built &amp; Directed</h2>
-        <p>Azarun is the debut installment in a generative cinema series showcasing African mythological heroes. I trained custom character-consistency LoRA checkpoints (azarun_god_v1) on Runpod GPUs, audited outputs across checkpoints, and directed shot-by-shot motion across Kling AI, Seedance, Gemini, and GPT.</p>
+        <h2>The Problem</h2>
+        <p>Generative video pipelines frequently break immersion across edits as character anatomy, facial features, and wardrobe drift from shot to shot. Sustaining cinematic credibility requires controlled dataset curation, custom model training, and iterative shot evaluation.</p>
 
-        <h2>Key Proof &amp; Outcomes</h2>
-        <ul class="case-list">
-          <li>Trained and evaluated custom azarun_god_v1 LoRA checkpoints on Runpod GPU infrastructure to lock facial identity, armor engravings, and proportions across shots.</li><li>Directed end-to-end shot planning, camera choreography, and audio-synced sequences across Kling AI and Seedance.</li><li>Watch 4 real rendered trailer shots and inspect the cross-shot LoRA consistency renders directly below.</li>
+        <h2>Product Concept</h2>
+        <p>Treat AI video production with traditional film-direction discipline: lock hero identity through custom GPU LoRA weights first, establish cohesive basalt-and-ember worldbuilding keyframes, and then direct controlled motion sequences shot by shot.</p>
+
+        <h2>Approach &amp; Implementation</h2>
+        <p>Curated consistent character reference sets, trained multi-checkpoint LoRA weights (azarun_god_v1) on Runpod GPU infrastructure, evaluated outputs across checkpoints to eliminate drift, and orchestrated motion generation across Kling AI and Seedance.</p>
+
+        <h2>Key Features</h2>
+        <ul class="editorial-list">
+          <li>Custom character-consistency LoRA training (azarun_god_v1) and checkpoint evaluation on Runpod GPUs</li><li>Shot-by-shot prompt architecture and camera choreography across Kling AI, Seedance, Gemini, and GPT</li><li>Locked hero identity (facial geometry, braids, glowing eyes, pauldrons, obsidian armor, and battle-axe) across independent scenes</li><li>Four web-playable rendered trailer sequences spanning slow reveals, audio-synced motion, volcanic environments, and end-screen finishing</li>
         </ul>
 
-        <h2>Core Features &amp; Architecture</h2>
-        <ul class="case-list">
-          <li>Custom Runpod GPU LoRA training (azarun_god_v1, multi-checkpoint evaluation &amp; dataset iteration)</li><li>Shot-by-shot cinematic prompt architecture across Kling AI, Seedance, Gemini, and GPT</li><li>Cross-shot visual identity lock (face, glowing amber eyes, ram-horn pauldrons, battle-axe &amp; obsidian armor)</li><li>Audio-synced motion clips, volcanic environment worldbuilding, and trailer end-screen production</li>
-        </ul>
+        <h2>Challenges &amp; Decisions</h2>
+        <p>Rather than relying on zero-shot prompting alone, investing upfront in custom Runpod LoRA training reduced re-roll waste and preserved recognizable protagonist continuity across dramatic lighting shifts.</p>
+
+        <h2>Outcome &amp; Current Status</h2>
+        <p>Produced a multi-shot trailer reel and verified character-consistency checkpoint suite; four native MP4 clips and side-by-side LoRA renders are embedded directly on this page.</p>
 
         
-        <h2>Runpod Custom LoRA (azarun_god_v1) Consistency &amp; Keyframes</h2>
-        <p>Side-by-side renders demonstrating locked character anatomy, facial identity, armor engravings, and volcanic lighting across independent prompts and camera angles.</p>
-        <div class="lora-gallery"><figure class="lora-card" style="margin:0">
-              <img src="../assets/images/azarun-hero-axe.jpg" alt="Character Lock A — Lightning &amp; Obsidian Battle-Axe (azarun_god_v1 consistency test)" loading="lazy">
-              <figcaption>Character Lock A — Lightning &amp; Obsidian Battle-Axe (azarun_god_v1 consistency test)</figcaption>
-            </figure><figure class="lora-card" style="margin:0">
-              <img src="../assets/images/azarun-corridor.jpg" alt="Character Lock B — Same facial structure, braids, pauldrons &amp; armor in volcanic hall" loading="lazy">
-              <figcaption>Character Lock B — Same facial structure, braids, pauldrons &amp; armor in volcanic hall</figcaption>
-            </figure><figure class="lora-card" style="margin:0">
-              <img src="../assets/images/azarun-chains.jpg" alt="Environment Keyframe — Shattered Chains &amp; Molten Abyss (widescreen shot setup)" loading="lazy">
-              <figcaption>Environment Keyframe — Shattered Chains &amp; Molten Abyss (widescreen shot setup)</figcaption>
-            </figure><figure class="lora-card" style="margin:0">
-              <img src="../assets/images/azarun-pit.jpg" alt="Worldbuilding Keyframe — Basalt Caldera Descent" loading="lazy">
-              <figcaption>Worldbuilding Keyframe — Basalt Caldera Descent</figcaption>
+        <h2>Custom Runpod LoRA (azarun_god_v1) — Consistency &amp; Keyframes</h2>
+        <p>Actual generated stills verifying locked character anatomy, facial structure, armor engravings, and volcanic lighting across separate prompts and compositions.</p>
+        <div class="case-gallery"><figure>
+              <img src="../assets/images/azarun-hero-axe.jpg" alt="Character Lock A — Lightning &amp; Obsidian Battle-Axe (azarun_god_v1)" loading="lazy">
+              <figcaption>Character Lock A — Lightning &amp; Obsidian Battle-Axe (azarun_god_v1)</figcaption>
+            </figure><figure>
+              <img src="../assets/images/azarun-corridor.jpg" alt="Character Lock B — Identical facial structure, braids &amp; armor in volcanic hall" loading="lazy">
+              <figcaption>Character Lock B — Identical facial structure, braids &amp; armor in volcanic hall</figcaption>
+            </figure><figure>
+              <img src="../assets/images/azarun-chains.jpg" alt="Environment Plate — Shattered Chains &amp; Molten Abyss" loading="lazy">
+              <figcaption>Environment Plate — Shattered Chains &amp; Molten Abyss</figcaption>
+            </figure><figure>
+              <img src="../assets/images/azarun-pit.jpg" alt="Worldbuilding Plate — Basalt Caldera Descent" loading="lazy">
+              <figcaption>Worldbuilding Plate — Basalt Caldera Descent</figcaption>
             </figure></div>
 
       </div>
 
-      <aside class="case-aside" aria-label="Project specifications">
+      <aside class="case-aside" aria-label="Project metadata">
         <dl>
-          <dt>Discipline</dt>
-          <dd>AI Training &amp; Cinema</dd>
           <dt>Status</dt>
-          <dd>Playable Reel · LoRA</dd>
+          <dd>Playable AI Trailer Reel &amp; Custom LoRA</dd>
+          <dt>Category</dt>
+          <dd>GENERATIVE CINEMA / AI MODEL TRAINING</dd>
           <dt>My Role</dt>
-          <dd>AI Model Trainer, Evaluator &amp; Generative Creative Director</dd>
+          <dd>AI &amp; Content Specialist, Model Trainer (Runpod), Prompt Direction &amp; Creative Production</dd>
           <dt>Year</dt>
           <dd>2026</dd>
-          <dt>Stack &amp; Tooling</dt>
-          <dd><div class="tag-row" style="margin-top:6px"><span class="tag">Runpod GPU / LoRA</span><span class="tag">Kling AI</span><span class="tag">Seedance</span><span class="tag">Dataset Evaluation</span><span class="tag">Prompt Engineering</span></div></dd>
+          <dt>Technology Stack</dt>
+          <dd>Runpod GPU / LoRA · Kling AI · Seedance · Gemini &amp; ChatGPT · Prompt Engineering</dd>
         </dl>
-        <div class="aside-actions">
-          <a class="btn btn-primary" href="#trailer-reel">Watch Trailer Reel ▶</a><a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>
+        <div class="case-aside-actions">
+          <a class="btn-primary" href="#media-player">Watch Trailer Reel</a><a class="btn-link" href="../contact.html">Discuss a Similar Build <span class="arrow">→</span></a>
         </div>
       </aside>
     </div>
 
-    <div style="margin-top:72px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <a class="btn btn-ghost" href="mcq-recall.html">← MedFlash</a>
-      <a class="btn btn-secondary" href="irysnameservice.html">Next: Irysnameservice →</a>
+    <div class="case-nav">
+      <a class="btn-link" href="web3-community-ops.html">← 12 Web3 Community &amp; Ecosystem Ops</a>
+      <a class="btn-link" href="irysnameservice.html">02 Irysnameservice →</a>
     </div>
   </div>
 </section>
 
   </main>
   
-<footer class="site-footer">
+<footer class="band-obsidian closing-frame" id="contact">
   <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">HO</span>
-        <span class="brand-text">
-          <strong>Dr. Henry Okechi</strong>
-          <small>Clinical AI Training · Web3 Account Management · Product Builder</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-        <a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X ↗</a>
-        <a href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="../assets/Henry_Okechi_CV.pdf" download>Download CV ↓</a>
-      </div>
+    
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
+      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Dr. Henry Okechi · Remote Worldwide (UTC+1 · Lagos, Nigeria)</span>
-      <span>English (Native) · Russian (B1) · French (A2)</span>
+
+    <div class="oversized-email-wrap reveal">
+      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+    </div>
+
+    <div class="closing-links reveal">
+      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      <a class="btn-link" href="../assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
+      <a class="btn-link" href="../contact.html">Write a Brief <span class="arrow">→</span></a>
+    </div>
+
+    <div class="site-footer-bar">
+      <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
+      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
     </div>
   </div>
 </footer>
-
-<div class="cmd-backdrop" data-cmd-backdrop role="dialog" aria-modal="true" aria-label="Quick jump command palette">
-  <div class="cmd-dialog">
-    <div class="cmd-input-wrap">
-      <span class="mono" style="color:var(--gold);font-size:13px">⌘</span>
-      <input type="text" data-cmd-input placeholder="Jump to Clinical AI proof, Web3 track, Azarun reel, CV, or email..." autocomplete="off">
-    </div>
-    <div class="cmd-list" data-cmd-list></div>
-    <div class="cmd-foot">
-      <span>Type to filter · Click to open</span>
-      <span>ESC to close</span>
-    </div>
-  </div>
-</div>
-
 <script src="../site.js" defer></script>
 
 </body>

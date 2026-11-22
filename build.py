@@ -1,4 +1,4 @@
-"""Build the static Henry Okechi portfolio (v3.1) from projects.json.
+"""Build the Obsidian & Ivory editorial portfolio for Henry Okechi.
 Usage: python build.py
 """
 from pathlib import Path
@@ -8,109 +8,116 @@ import json
 ROOT = Path(__file__).resolve().parent
 PROJECTS = json.loads((ROOT / "projects.json").read_text(encoding="utf-8"))
 
-GROUPS = [
-    ("all", "All Projects (12)"),
+FILTER_GROUPS = [
+    ("all", "All (12)"),
     ("live", "Live & Playable (7)"),
-    ("web3", "Web3 & Account Growth (3)"),
-    ("health", "Clinical & MedTech"),
-    ("creative", "AI Training & Cinema"),
-    ("products", "Full-Stack"),
-    ("games", "3D Web Games"),
-    ("ai", "AI & Career"),
+    ("health", "Healthcare"),
+    ("ai", "AI"),
+    ("products", "Products"),
+    ("games", "Games"),
+    ("creative", "Cinema"),
+    ("web3", "Web3"),
 ]
 
-# Editable endorsements — swap in exact client/manager names & links anytime.
-TESTIMONIALS = [
+CAPABILITIES = [
     (
-        "Clinical AI & Evaluation",
-        "Henry brings a rare combination of medical-school rigor and hands-on AI fluency. He catches subtle factual and reasoning errors quickly, follows complex evaluation rubrics without hand-holding, and communicates edge cases with editorial clarity.",
-        "AI Evaluation & Operations Lead",
-        "Remote LLM Training & Data Quality Team",
+        "01",
+        "AI & Intelligent Systems",
+        "LLM output evaluation, RLHF rubric execution, and custom GPU model training on Runpod for visual character consistency—grounded in multi-modal annotation experience at Appen.",
+        "RLHF · Model Evaluation · Runpod LoRA · Prompt Architecture · Anthropic API",
     ),
     (
-        "Web3 Account Management",
-        "Across campaign scoping, partner onboarding, and community execution, Henry runs accounts with calm ownership. He translates technical token and product narratives clearly for clients, delivers on tight timelines, and keeps stakeholders aligned across time zones.",
-        "Head of Partnerships & Growth",
-        "Crypto & Web3 Ecosystem Client",
+        "02",
+        "Healthcare & Medical Technology",
+        "Licensed MBBS physician applying frontline diagnostic reasoning and patient-safety standards to clinical AI evaluation, medical writing, and healthcare interface prototypes.",
+        "Clinical Medicine · Medical Verification · MedFlash · MedForge AI · VitalPulse",
     ),
     (
-        "Editorial & 0→1 Execution",
-        "Whether researching complex economic topics for long-form scripts or shipping working web applications from scratch, Henry consistently raises the quality bar. You can hand him an ambiguous brief and trust him to come back with something sharp and usable.",
-        "Executive Producer & Product Founder",
-        "Digital Media & Software Collaboration",
+        "03",
+        "Product Engineering",
+        "Turning ideas into deployed web software—combining React, TypeScript, Firebase authentication and security tests, serverless functions, and fast static hosting.",
+        "React · TypeScript · Firebase & Firestore · Vitest · Netlify & Cloudflare",
+    ),
+    (
+        "04",
+        "Games & Interactive Experiences",
+        "Directing and shipping zero-install 3D browser games end to end—spanning gameplay loops, multiplayer room codes, AI-assisted 3D character pipelines, and spatial audio.",
+        "3D WebGL · Multiplayer Lobbies · Kasala · Wayo · Naija Undead",
+    ),
+    (
+        "05",
+        "Research & Creative Production",
+        "Six years of finance and economics scriptwriting paired with generative cinema production across Kling AI and Seedance, translating dense topics into coherent narratives.",
+        "Scriptwriting · Technical Writing · Kling AI · Seedance · Shot Continuity",
+    ),
+    (
+        "06",
+        "Web3 Growth & Ecosystem Development",
+        "Account sales, partnerships, high-traffic community stewardship, and blockchain product founding—communicating fluently across English, Russian (B1), and French (A2).",
+        "Partnerships · 50+ Campaigns · 75K+ Reach · Irysnameservice · Trust & Safety",
     ),
 ]
 
 EXPERIENCE = [
     (
         "2026",
-        "AI Model Trainer (GPU Infrastructure)",
-        "Runpod",
-        "Model Training",
-        "Trained custom character-consistency LoRA models (azarun_god_v1) on Runpod GPUs to lock visual identity across multi-shot image and video generations; ran systematic checkpoint evaluations, prompt benchmarks, and dataset refinements.",
+        "AI Model Trainer",
+        "Runpod (GPU Infrastructure)",
+        "Trained custom AI character-consistency LoRA models (azarun_god_v1) on Runpod GPUs; ran iterative training experiments, evaluated checkpoint outputs, and refined datasets and prompts to maintain visual continuity across shots.",
     ),
     (
         "2026 — Present",
         "AI & Content Specialist",
         "Kling AI",
-        "Generative AI",
-        "Directed and produced Azarun, a cinematic AI trailer showcasing African mythology—owning prompt architecture, multi-shot visual continuity, and iterative QA across Kling AI, Seedance, Gemini, and GPT.",
+        "Created an AI-generated cinematic trailer introducing Azarun, an African mythological hero—leading prompt architecture, shot planning, and visual iteration across Kling AI, Seedance, Gemini, and GPT.",
+    ),
+    (
+        "2026 — Present",
+        "AI Product & Game Builder",
+        "Independent",
+        "Directed and deployed web products and mobile-first 3D browser games including Kasala (Cloudflare Workers), Wayo (Netlify), Naija Undead, Project Mucci (Firebase + Vitest), and MedFlash.",
     ),
     (
         "2025 — 2026",
-        "Ambassador, Account Sales & Growth",
+        "Account Sales, Marketing & Advisory",
         "Cointracts · Beraskool · Webacy",
-        "Account Mgmt",
-        "Managed client relationships, outbound account sales, and partner onboarding at Cointracts; drove product marketing and growth at Beraskool; served as Project & Content Advisor at Webacy (2024–2025).",
-    ),
-    (
-        "2024 — Present",
-        "Partnerships Lead & Community Founder",
-        "HERMES ALPHA ZONE & Gem Jungle",
-        "50+ Campaigns",
-        "Closed and delivered 50+ paid crypto client campaigns (NFTs, DeFi, trading platforms) across X, Telegram, and Discord while scaling owned communities to 75K+ combined reach.",
+        "Ambassador & Account Sales at Cointracts (2025–2026); Product Marketer & Growth at Beraskool (2025–2026); Project & Content Advisor at Webacy (2024–2025).",
     ),
     (
         "2024 — Present",
         "Founder",
         "Irysnameservice",
-        "#1 Irys dApp",
-        "Founded an on-chain domain-minting service on the Irys blockchain and led ecosystem partnerships and GTM adoption to become the #1 dApp in the Irys ecosystem.",
+        "Founded a blockchain domain-minting and on-chain identity service on Irys with EVM/Solana wallets, mutable-reference transfers, and interactive flashcards—documented in CV as reaching #1 dApp in the Irys ecosystem.",
     ),
     (
-        "2026 — Present",
-        "AI Product & Game Builder",
-        "Independent Studio",
-        "5 Live Builds",
-        "Architected and deployed live full-stack web apps and 3D browser games including MedFlash, Project Mucci (Firebase RBAC + Vitest), Kasala (Cloudflare Workers), Wayo, and Naija Undead.",
+        "2024 — Present",
+        "Partnerships & Community Founder",
+        "HERMES ALPHA ZONE & Gem Jungle",
+        "Operated Web3 communities with 75K+ combined reach and delivered 50+ paid campaigns for NFT, DeFi, and trading-platform clients across X, Telegram, and Discord (as documented in CV).",
     ),
     (
         "2021 — 2026",
         "Content Writer & Community Comms",
         "DTCSI Academy",
-        "Technical Comms",
-        "Authored educational marketing copy, product announcements, and clear technical explainers bridging Web3 newcomers and advanced community stakeholders.",
+        "Authored educational program copy, announcements, and clear technical Web3 explanations for both newcomers and experienced members.",
     ),
     (
         "2021 — 2025",
-        "Web3 Community Manager & Project Manager",
-        "DeGods, Pudgy Penguins, Primates & Anavrin DAO",
-        "Trust & Safety",
-        "Managed and moderated high-traffic global Web3 communities at scale with disciplined content review and trust & safety judgment; previously Project Manager at Anavrin DAO (2022–2023).",
+        "Web3 Community & Project Manager",
+        "DeGods · Pudgy Penguins · Beraskool · Primates · Anavrin DAO",
+        "Managed and moderated high-traffic communities with disciplined guidelines, content review, and trust & safety judgment; previously Project Manager at Anavrin DAO (2022–2023).",
     ),
     (
         "2019 — 2021",
-        "AI Data Annotator & Evaluator",
+        "AI Data Annotator",
         "Appen",
-        "RLHF & Data QA",
-        "Annotated and evaluated text, image, and audio datasets for machine-learning pipelines—performing relevance rating, categorization, and QA under strict, rapidly evolving rubrics.",
+        "Annotated and labeled text, image, and audio datasets for machine-learning pipelines—executing categorization, relevance rating, and content evaluation under evolving quality rubrics.",
     ),
     (
         "2018 — 2024",
         "Research & Script Writer",
-        "Savvy Economist (YouTube)",
-        "6 Yrs Editorial",
-        "Six years researching, structuring, and writing long-form finance and economics scripts—turning dense technical and financial systems into accurate, high-retention narratives.",
+        "Savvy Economist",
+        "Six years researching, structuring, and writing long-form finance and economics scripts for a public educational YouTube channel with consistent voice and editorial rigor.",
     ),
 ]
 
@@ -119,900 +126,597 @@ def e(val) -> str:
     return escape(str(val), quote=True)
 
 
-def header(active: str, prefix: str = "") -> str:
-    links = [
-        (f"{prefix}index.html", "Overview", "home"),
-        (f"{prefix}work.html", "Selected Work", "work"),
-        (f"{prefix}about.html", "Background", "about"),
-        (f"{prefix}contact.html", "Hire Me", "contact"),
+def header(active: str, prefix: str = "", light_top: bool = False) -> str:
+    nav_items = [
+        (f"{prefix}work.html", "Work", "work"),
+        (f"{prefix}about.html", "About", "about"),
+        (f"{prefix}index.html#experience", "Experience", "experience"),
+        (f"{prefix}contact.html", "Contact", "contact"),
     ]
-    nav_html = "".join(
+    links_html = "".join(
         f'<a href="{href}"{" aria-current=\"page\"" if active == key else ""}>{label}</a>'
-        for href, label, key in links
+        for href, label, key in nav_items
     )
+    drawer_links = "".join(
+        f'<a href="{href}">{label}</a>'
+        for href, label, _ in [
+            (f"{prefix}index.html", "Overview", "home"),
+            *nav_items,
+            (f"{prefix}assets/Henry_Okechi_CV.pdf", "Curriculum Vitae (PDF)", "cv"),
+        ]
+    )
+    cls = "site-header is-light-top" if light_top else "site-header"
     return f"""
+<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="{prefix}index.html" aria-label="Dr. Henry Okechi home">
-      <span class="brand-mark">HO</span>
-      <span class="brand-text">
-        <strong>Henry Okechi</strong>
-        <small>MD (MBBS) · Clinical AI · Web3 AM</small>
-      </span>
+<header class="{cls}" data-site-header data-scrolled="false">
+  <div class="container nav-inner">
+    <a class="brand-wordmark" href="{prefix}index.html" aria-label="Henry Okechi home">
+      <span class="brand-monogram" aria-hidden="true">HO</span>
+      <span>HENRY OKECHI</span>
     </a>
-    <nav class="nav-links" id="site-navigation" data-menu aria-label="Primary navigation">
-      {nav_html}
-    </nav>
-    <div class="nav-utilities">
-      <button type="button" class="cmd-trigger" data-cmd-open aria-label="Open quick jump menu">
-        <span>Quick Jump</span>
-        <kbd>⌘K</kbd>
-      </button>
-      <a class="nav-cv" href="{prefix}assets/Henry_Okechi_CV.pdf" download>CV ↓</a>
-      <a class="nav-hire" href="{prefix}contact.html">Work With Me ↗</a>
-      <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>☰</button>
+    <div class="nav-right">
+      <nav class="nav-links" aria-label="Primary navigation">
+        {links_html}
+      </nav>
+      <button type="button" class="theme-btn" data-theme-toggle aria-label="Toggle reading theme" aria-pressed="false">◐</button>
+      <button type="button" class="nav-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
     </div>
   </div>
 </header>
-"""
-
-
-def command_palette() -> str:
-    return """
-<div class="cmd-backdrop" data-cmd-backdrop role="dialog" aria-modal="true" aria-label="Quick jump command palette">
-  <div class="cmd-dialog">
-    <div class="cmd-input-wrap">
-      <span class="mono" style="color:var(--gold);font-size:13px">⌘</span>
-      <input type="text" data-cmd-input placeholder="Jump to Clinical AI proof, Web3 track, Azarun reel, CV, or email..." autocomplete="off">
-    </div>
-    <div class="cmd-list" data-cmd-list></div>
-    <div class="cmd-foot">
-      <span>Type to filter · Click to open</span>
-      <span>ESC to close</span>
-    </div>
+<div class="mobile-drawer" id="mobile-drawer" data-mobile-drawer>
+  <nav aria-label="Mobile navigation">
+    {drawer_links}
+  </nav>
+  <div class="mobile-drawer-foot">
+    <span>enryvanie@gmail.com</span>
+    <span>t.me/enryvanie · @Vanieofweb3</span>
   </div>
 </div>
 """
 
 
-def footer(prefix: str = "") -> str:
-    return f"""
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="{prefix}index.html">
-        <span class="brand-mark">HO</span>
-        <span class="brand-text">
-          <strong>Dr. Henry Okechi</strong>
-          <small>Clinical AI Training · Web3 Account Management · Product Builder</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-        <a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X ↗</a>
-        <a href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="{prefix}assets/Henry_Okechi_CV.pdf" download>Download CV ↓</a>
-      </div>
+def closing_contact_band(prefix: str = "", include_cta_block: bool = True) -> str:
+    cta_html = ""
+    if include_cta_block:
+        cta_html = f"""
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
+      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Dr. Henry Okechi · Remote Worldwide (UTC+1 · Lagos, Nigeria)</span>
-      <span>English (Native) · Russian (B1) · French (A2)</span>
+
+    <div class="oversized-email-wrap reveal">
+      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+    </div>
+
+    <div class="closing-links reveal">
+      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
+      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
+      <a class="btn-link" href="{prefix}assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
+      <a class="btn-link" href="{prefix}contact.html">Write a Brief <span class="arrow">→</span></a>
+    </div>
+"""
+    return f"""
+<footer class="band-obsidian closing-frame" id="contact">
+  <div class="container">
+    {cta_html}
+    <div class="site-footer-bar">
+      <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
+      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
     </div>
   </div>
 </footer>
-{command_palette()}
 <script src="{prefix}site.js" defer></script>
 """
 
 
-def page_shell(active: str, title: str, description: str, body: str, prefix: str = "") -> str:
+def page_shell(active: str, title: str, description: str, body: str, prefix: str = "", light_top: bool = False, include_closing_cta: bool = True) -> str:
+    full_title = title if "Henry Okechi" in title else f"{title} — Henry Okechi"
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#08080a">
+  <meta name="theme-color" content="#10131A">
   <meta name="description" content="{e(description)}">
-  <meta property="og:title" content="{e(title)} — Henry Okechi">
+  <meta property="og:title" content="{e(full_title)}">
   <meta property="og:description" content="{e(description)}">
   <meta property="og:type" content="website">
-  <title>{e(title)} — Henry Okechi</title>
+  <title>{e(full_title)}</title>
   <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="{prefix}style.css">
 </head>
-<body data-root="{prefix}">
-  {header(active, prefix)}
+<body>
+  {header(active, prefix, light_top=light_top)}
   <main id="main">
     {body}
   </main>
-  {footer(prefix)}
+  {closing_contact_band(prefix, include_cta_block=include_closing_cta)}
 </body>
 </html>
 """
 
 
-def project_card(p: dict, prefix: str = "") -> str:
-    media_class = "card-media"
-    if p.get("image_style") == "framed-light":
-        media_class += " framed-light"
-    elif p.get("image_style") == "framed-portrait":
-        media_class += " framed-portrait"
-
-    stage_badge = (
-        f'<span class="badge badge-live"><span class="pulse-dot"></span>{e(p["stage"])}</span>'
-        if p.get("live")
-        else f'<span class="badge badge-stage">{e(p["stage"])}</span>'
-    )
-
-    live_link = ""
-    if p.get("video_reel"):
-        vid_label = "Watch Trailer Reel ▶" if len(p["video_reel"]) > 1 else "Watch Product Demo ▶"
-        live_link = f'<a class="link-live" href="{prefix}projects/{e(p["slug"])}.html#trailer-reel">{vid_label}</a>'
-    elif p.get("live") and p.get("links"):
-        first = p["links"][0]
-        live_link = f'<a class="link-live" href="{e(first["url"])}" target="_blank" rel="noopener noreferrer">{e(first["label"])} ↗</a>'
-    elif p.get("links"):
-        first = p["links"][0]
-        btn_label = "GitHub" if "github.com" in first["url"] else first["label"]
-        live_link = f'<a class="link-live" href="{e(first["url"])}" target="_blank" rel="noopener noreferrer">{e(btn_label)} ↗</a>'
-
-    stack_html = "".join(f"<span>{e(s)}</span>" for s in p["stack"][:4])
+def render_work_item(p: dict, prefix: str = "", allow_dark_plate: bool = True, idx_pos: int = 0) -> str:
     case_href = f"{prefix}projects/{e(p['slug'])}.html"
     img_src = f"{prefix}{e(p['image'])}"
+    frame_cls = "work-media-frame"
+    if p.get("image_style") == "framed-ui":
+        frame_cls += " is-ui"
+    elif p.get("image_style") == "framed-portrait":
+        frame_cls += " is-portrait"
+
+    is_dark = allow_dark_plate and p.get("feature_layout") == "obsidian-full"
+    is_reversed = (not is_dark) and (p.get("feature_layout") == "ivory-right" or (idx_pos % 2 == 1 and p.get("feature_layout") != "ivory-left"))
+    wrapper_cls = "work-feature-dark reveal" if is_dark else ("work-row is-reversed reveal" if is_reversed else "work-row reveal")
+
+    primary_action = ""
+    if p.get("video_reel"):
+        lbl = "Watch Trailer Reel" if len(p["video_reel"]) > 1 else "Watch Product Demo"
+        primary_action = f'<a class="btn-link" href="{case_href}#media-player">{lbl} <span class="arrow">→</span></a>'
+    elif p.get("links"):
+        first = p["links"][0]
+        primary_action = f'<a class="btn-link" href="{e(first["url"])}" target="_blank" rel="noopener noreferrer">{e(first["label"])} <span class="arrow">↗</span></a>'
+
+    stack_text = " · ".join(p["stack"][:4])
 
     return f"""
-<article class="project-card reveal" data-project-category="{e(p['category'])}" data-project-live="{str(bool(p.get('live'))).lower()}">
-  <a href="{case_href}" class="{media_class}" aria-label="View {e(p['name'])} case study">
-    <img src="{img_src}" alt="{e(p['name'])} — {e(p['short'])}" loading="lazy">
-    <div class="media-badges">
-      {stage_badge}
-      <span class="badge badge-cat">{e(p['category_name'])}</span>
+<article class="{wrapper_cls}" data-work-item data-category="{e(p['category'])}" data-live="{str(bool(p.get('live'))).lower()}">
+  <a href="{case_href}" class="work-media" aria-label="View {e(p['name'])} case study">
+    <div class="{frame_cls}">
+      <img src="{img_src}" alt="{e(p['name'])} — {e(p['short'])}" loading="lazy">
+    </div>
+    <div class="work-media-bar">
+      <span>{e(p['media_label'])}</span>
+      <span class="status-txt">{e(p['stage'])}</span>
     </div>
   </a>
-  <div class="card-body">
-    <div class="card-title-row">
-      <h3><a href="{case_href}">{e(p['name'])}</a></h3>
-      <span class="card-year">{e(p['year'])}</span>
+  <div class="work-info">
+    <div class="work-index">
+      <strong>{e(p['index'])}</strong>
+      <span>— {e(p['category_label'])}</span>
     </div>
-    <div class="card-sub">{e(p['short'])}</div>
-    <p class="card-desc">{e(p['tagline'])}</p>
-    <div class="card-stack">{stack_html}</div>
-    <div class="card-actions">
-      <a class="link-case" href="{case_href}">Read Case Study →</a>
-      {live_link}
+    <h3 class="work-title"><a href="{case_href}">{e(p['name'])}</a></h3>
+    <p class="work-tagline">{e(p['tagline'])}</p>
+    <dl class="work-meta-list">
+      <div>
+        <dt>Role</dt>
+        <dd>{e(p['role'])}</dd>
+      </div>
+      <div>
+        <dt>Stack &amp; Craft</dt>
+        <dd>{e(stack_text)}</dd>
+      </div>
+    </dl>
+    <div class="work-links">
+      <a class="btn-primary" href="{case_href}">Read Case Study →</a>
+      {primary_action}
     </div>
   </div>
 </article>
 """
 
 
-def web3_ecosystem_section(prefix: str = "", eyebrow_text: str = "03 / Web3 Growth, Community & Ecosystem Development") -> str:
-    return f"""
-<section class="section" id="web3-growth">
+# =========================================================
+# 1. HOMEPAGE (EXACT OBSIDIAN & IVORY EDITORIAL SEQUENCE)
+# =========================================================
+featured = [p for p in PROJECTS if p.get("featured")]
+archive_rest = [p for p in PROJECTS if not p.get("featured")]
+
+home_body = f"""
+<!-- 01. HERO: OBSIDIAN -->
+<section class="band-obsidian hero">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="hero-top-meta hero-stagger-1">
+      <span class="eyebrow">Independent Creative Technologist / Nigeria</span>
+      <span class="availability-note"><span class="status-dot" aria-hidden="true"></span>Available for Remote Roles &amp; Collaborations · UTC+1</span>
+    </div>
+
+    <div class="hero-main">
       <div>
-        <div class="eyebrow">{e(eyebrow_text)}</div>
-        <h2>Web3 Growth, Community &amp; <em>Ecosystem Development.</em></h2>
-      </div>
-      <p>The strategies, commercial ownership, and operational playbooks behind 50+ paid crypto campaigns, 75K+ reach, Tier-1 community leadership, and the #1 dApp on Irys.</p>
-    </div>
-
-    <div class="web3-shell reveal">
-      <div class="web3-kpis">
-        <div class="web3-kpi">
-          <strong>50+</strong>
-          <span>Paid Crypto Campaigns</span>
-          <small>NFTs, DeFi &amp; trading platforms across X, Telegram &amp; Discord</small>
-        </div>
-        <div class="web3-kpi">
-          <strong>75K+</strong>
-          <span>Combined Community Reach</span>
-          <small>Owned &amp; operated distribution via HERMES ALPHA ZONE &amp; Gem Jungle</small>
-        </div>
-        <div class="web3-kpi">
-          <strong>#1 dApp</strong>
-          <span>Irys Ecosystem Leader</span>
-          <small>Founded &amp; scaled Irysnameservice from launch to top ecosystem rank</small>
-        </div>
-        <div class="web3-kpi">
-          <strong>5+ Yrs</strong>
-          <span>Web3 Account &amp; Community Ops</span>
-          <small>DeGods, Pudgy Penguins, Cointracts, Beraskool, Webacy &amp; Anavrin DAO</small>
-        </div>
-      </div>
-
-      <div class="web3-pillars">
-        <article class="web3-pillar">
-          <div class="web3-pillar-head">
-            <span class="web3-pillar-num">01 · Paid Campaigns &amp; Account Management</span>
-            <span class="web3-pillar-orgs">HERMES ALPHA ZONE · Gem Jungle · Cointracts</span>
-          </div>
-          <h3>Full-Cycle Client Delivery &amp; B2B Account Sales</h3>
-          <p>Owned the end-to-end commercial pipeline—from outbound prospecting and partner onboarding (Cointracts) to scoping deliverables, crafting narratives, and executing multi-channel launches across owned Telegram and X distribution.</p>
-          <ul class="web3-list">
-            <li><strong>Campaign Scoping &amp; Alignment:</strong> Translated client acquisition and liquidity goals into structured cross-channel deliverables across X threads, Telegram briefings, and Discord activations.</li>
-            <li><strong>Narrative Positioning:</strong> Converted complex DeFi, trading-platform, and NFT mechanics into clear, high-trust audience messaging that drives qualified click-throughs rather than empty impressions.</li>
-            <li><strong>Partner Retention:</strong> Coordinated timelines across international founder/BD teams with transparent recaps and repeat campaign execution.</li>
-          </ul>
-          <div class="web3-outcome">Measurable result: 50+ paid campaigns delivered across 75K+ combined reach · <a href="{prefix}projects/hermes-growth.html" style="text-decoration:underline">Read Case Study →</a></div>
-        </article>
-
-        <article class="web3-pillar">
-          <div class="web3-pillar-head">
-            <span class="web3-pillar-num">02 · Community Leadership &amp; Trust / Safety</span>
-            <span class="web3-pillar-orgs">DeGods · Pudgy Penguins · Beraskool · Primates</span>
-          </div>
-          <h3>High-Traffic Moderation &amp; Audience Retention</h3>
-          <p>Operated on the front lines of Web3's highest-velocity global communities (2021–2025)—protecting brand reputation during major mints, market swings, and product rollouts.</p>
-          <ul class="web3-list">
-            <li><strong>Trust &amp; Safety at Scale:</strong> Enforced strict moderation guidelines, intercepted phishing/impersonation threats in real time, and maintained orderly high-volume channels across time zones.</li>
-            <li><strong>Core-Team Communications:</strong> Bridged leadership announcements with everyday holders—defusing FUD with factual clarity and surfacing structured community feedback back to product teams.</li>
-            <li><strong>Sustained Engagement:</strong> Structured welcoming onboarding, consistent community rituals, and high-signal conversation loops that keep members active beyond hype cycles.</li>
-          </ul>
-          <div class="web3-outcome">Measurable result: 4+ years of zero-compromise operations across blue-chip NFT &amp; Web3 communities · <a href="{prefix}projects/web3-community-ops.html" style="text-decoration:underline">Read Case Study →</a></div>
-        </article>
-
-        <article class="web3-pillar">
-          <div class="web3-pillar-head">
-            <span class="web3-pillar-num">03 · Partnerships, Growth &amp; Ecosystem Advisory</span>
-            <span class="web3-pillar-orgs">Beraskool · Webacy · Anavrin DAO · DTCSI</span>
-          </div>
-          <h3>Go-To-Market, Co-Marketing &amp; Technical Comms</h3>
-          <p>Advised and executed across product marketing, Web3 security positioning, DAO operations, and educational communications—connecting builders with users and strategic partners.</p>
-          <ul class="web3-list">
-            <li><strong>Product Marketing &amp; Growth (Beraskool):</strong> Positioned product launches, community incentives, and co-marketing activations to convert passive followers into active participants.</li>
-            <li><strong>Advisory &amp; Program Delivery (Webacy &amp; Anavrin DAO):</strong> Provided content and project advisory for Web3 security (Webacy) and coordinated cross-functional milestones as Project Manager (Anavrin DAO).</li>
-            <li><strong>Technical Education (DTCSI Academy):</strong> Authored clear announcements and educational copy demystifying crypto concepts for both newcomers and seasoned participants.</li>
-          </ul>
-          <div class="web3-outcome">Measurable result: Multi-project advisory &amp; GTM execution spanning security, DeFi, NFTs, and education.</div>
-        </article>
-
-        <article class="web3-pillar">
-          <div class="web3-pillar-head">
-            <span class="web3-pillar-num">04 · Blockchain Product Founding</span>
-            <span class="web3-pillar-orgs">Irysnameservice · Irys Ecosystem</span>
-          </div>
-          <h3>From Zero to #1 Ecosystem dApp</h3>
-          <p>Applied hands-on Web3 distribution directly to my own on-chain product—founding Irysnameservice to let users mint and manage readable on-chain identities within the Irys ecosystem.</p>
-          <ul class="web3-list">
-            <li><strong>Product-Market Positioning:</strong> Identified on-chain identity as a sticky, community-driven primitive for early ecosystem adopters.</li>
-            <li><strong>Ecosystem Distribution Playbook:</strong> Leveraged partner networks, community campaigns, and clear user onboarding to accelerate organic minting volume.</li>
-            <li><strong>Founder Ownership:</strong> Operated at the intersection of product roadmap, ecosystem partnerships, and community momentum.</li>
-          </ul>
-          <div class="web3-outcome">Measurable result: Scaled Irysnameservice to the #1 dApp in the Irys ecosystem · <a href="{prefix}projects/irysnameservice.html" style="text-decoration:underline">Read Case Study →</a></div>
-        </article>
-      </div>
-
-      <div class="web3-footer-bar">
-        <div class="web3-meta-pills">
-          <span class="tag">Target: Account Manager / Partnerships / Ecosystem Lead</span>
-          <span class="tag">Channels: X · Telegram · Discord</span>
-          <span class="tag">Languages: English (Native) · Russian (B1) · French (A2)</span>
-        </div>
-        <a class="btn btn-primary btn-sm" href="{prefix}contact.html" data-prefill-topic="Crypto & Web3 Account Manager">Hire for Web3 Growth / AM ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-"""
-
-
-def hire_engine_section(prefix: str = "", section_id: str = "hire") -> str:
-    return f"""
-<section class="section" id="{section_id}">
-  <div class="container">
-    <div class="hire-band reveal">
-      <div class="hire-grid">
-        <div class="hire-copy">
-          <div class="hire-identity">
-            <div class="avatar-ring">
-              <img src="{prefix}assets/images/henry-headshot.jpg" alt="Dr. Henry Okechi portrait">
-            </div>
-            <div class="status-pill"><span class="pulse-dot"></span>Available Now · Remote Worldwide</div>
-          </div>
-          <h2>Ready for your next <em>high-trust hire.</em></h2>
-          <p>Open to <strong>Remote Clinical &amp; General AI Training / RLHF roles</strong>, <strong>Crypto &amp; Web3 Account Management &amp; Partnerships</strong>, and select 0→1 product collaborations. Replies within 24 hours.</p>
-          <div class="direct-channels">
-            <a class="channel-row" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">
-              <div><small>Telegram (Fastest for Web3 / Crypto)</small><strong>@enryvanie · t.me/enryvanie</strong></div>
-              <span class="mono" style="color:var(--gold)">Message ↗</span>
-            </a>
-            <a class="channel-row" href="mailto:enryvanie@gmail.com">
-              <div><small>Direct Email</small><strong>enryvanie@gmail.com</strong></div>
-              <span class="mono" style="color:var(--gold)">Email ↗</span>
-            </a>
-            <a class="channel-row" href="#" data-copy-email>
-              <div><small>Prefer Gmail / Recruiter InMail?</small><strong>Copy email in one click</strong></div>
-              <span class="mono" style="color:var(--gold)">Copy ⎘</span>
-            </a>
-            <a class="channel-row" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">
-              <div><small>LinkedIn</small><strong>henry-okechi-b20283422</strong></div>
-              <span class="mono" style="color:var(--gold)">Connect ↗</span>
-            </a>
-            <a class="channel-row" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">
-              <div><small>X (Crypto / Web3 &amp; AI)</small><strong>@Vanieofweb3</strong></div>
-              <span class="mono" style="color:var(--gold)">DM / Follow ↗</span>
-            </a>
-          </div>
-        </div>
-
-        <form class="brief-form" data-brief-form>
-          <span class="chip-group-label">1. Role or Engagement Type</span>
-          <div class="chip-group" role="group" aria-label="Inquiry topic">
-            <button type="button" class="chip is-selected" data-topic-chip="Remote AI Training & Clinical RLHF">Clinical AI / RLHF Role</button>
-            <button type="button" class="chip" data-topic-chip="Crypto & Web3 Account Manager">Crypto / Web3 Account Mgr</button>
-            <button type="button" class="chip" data-topic-chip="0→1 Product or MVP Build">0→1 Web App / MVP</button>
-            <button type="button" class="chip" data-topic-chip="Generative AI Video & LoRA">AI Video / LoRA Pipeline</button>
-          </div>
-
-          <span class="chip-group-label">2. Target Start</span>
-          <div class="chip-group" role="group" aria-label="Target timeline">
-            <button type="button" class="chip is-selected" data-timeline-chip="Immediate">Immediate</button>
-            <button type="button" class="chip" data-timeline-chip="This Month">This Month</button>
-            <button type="button" class="chip" data-timeline-chip="Contract / Advisory">Contract / Advisory</button>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="brief-name">Your Name</label>
-              <input id="brief-name" name="name" autocomplete="name" required placeholder="Alex Rivera">
-            </div>
-            <div class="field">
-              <label for="brief-org">Company / Team</label>
-              <input id="brief-org" name="org" autocomplete="organization" placeholder="AI Lab / Web3 Team / Studio">
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="brief-notes">Role Details or Project Brief</label>
-            <textarea id="brief-notes" name="notes" required placeholder="Share the role, team, domain focus, or interview link..."></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Send via Email App ↗</button>
-            <button type="button" class="btn btn-secondary" data-copy-brief>Copy Formatted Brief ⎘</button>
-          </div>
-          <p class="form-status" aria-live="polite" data-form-status></p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-"""
-
-
-# 1. INDEX PAGE
-featured_projects = [p for p in PROJECTS if p.get("featured")]
-index_body = f"""
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="status-pill"><span class="pulse-dot"></span>Available for Remote AI Roles, Web3 Partnerships &amp; Product Builds</div>
-        <h1>Medical rigor.<br>Frontier AI.<br><em>Execution that ships.</em></h1>
-        <p class="hero-lead">
-          I'm <strong>Dr. Henry Okechi (MBBS)</strong> — a licensed physician, AI model trainer &amp; evaluator (Runpod, Appen, Kling AI), and Web3 account &amp; partnerships specialist with <strong>50+ crypto campaigns</strong>, <strong>75K+ reach</strong>, and <strong>English · Russian (B1) · French (A2)</strong> fluency.
+        <h1 class="hero-headline hero-stagger-2">Building at the intersection of <em>intelligence and imagination.</em></h1>
+        <p class="hero-sub hero-stagger-3">
+          I'm Henry Okechi — a licensed medical doctor, AI practitioner, and multidisciplinary product builder creating digital experiences across healthcare, education, gaming, and emerging technology.
         </p>
-
-        <div class="hero-identity">
-          <div class="avatar-ring">
-            <img src="assets/images/henry-headshot.jpg" alt="Dr. Henry Okechi headshot">
-          </div>
-          <div class="hero-id-meta">
-            <strong>Dr. Henry Okechi · MBBS</strong>
-            <span>Remote Worldwide (UTC+1) · Native EN · RU (B1) · FR (A2)</span>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#hire">Interview or Hire Me ↗</a>
-          <a class="btn btn-secondary" href="assets/Henry_Okechi_CV.pdf" download>Download CV (PDF) ↓</a>
-          <button type="button" class="btn btn-ghost" data-copy-email>Copy Email ⎘</button>
+        <div class="hero-actions hero-stagger-4">
+          <a class="btn-primary" href="#work">Explore selected work →</a>
+          <a class="btn-link" href="about.html">About me <span class="arrow">→</span></a>
+          <a class="btn-link" href="assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae <span class="arrow">↓</span></a>
         </div>
       </div>
 
-      <div class="proof-console" data-proof-console aria-label="Interactive showcase of live builds and trailer">
-        <div class="console-chrome">
-          <div class="chrome-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span class="chrome-url" data-console-url>projects/azarun.html · Runpod LoRA + Kling AI</span>
-          <span class="chrome-live" data-console-status><span class="pulse-dot"></span>PLAYABLE REEL</span>
-        </div>
-        <div class="console-stage" data-console-stage>
-          <img src="assets/images/azarun-chains.jpg" alt="Azarun Cinematic AI Trailer" data-console-img>
-          <div class="console-overlay">
-            <div class="console-meta">
-              <strong data-console-title>Azarun · Playable AI Trailer Reel</strong>
-              <span data-console-sub>Custom Runpod LoRA (azarun_god_v1) + 4 Kling AI motion shots</span>
-            </div>
-            <a class="btn btn-primary btn-sm" href="projects/azarun.html#trailer-reel" data-console-cta>Watch Reel ▶</a>
+      <div class="hero-portrait-col hero-stagger-3">
+        <figure class="editorial-portrait" style="margin:0">
+          <div class="editorial-portrait-frame">
+            <img src="assets/images/henry-headshot.jpg" alt="Portrait of Dr. Henry Okechi">
           </div>
-        </div>
-        <div class="console-tabs" role="tablist" aria-label="Select featured showcase">
-          <button type="button" class="console-tab is-active" role="tab" aria-selected="true"
-            data-console-tab
-            data-img="assets/images/azarun-chains.jpg"
-            data-portrait="false"
-            data-url-label="projects/azarun.html · Runpod LoRA + Kling AI"
-            data-live="true"
-            data-title="Azarun · Playable AI Trailer Reel"
-            data-sub="Custom Runpod LoRA (azarun_god_v1) + 4 Kling AI motion shots"
-            data-href="projects/azarun.html#trailer-reel"
-            data-cta="Watch Reel ▶"
-            data-external="false">
-            <small>01 · AI Training</small>
-            <strong>Azarun Reel</strong>
-          </button>
-          <button type="button" class="console-tab" role="tab" aria-selected="false"
-            data-console-tab
-            data-img="assets/images/live-medflash.png"
-            data-portrait="false"
-            data-url-label="mcqrecall.netlify.app"
-            data-live="true"
-            data-title="MedFlash · Clinical Board Review"
-            data-sub="Physician-built PDF-to-MCQ active recall workspace"
-            data-href="https://mcqrecall.netlify.app"
-            data-cta="Launch App ↗"
-            data-external="true">
-            <small>02 · Clinical</small>
-            <strong>MedFlash</strong>
-          </button>
-          <button type="button" class="console-tab" role="tab" aria-selected="false"
-            data-console-tab
-            data-img="assets/images/irys-home.jpg"
-            data-portrait="false"
-            data-url-label="Irysnameservice · #1 Irys dApp Demo"
-            data-live="true"
-            data-title="Irysnameservice · #1 Ecosystem dApp"
-            data-sub="Live .irys domain minting, EVM/Solana & mutable-ref transfers"
-            data-href="projects/irysnameservice.html#trailer-reel"
-            data-cta="Watch Demo ▶"
-            data-external="false">
-            <small>03 · Web3 #1 dApp</small>
-            <strong>Irys Names</strong>
-          </button>
-          <button type="button" class="console-tab" role="tab" aria-selected="false"
-            data-console-tab
-            data-img="assets/images/live-kasala.png"
-            data-portrait="false"
-            data-url-label="kasala.kasala.workers.dev"
-            data-live="true"
-            data-title="Kasala · 3D Battle Royale"
-            data-sub="10-player browser shooter deployed on Cloudflare Workers"
-            data-href="https://kasala.kasala.workers.dev"
-            data-cta="Play Live ↗"
-            data-external="true">
-            <small>04 · 0→1 Build</small>
-            <strong>Kasala 3D</strong>
-          </button>
-        </div>
+          <figcaption>
+            <span>Dr. Henry Okechi</span>
+            <span>MBBS · Builder</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
-    <div class="proof-strip reveal">
-      <div class="proof-cell">
-        <strong>MBBS</strong>
-        <span>Licensed Medical Doctor</span>
+    <div class="hero-bottom hero-stagger-4">
+      <div class="hero-stat">
+        <small>Clinical Foundation</small>
+        <span>MBBS · Licensed Medical Doctor</span>
       </div>
-      <div class="proof-cell">
-        <strong>Runpod + Appen</strong>
-        <span>Custom LoRA training &amp; multi-modal RLHF</span>
+      <div class="hero-stat">
+        <small>AI Systems</small>
+        <span>Runpod GPU LoRA · Appen RLHF &amp; QA</span>
       </div>
-      <div class="proof-cell">
-        <strong>50+ Campaigns</strong>
-        <span>Web3 account sales, KOLs &amp; 75K+ reach</span>
+      <div class="hero-stat">
+        <small>Shipped Work</small>
+        <span>Live Web Apps, 3D Games &amp; Playable Reels</span>
       </div>
-      <div class="proof-cell">
-        <strong>EN · RU · FR</strong>
-        <span>Native English · Russian (B1) · French (A2)</span>
-      </div>
-      <div class="proof-cell">
-        <strong>6 Live Proofs</strong>
-        <span>5 live web apps/games + playable AI reel</span>
+      <div class="hero-stat">
+        <small>Global Reach</small>
+        <span>English (Native) · Russian (B1) · French (A2)</span>
       </div>
     </div>
   </div>
 </section>
 
-<div class="ecosystem-bar">
-  <div class="container ecosystem-inner">
-    <span class="ecosystem-label">Experience &amp; Ecosystems</span>
-    <div class="ecosystem-logos">
-      <span>Runpod</span>
-      <span>Kling AI</span>
-      <span>Appen</span>
-      <span>Cointracts</span>
-      <span>Beraskool</span>
-      <span>Webacy</span>
-      <span>Irys</span>
-      <span>Pudgy Penguins</span>
-      <span>DeGods</span>
-      <span>Savvy Economist</span>
-      <span>DTCSI Academy</span>
-    </div>
-  </div>
-</div>
-
-<section class="section" id="capabilities">
+<!-- 02. INTRODUCTION: WARM IVORY -->
+<section class="band-ivory section" id="intro">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="intro-grid reveal">
       <div>
-        <div class="eyebrow">01 / Capabilities</div>
-        <h2>Choose the track you are <em>hiring for.</em></h2>
+        <div class="eyebrow"><span class="eyebrow-num">01</span> The Intelligent Polymath</div>
+        <h2 class="intro-statement">Curiosity is the thread <em>connecting everything.</em></h2>
       </div>
-    </div>
-
-    <div class="lens-shell reveal">
-      <div class="lens-tabs" role="tablist" aria-label="Hiring tracks">
-        <button type="button" class="lens-tab is-active" role="tab" aria-selected="true" data-lens-tab="ai-clinical">
-          <span class="lens-num">Track 01 · AI Labs &amp; Healthtech</span>
-          <strong>Clinical AI Training &amp; RLHF Evaluation</strong>
-          <span>MBBS physician · Runpod GPU · Appen QA</span>
-        </button>
-        <button type="button" class="lens-tab" role="tab" aria-selected="false" data-lens-tab="web3-account">
-          <span class="lens-num">Track 02 · Crypto &amp; Web3 Ecosystems</span>
-          <strong>Crypto &amp; Web3 Account Management</strong>
-          <span>Account sales · 50+ campaigns · EN / RU (B1)</span>
-        </button>
-        <button type="button" class="lens-tab" role="tab" aria-selected="false" data-lens-tab="product-cinema">
-          <span class="lens-num">Track 03 · Products &amp; Media</span>
-          <strong>0→1 AI Products &amp; Generative Cinema</strong>
-          <span>5 live apps &amp; games · Playable Azarun reel</span>
-        </button>
-      </div>
-
-      <div class="lens-panel is-active" data-lens-panel="ai-clinical" role="tabpanel">
-        <div class="lens-pitch">
-          <h3>A licensed physician who already trains, evaluates &amp; ships <em>AI systems.</em></h3>
-          <p>Built for AI labs and healthtech teams tackling Clinical/Medical LLM evaluation, general RLHF, reasoning rubrics, and multimodal QA. I pair clinical medical training with proven GPU model training and six years of precision research writing.</p>
-          <ul class="lens-bullets">
-            <li><strong>Clinical Domain Depth (MBBS):</strong> Licensed medical doctor qualified to evaluate clinical accuracy, diagnostic reasoning, medical safety, and guideline compliance.</li>
-            <li><strong>Hands-On AI Training &amp; QA:</strong> Trained custom character-consistency LoRAs (azarun_god_v1) on Runpod GPUs plus multi-modal text, image, and audio evaluation at Appen.</li>
-            <li><strong>Gold-Standard Writing &amp; Rubrics:</strong> Native English speaker with 6 years of high-retention research &amp; scriptwriting (Savvy Economist)—delivering clear rationales and airtight edge-case critiques.</li>
-          </ul>
-          <a class="btn btn-primary" href="#hire" data-prefill-topic="Remote AI Training & Clinical RLHF">Discuss an AI Training / Clinical Role ↗</a>
-        </div>
-        <div class="lens-proof-box">
-          <h4>Direct Proof for AI Talent Teams</h4>
-          <div class="proof-mini-list">
-            <a class="proof-mini-item" href="projects/azarun.html#trailer-reel">
-              <div><strong>Runpod Custom LoRA (azarun_god_v1)</strong><span>Inspect cross-shot model consistency &amp; playable reel</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/mcq-recall.html">
-              <div><strong>MedFlash (Live Clinical Web App)</strong><span>Physician-built board review &amp; active-recall engine</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/medforge.html">
-              <div><strong>MedForge AI &amp; VitalPulse</strong><span>Clinical study &amp; emergency medical product UX</span></div>
-              <span class="arrow">→</span>
-            </a>
+      <div class="intro-prose">
+        <p>Most careers ask you to choose one lane: clinical rigor, technical engineering, creative storytelling, or commercial distribution. My work lives where those disciplines reinforce each other.</p>
+        <p>Medical training sharpens diagnostic judgment and respect for accuracy when stakes are real. Years of AI data evaluation, custom GPU model training on Runpod, six years of economics scriptwriting, and hands-on product building turn that judgment into software, interactive worlds, and clear communication.</p>
+        <dl class="intro-facts">
+          <div class="intro-fact">
+            <dt>Disciplines</dt>
+            <dd>Medicine · AI · Product · Web3</dd>
           </div>
-          <div class="tag-row">
-            <span class="tag">MBBS · Licensed MD</span>
-            <span class="tag">RLHF &amp; LLM Eval</span>
-            <span class="tag">Runpod GPU LoRA</span>
-            <span class="tag">Appen Data QA</span>
-            <span class="tag">Medical Fact-Checking</span>
+          <div class="intro-fact">
+            <dt>Working Style</dt>
+            <dd>Research-led, bias to live artifacts</dd>
           </div>
-        </div>
-      </div>
-
-      <div class="lens-panel" data-lens-panel="web3-account" role="tabpanel">
-        <div class="lens-pitch">
-          <h3>Crypto-native account ownership, client delivery &amp; <em>multilingual communication.</em></h3>
-          <p>Built for exchanges, Web3 agencies, SaaS protocols, and crypto projects hiring Account Managers or Partnerships Leads. I combine B2B account sales, 50+ delivered client campaigns, and Tier-1 community stewardship with English + Russian (B1) fluency.</p>
-          <ul class="lens-bullets">
-            <li><strong>Account Sales &amp; Advisory Track Record:</strong> Ambassador &amp; Account Sales at Cointracts (2025–2026), Product Marketer &amp; Growth at Beraskool, Project &amp; Content Advisor at Webacy, and PM at Anavrin DAO.</li>
-            <li><strong>50+ Paid Crypto Campaigns Delivered:</strong> Scoped, managed, and fulfilled partner campaigns across NFTs, DeFi, and trading platforms—backed by 75K+ owned community reach (HERMES ALPHA ZONE &amp; Gem Jungle).</li>
-            <li><strong>Ecosystem Authority &amp; Languages:</strong> Founded the #1 dApp on Irys, moderated DeGods &amp; Pudgy Penguins, and communicates across English (Native), Russian (B1), and French (A2).</li>
-          </ul>
-          <a class="btn btn-primary" href="#hire" data-prefill-topic="Crypto & Web3 Account Manager">Discuss a Crypto / Web3 AM Role ↗</a>
-        </div>
-        <div class="lens-proof-box">
-          <h4>Web3 Commercial &amp; Growth Proof</h4>
-          <div class="proof-mini-list">
-            <a class="proof-mini-item" href="projects/hermes-growth.html">
-              <div><strong>HERMES ALPHA ZONE &amp; Gem Jungle</strong><span>50+ paid crypto campaigns &amp; 75K+ community reach</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/web3-community-ops.html">
-              <div><strong>DeGods · Pudgy Penguins · Cointracts · Webacy</strong><span>Tier-1 community ops, account sales &amp; advisory</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/irysnameservice.html">
-              <div><strong>Irysnameservice (Founder · #1 dApp)</strong><span>Built &amp; grew top-ranked dApp in the Irys ecosystem</span></div>
-              <span class="arrow">→</span>
-            </a>
+          <div class="intro-fact">
+            <dt>Languages</dt>
+            <dd>English · Russian (B1) · French (A2)</dd>
           </div>
-          <div class="tag-row">
-            <span class="tag">Account Management</span>
-            <span class="tag">B2B Account Sales</span>
-            <span class="tag">50+ Crypto Campaigns</span>
-            <span class="tag">Russian (B1) · English</span>
-            <span class="tag">DeFi · NFTs · Trading</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="lens-panel" data-lens-panel="product-cinema" role="tabpanel">
-        <div class="lens-pitch">
-          <h3>Technical fluency proven by <em>live deployed software</em> &amp; AI cinema.</h3>
-          <p>Unlike candidates who only talk strategy, I build and deploy real software—React/TypeScript apps with Firebase security tests, Anthropic Claude serverless endpoints, 3D browser games, and playable Kling AI trailers.</p>
-          <ul class="lens-bullets">
-            <li><strong>Full-Stack Apps:</strong> Project Mucci (Firebase Auth, Firestore rules, Vitest RBAC suite), MedFlash, and Hodos (Anthropic API + Netlify Functions + Airtable).</li>
-            <li><strong>3 Live Browser 3D Games:</strong> Kasala (Cloudflare Workers), Wayo (open-source multiplayer prop hunt), and Naija Undead (Ojuelegba 3D WebGL survival).</li>
-            <li><strong>Playable AI Cinema:</strong> Watch 4 real Kling AI &amp; Runpod LoRA shots directly inside the Azarun showcase.</li>
-          </ul>
-          <a class="btn btn-primary" href="#hire" data-prefill-topic="0→1 Product or MVP Build">Scope a Build or Technical Collab ↗</a>
-        </div>
-        <div class="lens-proof-box">
-          <h4>Live Deployed Products</h4>
-          <div class="proof-mini-list">
-            <a class="proof-mini-item" href="projects/project-mucci.html">
-              <div><strong>Project Mucci (Live Platform)</strong><span>React, TypeScript, Firebase RBAC &amp; Vitest</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/kasala.html">
-              <div><strong>Kasala &amp; Wayo (Live 3D Games)</strong><span>Cloudflare Workers &amp; Netlify multiplayer builds</span></div>
-              <span class="arrow">→</span>
-            </a>
-            <a class="proof-mini-item" href="projects/hodos.html">
-              <div><strong>Hodos (Anthropic Claude API)</strong><span>Serverless AI assessment &amp; Airtable integration</span></div>
-              <span class="arrow">→</span>
-            </a>
-          </div>
-          <div class="tag-row">
-            <span class="tag">React &amp; TypeScript</span>
-            <span class="tag">Firebase &amp; Vitest</span>
-            <span class="tag">Anthropic API</span>
-            <span class="tag">Cloudflare Workers</span>
-            <span class="tag">Kling AI &amp; Seedance</span>
-          </div>
-        </div>
+        </dl>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="selected-work">
+<!-- 03. SELECTED WORK: WARM IVORY + OCCASIONAL OBSIDIAN FEATURE PLATES -->
+<section class="band-soft section" id="work">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-header reveal">
       <div>
-        <div class="eyebrow">02 / Verified Proof of Work</div>
-        <h2>Real artifacts you can <em>watch, click &amp; test.</em></h2>
+        <div class="eyebrow"><span class="eyebrow-num">02</span> Selected Work</div>
+        <h2 class="section-title">Products, games &amp; <em>intelligent systems.</em></h2>
       </div>
-      <p>Clinical software, playable Runpod LoRA &amp; Kling AI trailer shots, #1 Web3 dApp growth, and live full-stack deployments.</p>
+      <p class="section-intro">Every live product uses actual deployment captures or native demo video; conceptual prototypes are labeled transparently alongside their repositories.</p>
     </div>
 
-    <div class="project-grid">
-      {''.join(project_card(p) for p in featured_projects)}
+    <div class="editorial-works">
+      {''.join(render_work_item(p, allow_dark_plate=True, idx_pos=i) for i, p in enumerate(featured))}
     </div>
 
-    <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between" class="reveal">
-      <p style="margin:0;color:var(--muted);font-size:14.5px">Plus <strong style="color:var(--text)">HERMES ALPHA ZONE</strong>, <strong style="color:var(--text)">Tier-1 Web3 Ops</strong>, <strong style="color:var(--text)">Naija Undead</strong>, <strong style="color:var(--text)">MedForge AI</strong>, <strong style="color:var(--text)">Hodos</strong>, and <strong style="color:var(--text)">VitalPulse</strong> in the full catalog.</p>
-      <a class="btn btn-secondary" href="work.html">Explore All 12 Case Studies →</a>
+    <div class="archive-index reveal">
+      <div class="archive-head">
+        <span class="eyebrow">Further Work &amp; Prototypes</span>
+        <a class="btn-link" href="work.html">View all 12 projects with filters <span class="arrow">→</span></a>
+      </div>
+      <div>
+        {''.join(f'''
+        <a class="archive-row" href="projects/{e(p['slug'])}.html">
+          <span class="archive-num">{e(p['index'])}</span>
+          <span class="archive-name">{e(p['name'])}</span>
+          <span class="archive-desc">{e(p['short'])}</span>
+          <span class="archive-stage">{e(p['stage'])} →</span>
+        </a>
+        ''' for p in archive_rest)}
+      </div>
     </div>
   </div>
 </section>
 
-{web3_ecosystem_section()}
-
-<section class="section section-tight">
+<!-- 04. CAPABILITIES: OBSIDIAN -->
+<section class="band-obsidian section" id="capabilities">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="section-header reveal">
       <div>
-        <div class="eyebrow">04 / Endorsements</div>
-        <h2>What teams &amp; partners <em>rely on.</em></h2>
+        <div class="eyebrow"><span class="eyebrow-num">03</span> Capabilities</div>
+        <h2 class="section-title">Six disciplines, one <em>cohesive practice.</em></h2>
       </div>
-      <p>Consistent feedback across AI evaluation pipelines, Web3 partner accounts, and long-form editorial production.</p>
+      <p class="section-intro">Grounded domain depth paired with modern software execution—built for teams that need both clear judgment and shipped output.</p>
     </div>
 
-    <div class="testimonials-grid">
+    <div class="cap-grid">
       {''.join(f'''
-      <article class="testimonial-card reveal">
-        <div>
-          <div class="quote-top">
-            <span class="quote-mark" aria-hidden="true">“</span>
-            <span class="quote-track">{e(track)}</span>
-          </div>
-          <blockquote style="margin-top:16px">{e(quote)}</blockquote>
+      <article class="cap-item reveal">
+        <span class="cap-num">{e(num)}</span>
+        <h3>{e(title)}</h3>
+        <p>{e(desc)}</p>
+        <div class="cap-detail">{e(detail)}</div>
+      </article>
+      ''' for num, title, desc, detail in CAPABILITIES)}
+    </div>
+  </div>
+</section>
+
+<!-- 05. WEB3 GROWTH & ECOSYSTEM DEVELOPMENT: WARM IVORY -->
+<section class="band-ivory section" id="web3">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-num">04</span> Commercial &amp; Community Operations</div>
+        <h2 class="section-title">Web3 Growth &amp; <em>Ecosystem Development.</em></h2>
+      </div>
+      <p class="section-intro">Five years operating across account sales, partner campaigns, high-traffic community moderation, and on-chain product founding—communicating across English, Russian (B1), and French (A2).</p>
+    </div>
+
+    <div class="web3-metrics reveal">
+      <div class="web3-metric">
+        <strong>50+</strong>
+        <span>Paid Campaigns</span>
+        <small>NFTs, DeFi &amp; trading platforms across X, Telegram &amp; Discord (CV)</small>
+      </div>
+      <div class="web3-metric">
+        <strong>75K+</strong>
+        <span>Combined Reach</span>
+        <small>Owned communities: HERMES ALPHA ZONE &amp; Gem Jungle (CV)</small>
+      </div>
+      <div class="web3-metric">
+        <strong>#1 dApp</strong>
+        <span>Irysnameservice</span>
+        <small>Founded on-chain naming product in the Irys ecosystem (CV)</small>
+      </div>
+      <div class="web3-metric">
+        <strong>5 Yrs</strong>
+        <span>Ecosystem Ops</span>
+        <small>DeGods, Pudgy Penguins, Cointracts, Beraskool &amp; Webacy</small>
+      </div>
+    </div>
+
+    <div class="web3-columns">
+      <div class="web3-block reveal">
+        <div class="web3-block-meta">
+          <span>01 · Partnerships &amp; Account Delivery</span>
+          <span>HERMES ALPHA ZONE · Gem Jungle · Cointracts</span>
         </div>
-        <div class="quote-author">
-          <strong>{e(role)}</strong>
+        <h3>Campaign Scoping &amp; Commercial Execution</h3>
+        <p>Paired owned Telegram and X distribution with direct B2B account sales (Cointracts) and growth marketing (Beraskool)—aligning partner goals with clear narrative positioning.</p>
+        <ul class="editorial-list">
+          <li><strong>Account Management:</strong> Scoped deliverables, timelines, and messaging across international crypto teams.</li>
+          <li><strong>Narrative Clarity:</strong> Translated DeFi, trading, and NFT product updates into structured briefings rather than empty hype.</li>
+          <li><strong>Cross-Channel Rollout:</strong> Coordinated launches across X, Telegram, and Discord.</li>
+        </ul>
+        <a class="btn-link" href="projects/hermes-growth.html">Read campaign &amp; partnerships study <span class="arrow">→</span></a>
+      </div>
+
+      <div class="web3-block reveal">
+        <div class="web3-block-meta">
+          <span>02 · Community Stewardship &amp; Product</span>
+          <span>DeGods · Pudgy Penguins · Irys · Webacy</span>
+        </div>
+        <h3>Trust, Safety &amp; Blockchain Founding</h3>
+        <p>Stewarded high-traffic communities during peak visibility cycles while founding Irysnameservice and advising projects on content and security positioning.</p>
+        <ul class="editorial-list">
+          <li><strong>Trust &amp; Safety:</strong> Enforced moderation guidelines and clear holder communications for DeGods, Pudgy Penguins, Beraskool, and Primates.</li>
+          <li><strong>Advisory &amp; Comms:</strong> Project &amp; Content Advisor at Webacy, Project Manager at Anavrin DAO, and technical writer at DTCSI Academy.</li>
+          <li><strong>On-Chain Product:</strong> Founded Irysnameservice with EVM/Solana wallets, mutable-reference transfers, and interactive flashcards.</li>
+        </ul>
+        <a class="btn-link" href="projects/irysnameservice.html">Inspect Irysnameservice demo <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06. EXPERIENCE: SOFT WHITE / WARM IVORY TIMELINE -->
+<section class="band-soft section" id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-num">05</span> Experience</div>
+        <h2 class="section-title">A decade across research, <em>AI &amp; communities.</em></h2>
+      </div>
+      <div>
+        <p class="section-intro">Concise, scannable record across model training, evaluation, product engineering, scriptwriting, and Web3 leadership.</p>
+        <div style="margin-top:16px">
+          <a class="btn-link" href="about.html">Full biography &amp; credentials <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      {''.join(f'''
+      <div class="timeline-row reveal">
+        <span class="timeline-date">{e(dates)}</span>
+        <div class="timeline-role">
+          <h3>{e(role)}</h3>
           <span>{e(org)}</span>
         </div>
-      </article>
-      ''' for track, quote, role, org in TESTIMONIALS)}
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow">05 / Track Record</div>
-        <h2>Recent roles &amp; <em>credentials.</em></h2>
+        <p class="timeline-desc">{e(desc)}</p>
       </div>
-      <a class="btn btn-ghost btn-sm" href="about.html">Full Experience &amp; Education →</a>
-    </div>
-
-    <div class="exp-list reveal">
-      {''.join(f'''
-      <div class="exp-row">
-        <span class="exp-date">{e(date)}</span>
-        <div class="exp-main">
-          <h3>{e(role)} · <span style="color:var(--gold-bright)">{e(org)}</span></h3>
-          <p>{e(desc)}</p>
+      ''' for dates, role, org, desc in EXPERIENCE)}
+      <div class="timeline-row reveal">
+        <span class="timeline-date">MBBS</span>
+        <div class="timeline-role">
+          <h3>Bachelor of Medicine, Bachelor of Surgery</h3>
+          <span>Ebonyi State University College of Health Sciences</span>
         </div>
-        <span class="exp-tag">{e(tag)}</span>
+        <p class="timeline-desc">Licensed Medical Doctor. Additional technical certifications: IBM Watson AI, Google IT Support Specialization, and IT Security.</p>
       </div>
-      ''' for date, role, org, tag, desc in EXPERIENCE[:5])}
     </div>
   </div>
 </section>
-
-{hire_engine_section()}
 """
 
 (ROOT / "index.html").write_text(
     page_shell(
         "home",
-        "Dr. Henry Okechi — Clinical AI Trainer, Web3 Account Manager & Builder",
-        "Portfolio of Dr. Henry Okechi (MBBS): medical doctor, AI model trainer & RLHF evaluator (Runpod, Appen, Kling AI), Crypto & Web3 Account Manager (50+ campaigns, EN/RU/FR), and product builder.",
-        index_body,
+        "Henry Okechi — Medicine, AI, Product & Web3",
+        "Portfolio of Dr. Henry Okechi (MBBS): licensed medical doctor, AI practitioner, multidisciplinary product builder, and Web3 growth & partnerships specialist.",
+        home_body,
+        light_top=False,
     ),
     encoding="utf-8",
 )
 
 
-# 2. WORK PAGE
-filter_buttons = "".join(
-    f'<button type="button" class="filter-pill{" is-active" if i == 0 else ""}" data-filter="{e(code)}" aria-pressed="{str(i == 0).lower()}">{e(label)}</button>'
-    for i, (code, label) in enumerate(GROUPS)
+# =========================================================
+# 2. WORK PAGE (ALL 12 PROJECTS WITH ACCESSIBLE FILTERS)
+# =========================================================
+filter_btns_html = "".join(
+    f'<button type="button" class="filter-btn{" is-active" if i == 0 else ""}" data-filter="{e(code)}" aria-pressed="{str(i == 0).lower()}">{e(label)}</button>'
+    for i, (code, label) in enumerate(FILTER_GROUPS)
 )
 work_body = f"""
-<section class="page-hero">
+<section class="band-obsidian page-header">
   <div class="container">
-    <div class="eyebrow">Complete Portfolio · 12 Case Studies</div>
-    <h1>Clinical builds, Web3 growth &amp; <em>shipped products.</em></h1>
-    <p>Filter by discipline to inspect live web deployments, custom Runpod LoRA training &amp; Kling AI video shots, Web3 campaign &amp; community operations, and clinical prototypes.</p>
+    <div class="eyebrow">Selected Work — 12 Projects</div>
+    <h1>Products, games, AI cinema &amp; <em>prototypes.</em></h1>
+    <p>Every entry distinguishes deployed web products and playable demos from interface prototypes and codebase studies.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:16px">
+<section class="band-ivory section-compact">
   <div class="container">
     <div class="filter-bar">
-      <div class="filter-pills" role="group" aria-label="Filter projects by discipline">
-        {filter_buttons}
+      <div class="filter-group" role="group" aria-label="Filter projects by category">
+        {filter_btns_html}
       </div>
-      <span class="result-count" aria-live="polite" data-result-count>{len(PROJECTS)} projects shown</span>
+      <span class="mono-meta" aria-live="polite" data-result-count>{len(PROJECTS)} projects</span>
     </div>
 
-    <div class="project-grid">
-      {''.join(project_card(p) for p in PROJECTS)}
+    <div class="editorial-works">
+      {''.join(render_work_item(p, allow_dark_plate=True, idx_pos=i) for i, p in enumerate(PROJECTS))}
     </div>
   </div>
 </section>
-
-{web3_ecosystem_section(eyebrow_text="Deep Dive · Web3 Growth & Account Leadership")}
-
-{hire_engine_section()}
 """
 
 (ROOT / "work.html").write_text(
     page_shell(
         "work",
-        "Selected Work & Live Builds",
-        "Explore 10 shipped web apps, playable Azarun AI trailer & Runpod LoRA shots, clinical AI prototypes, 3D browser games, and Web3 growth case studies by Dr. Henry Okechi.",
+        "Selected Work",
+        "Explore 12 projects spanning AI model training, healthcare tools, full-stack platforms, 3D browser games, generative cinema, and Web3 ecosystems.",
         work_body,
+        light_top=False,
     ),
     encoding="utf-8",
 )
 
 
-# 3. ABOUT PAGE
+# =========================================================
+# 3. ABOUT PAGE (MULTIDISCIPLINARY EDITORIAL BIO)
+# =========================================================
 about_body = f"""
-<section class="page-hero">
+<section class="band-obsidian page-header">
   <div class="container">
-    <div class="eyebrow">Background &amp; Credentials</div>
-    <h1>Clinical discipline meets <em>AI rigor &amp; commercial execution.</em></h1>
-    <p>Licensed MBBS physician with hands-on GPU model training &amp; RLHF evaluation, 50+ delivered Web3 client campaigns, six years of economics scriptwriting, and trilingual reach (EN · RU · FR).</p>
+    <div class="eyebrow">About Henry Okechi</div>
+    <h1>Curiosity is the thread <em>connecting everything.</em></h1>
+    <p>Medicine, artificial intelligence, product engineering, interactive entertainment, research, and Web3—approached as one disciplined craft.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:16px">
-  <div class="container about-split">
-    <aside class="profile-card">
-      <div class="profile-photo-wrap">
-        <img class="profile-photo" src="assets/images/henry-headshot.jpg" alt="Dr. Henry Okechi portrait">
+<section class="band-ivory section">
+  <div class="container about-grid">
+    <aside class="about-sidebar">
+      <div class="about-portrait">
+        <img src="assets/images/henry-headshot.jpg" alt="Portrait of Dr. Henry Okechi">
       </div>
-      <h2>Dr. Henry Okechi</h2>
-      <div class="role-sub">MBBS · AI Trainer &amp; Evaluator · Web3 Account Mgr</div>
-      <ul class="profile-facts">
-        <li><span>Location</span><strong>Nigeria (Remote · UTC+1)</strong></li>
-        <li><span>Medical Degree</span><strong>MBBS</strong></li>
-        <li><span>Licensure</span><strong>Licensed MD</strong></li>
-        <li><span>Languages</span><strong>EN · RU (B1) · FR (A2)</strong></li>
-        <li><span>Target Roles</span><strong>Clinical AI · Web3 AM</strong></li>
-        <li><span>Availability</span><strong style="color:var(--emerald)">Immediate</strong></li>
-      </ul>
-      <div style="display:grid;gap:10px">
-        <a class="btn btn-primary" href="assets/Henry_Okechi_CV.pdf" download>Download Full CV (PDF) ↓</a>
-        <a class="btn btn-secondary" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) ↗</a>
-        <a class="btn btn-ghost" href="contact.html">Interview or Contact →</a>
-        <button type="button" class="btn btn-ghost" data-copy-email>Copy enryvanie@gmail.com ⎘</button>
+      <dl class="about-facts">
+        <div><dt>Name</dt><dd>Dr. Henry Okechi</dd></div>
+        <div><dt>Credential</dt><dd>MBBS · Licensed MD</dd></div>
+        <div><dt>Location</dt><dd>Nigeria (Remote · UTC+1)</dd></div>
+        <div><dt>Languages</dt><dd>EN · RU (B1) · FR (A2)</dd></div>
+        <div><dt>Direct</dt><dd><a href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a></dd></div>
+        <div><dt>Telegram</dt><dd><a href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">@enryvanie ↗</a></dd></div>
+      </dl>
+      <div style="display:grid;gap:12px">
+        <a class="btn-primary" href="assets/Henry_Okechi_CV.pdf" download>Download Full CV (PDF) ↓</a>
+        <a class="btn-link" href="contact.html">Start a Conversation <span class="arrow">→</span></a>
       </div>
     </aside>
 
-    <div>
-      <div class="eyebrow">The Through-Line</div>
-      <h2 style="font-size:clamp(28px,3.2vw,40px);margin:14px 0 18px">High-judgment execution across <em>medicine, AI &amp; Web3 accounts.</em></h2>
-      <p style="color:var(--text-soft);font-size:16.5px;margin:0 0 16px">
-        I graduated with a Bachelor of Medicine, Bachelor of Surgery (MBBS) from Ebonyi State University College of Health Sciences and am a licensed medical doctor. Alongside clinical training, I built deep operational experience in AI data evaluation (Appen), custom GPU model training (Runpod), generative cinema (Kling AI), and six years of finance &amp; economics scriptwriting for Savvy Economist.
-      </p>
-      <p style="color:var(--text-soft);font-size:16.5px;margin:0 0 16px">
-        In parallel, I spent five years inside crypto and Web3—serving in Account Sales &amp; Ambassador roles at Cointracts, Product Marketing &amp; Growth at Beraskool, Advisory at Webacy, managing communities for DeGods and Pudgy Penguins, delivering 50+ paid crypto client campaigns, and founding Irysnameservice (the #1 dApp in the Irys ecosystem).
-      </p>
-      <p style="color:var(--text-soft);font-size:16.5px;margin:0">
-        Today, I bring these disciplines together across <strong>Clinical &amp; General AI Training / RLHF</strong>, <strong>Crypto &amp; Web3 Account Management &amp; Partnerships</strong>, and hands-on <strong>0→1 AI product building</strong>—where domain accuracy, commercial execution, and clear communication across English, Russian (B1), and French (A2) matter most.
-      </p>
+    <div class="intro-prose">
+      <div class="eyebrow">Perspective</div>
+      <h2 class="section-title" style="margin-bottom:28px">Medicine. Technology. <em>Human imagination.</em></h2>
+      <p>I graduated with a Bachelor of Medicine, Bachelor of Surgery (MBBS) from Ebonyi State University College of Health Sciences and am a licensed medical doctor. Long before completing clinical training, I worked across AI data evaluation at Appen, six years of economics and finance scriptwriting for Savvy Economist, and high-traffic Web3 communities including DeGods and Pudgy Penguins.</p>
+      <p>Those parallel tracks shaped how I build today. Clinical training instilled precision, verification discipline, and calm judgment under ambiguity. Software prototyping, Runpod GPU model training, and generative cinema on Kling AI turned analytical rigor into tangible work people can play, inspect, and rely on.</p>
+      <p>Whether evaluating clinical AI models, managing international Web3 partner accounts, or shipping a web product from scratch, the standard stays the same: clarity over noise, and real artifacts over slides.</p>
 
-      <div class="eyebrow" style="margin-top:56px">Core Capabilities</div>
-      <div class="tag-row" style="margin-top:16px">
-        {''.join(f'<span class="tag">{e(s)}</span>' for s in [
-            'Clinical Medicine & Medical Writing',
-            'RLHF & LLM Output Evaluation',
-            'Runpod Custom GPU LoRA Training',
-            'Multi-Modal Data QA (Text, Image, Audio)',
-            'Crypto & Web3 Account Management',
-            'B2B Account Sales & Client Delivery',
-            '50+ Paid Web3 Campaigns (75K+ Reach)',
-            'English (Native) · Russian (B1) · French (A2)',
-            'Kling AI & Seedance Production',
-            'React, TypeScript & Firebase',
-            'Anthropic API & Serverless Functions',
-            'Economics & Finance Scriptwriting',
-        ])}
-      </div>
-
-      <div class="eyebrow" style="margin-top:56px">Full Experience Timeline</div>
-      <div class="exp-list" style="margin-top:20px">
-        {''.join(f'''
-        <div class="exp-row">
-          <span class="exp-date">{e(date)}</span>
-          <div class="exp-main">
-            <h3>{e(role)} · <span style="color:var(--gold-bright)">{e(org)}</span></h3>
-            <p>{e(desc)}</p>
+      <div class="eyebrow" style="margin-top:64px">Education &amp; Certifications</div>
+      <div class="timeline" style="margin-top:20px">
+        <div class="timeline-row">
+          <span class="timeline-date">MBBS</span>
+          <div class="timeline-role">
+            <h3>Bachelor of Medicine, Bachelor of Surgery</h3>
+            <span>Ebonyi State University College of Health Sciences</span>
           </div>
-          <span class="exp-tag">{e(tag)}</span>
+          <p class="timeline-desc">Licensed Medical Doctor.</p>
         </div>
-        ''' for date, role, org, tag, desc in EXPERIENCE)}
-      </div>
-
-      <div class="eyebrow" style="margin-top:56px">Education &amp; Certifications</div>
-      <div class="exp-list" style="margin-top:20px">
-        <div class="exp-row">
-          <span class="exp-date">MBBS</span>
-          <div class="exp-main">
-            <h3>Bachelor of Medicine, Bachelor of Surgery (MBBS)</h3>
-            <p>Ebonyi State University College of Health Sciences · Licensed Medical Doctor.</p>
+        <div class="timeline-row">
+          <span class="timeline-date">2020</span>
+          <div class="timeline-role">
+            <h3>AI, IT Support &amp; Security</h3>
+            <span>IBM &amp; Google</span>
           </div>
-          <span class="exp-tag">Clinical Degree</span>
-        </div>
-        <div class="exp-row">
-          <span class="exp-date">2020</span>
-          <div class="exp-main">
-            <h3>AI, IT Support &amp; Security Certifications</h3>
-            <p>Getting Started with AI using IBM Watson · Google IT Support Specialization · IT Security: Defense against the digital dark arts.</p>
-          </div>
-          <span class="exp-tag">Technical</span>
+          <p class="timeline-desc">Getting Started with AI using IBM Watson · Google IT Support Specialization · IT Security: Defense against the digital dark arts.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="band-obsidian section-compact">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">Capabilities</div>
+        <h2 class="section-title">Where I create <em>leverage.</em></h2>
+      </div>
+    </div>
+    <div class="cap-grid">
+      {''.join(f'''
+      <article class="cap-item">
+        <span class="cap-num">{e(num)}</span>
+        <h3>{e(title)}</h3>
+        <p>{e(desc)}</p>
+        <div class="cap-detail">{e(detail)}</div>
+      </article>
+      ''' for num, title, desc, detail in CAPABILITIES)}
+    </div>
+  </div>
+</section>
+
+<section class="band-soft section-compact">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">Timeline</div>
+        <h2 class="section-title">Experience <em>archive.</em></h2>
+      </div>
+    </div>
+    <div class="timeline">
+      {''.join(f'''
+      <div class="timeline-row">
+        <span class="timeline-date">{e(dates)}</span>
+        <div class="timeline-role">
+          <h3>{e(role)}</h3>
+          <span>{e(org)}</span>
+        </div>
+        <p class="timeline-desc">{e(desc)}</p>
+      </div>
+      ''' for dates, role, org, desc in EXPERIENCE)}
     </div>
   </div>
 </section>
@@ -1021,77 +725,119 @@ about_body = f"""
 (ROOT / "about.html").write_text(
     page_shell(
         "about",
-        "Background, Clinical Credentials & Experience",
-        "Learn about Dr. Henry Okechi (MBBS): clinical credentials, Runpod GPU LoRA training, Appen RLHF evaluation, Crypto & Web3 Account Management, and English/Russian/French fluency.",
+        "About",
+        "Biography, clinical credentials, AI training, product building, and Web3 experience of Dr. Henry Okechi (MBBS).",
         about_body,
+        light_top=False,
     ),
     encoding="utf-8",
 )
 
 
+# =========================================================
 # 4. CONTACT PAGE
+# =========================================================
 contact_body = f"""
-<section class="page-hero" style="padding-bottom:10px">
+<section class="band-obsidian page-header">
   <div class="container">
-    <div class="eyebrow">Direct Inquiry · Fast Response</div>
-    <h1>Let's talk about your <em>role or team.</em></h1>
-    <p>Select your focus area below to compose a structured brief—send straight via email or copy everything in one click for Gmail, LinkedIn, or Telegram.</p>
+    <div class="eyebrow">Contact</div>
+    <h1>Have something ambitious <em>in mind?</em></h1>
+    <p>I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, Web3 partnerships, and creative technology.</p>
   </div>
 </section>
-{hire_engine_section(section_id="contact-brief")}
+
+<section class="band-ivory section">
+  <div class="container contact-layout">
+    <div>
+      <div class="eyebrow">Direct Channels</div>
+      <h2 class="section-title" style="font-size:clamp(34px,4vw,52px)">Reach me <em>directly.</em></h2>
+      <p style="margin:18px 0 0;color:var(--ink-soft)">Email or Telegram are the fastest routes. You can also prepare a structured message with the form and either open it in your mail client or copy it to your clipboard.</p>
+
+      <div class="channel-list">
+        <a class="channel-item" href="mailto:enryvanie@gmail.com">
+          <div><small>Email</small><strong>enryvanie@gmail.com</strong></div>
+          <span class="mono-meta">Email ↗</span>
+        </a>
+        <a class="channel-item" href="#" data-copy-email>
+          <div><small>Clipboard</small><strong>Copy email address</strong></div>
+          <span class="mono-meta">Copy</span>
+        </a>
+        <a class="channel-item" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">
+          <div><small>Telegram</small><strong>@enryvanie · t.me/enryvanie</strong></div>
+          <span class="mono-meta">Message ↗</span>
+        </a>
+        <a class="channel-item" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">
+          <div><small>LinkedIn</small><strong>henry-okechi-b20283422</strong></div>
+          <span class="mono-meta">Connect ↗</span>
+        </a>
+        <a class="channel-item" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">
+          <div><small>X (Twitter)</small><strong>@Vanieofweb3</strong></div>
+          <span class="mono-meta">Profile ↗</span>
+        </a>
+        <a class="channel-item" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">
+          <div><small>GitHub</small><strong>hermes-nietzesch</strong></div>
+          <span class="mono-meta">Code ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <form class="editorial-form" data-contact-form>
+      <div class="eyebrow" style="margin-bottom:24px">Compose Inquiry</div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="c-name">Your Name</label>
+          <input id="c-name" name="name" autocomplete="name" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="c-org">Organization</label>
+          <input id="c-org" name="org" autocomplete="organization" placeholder="Company or studio (optional)">
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-subject">Subject</label>
+        <input id="c-subject" name="subject" required placeholder="AI role, Web3 partnership, or product build">
+      </div>
+      <div class="field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" required placeholder="Share a brief overview of what you're working on..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Open Email Draft ↗</button>
+        <button type="button" class="btn-link" data-copy-brief>Copy Formatted Brief <span class="arrow">→</span></button>
+      </div>
+      <p class="form-status" aria-live="polite" data-form-status></p>
+    </form>
+  </div>
+</section>
 """
 
 (ROOT / "contact.html").write_text(
     page_shell(
         "contact",
-        "Hire Dr. Henry Okechi — Contact & Brief",
-        "Contact Dr. Henry Okechi for Remote Clinical AI Training / RLHF roles, Crypto & Web3 Account Management, or 0→1 product collaborations.",
+        "Contact",
+        "Contact Dr. Henry Okechi for collaborations and remote roles across AI, healthcare, product engineering, and Web3.",
         contact_body,
+        light_top=False,
+        include_closing_cta=False,
     ),
     encoding="utf-8",
 )
 
 
-# 5. CASE STUDY DETAIL PAGES (with interactive Video Reel + LoRA Gallery support!)
+# =========================================================
+# 5. CASE STUDIES (SECTION 7 EDITORIAL STRUCTURE)
+# =========================================================
 (ROOT / "projects").mkdir(exist_ok=True)
 for idx, p in enumerate(PROJECTS):
-    next_p = PROJECTS[(idx + 1) % len(PROJECTS)]
     prev_p = PROJECTS[(idx - 1) % len(PROJECTS)]
+    next_p = PROJECTS[(idx + 1) % len(PROJECTS)]
 
-    media_cls = "case-hero-media"
-    if p.get("image_style") == "framed-light":
-        media_cls += " framed-light"
-    elif p.get("image_style") == "framed-portrait":
-        media_cls += " framed-portrait"
-
-    aside_btns = "".join(
-        f'<a class="btn {"btn-primary" if lnk.get("primary") else "btn-secondary"}" href="{e(lnk["url"])}" target="_blank" rel="noopener noreferrer">{e(lnk["label"])} ↗</a>'
-        for lnk in p.get("links", [])
-    )
-    if p.get("video_reel"):
-        cta_vid = "Watch Trailer Reel ▶" if len(p["video_reel"]) > 1 else "Watch Product Demo ▶"
-        extra_links = "".join(
-            f'<a class="btn btn-secondary" href="{e(lnk["url"])}" target="_blank" rel="noopener noreferrer">{e(lnk["label"])} ↗</a>'
-            for lnk in p.get("links", [])
-        )
-        aside_btns = f'<a class="btn btn-primary" href="#trailer-reel">{cta_vid}</a>{extra_links}<a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>'
-    elif not aside_btns:
-        aside_btns = '<a class="btn btn-primary" href="../contact.html">Discuss This Work ↗</a>'
-    else:
-        aside_btns += '<a class="btn btn-ghost" href="../contact.html">Work With Henry →</a>'
-
-    stage_pill = (
-        f'<span class="status-pill"><span class="pulse-dot"></span>{e(p["stage"])}</span>'
-        if p.get("live")
-        else f'<span class="eyebrow">{e(p["category_name"])} · {e(p["stage"])}</span>'
-    )
-
-    # Top media block: interactive playable video reel if present, else static hero media
+    # Hero media block: interactive video player if available, else crisp framed visual
     if p.get("video_reel"):
         first_vid = p["video_reel"][0]
-        reel_tabs_block = ""
+        tabs_block = ""
         if len(p["video_reel"]) > 1:
-            reel_tabs_html = "".join(
+            tabs_html = "".join(
                 f'''<button type="button" class="reel-tab{" is-active" if i == 0 else ""}" role="tab" aria-selected="{str(i == 0).lower()}"
                   data-reel-tab
                   data-src="../{e(v['src'])}"
@@ -1099,13 +845,13 @@ for idx, p in enumerate(PROJECTS):
                   data-title="{e(v['title'])}"
                   data-meta="{e(v['meta'])}">
                   <small>Clip 0{i+1}</small>
-                  <strong>{e(v['title'].split('·', 1)[-1].strip())}</strong>
+                  <strong>{e(v['title'].split('—', 1)[-1].strip())}</strong>
                 </button>'''
                 for i, v in enumerate(p["video_reel"])
             )
-            reel_tabs_block = f'<div class="reel-tabs" role="tablist" aria-label="Select video clip">{reel_tabs_html}</div>'
-        hero_media_html = f"""
-    <div class="video-reel" id="trailer-reel" data-video-reel>
+            tabs_block = f'<div class="reel-tabs" role="tablist" aria-label="Select clip">{tabs_html}</div>'
+        media_block = f"""
+    <div class="video-reel" id="media-player" data-video-reel>
       <div class="reel-bar">
         <strong data-reel-title>{e(first_vid['title'])}</strong>
         <span data-reel-meta>{e(first_vid['meta'])}</span>
@@ -1113,135 +859,166 @@ for idx, p in enumerate(PROJECTS):
       <div class="reel-stage">
         <video data-reel-video controls playsinline preload="metadata" poster="../{e(first_vid['poster'])}" src="../{e(first_vid['src'])}"></video>
       </div>
-      {reel_tabs_block}
+      {tabs_block}
     </div>
 """
     else:
-        hero_media_html = f"""
-    <div class="{media_cls}">
-      <img src="../{e(p['image'])}" alt="{e(p['name'])} showcase">
-      <div class="case-caption">{e(p['image_caption'])}</div>
+        cls = "case-hero-media"
+        if p.get("image_style") == "framed-ui":
+            cls += " is-ui"
+        elif p.get("image_style") == "framed-portrait":
+            cls += " is-portrait"
+        media_block = f"""
+    <div class="{cls}" id="media-player">
+      <img src="../{e(p['image'])}" alt="{e(p['name'])} — {e(p['short'])}">
+      <div class="case-caption">{e(p['media_label'])} — {e(p['image_caption'])}</div>
     </div>
 """
 
     gallery_html = ""
     if p.get("gallery"):
-        gallery_cards = "".join(
-            f'''<figure class="lora-card" style="margin:0">
+        g_cls = "case-gallery is-ui-contain" if p.get("gallery_style") == "ui-contain" else "case-gallery"
+        g_cards = "".join(
+            f'''<figure>
               <img src="../{e(g['src'])}" alt="{e(g['caption'])}" loading="lazy">
               <figcaption>{e(g['caption'])}</figcaption>
             </figure>'''
             for g in p["gallery"]
         )
-        g_title = p.get("gallery_title", "Project Gallery")
-        g_sub = p.get("gallery_subtitle", "")
-        g_cls = "lora-gallery is-ui-contain" if p.get("gallery_style") == "ui-contain" else "lora-gallery"
         gallery_html = f"""
-        <h2>{e(g_title)}</h2>
-        <p>{e(g_sub)}</p>
-        <div class="{g_cls}">{gallery_cards}</div>
+        <h2>{e(p.get('gallery_title', 'Visual Documentation'))}</h2>
+        <p>{e(p.get('gallery_subtitle', ''))}</p>
+        <div class="{g_cls}">{g_cards}</div>
 """
 
-    detail_body = f"""
-<section class="page-hero">
+    aside_btns = "".join(
+        f'<a class="{"btn-primary" if lnk.get("primary") else "btn-link"}" href="{e(lnk["url"])}" target="_blank" rel="noopener noreferrer">{e(lnk["label"])} ↗</a>'
+        for lnk in p.get("links", [])
+    )
+    if p.get("video_reel"):
+        vid_lbl = "Watch Trailer Reel" if len(p["video_reel"]) > 1 else "Watch Product Demo"
+        aside_btns = f'<a class="btn-primary" href="#media-player">{vid_lbl}</a>' + aside_btns
+    if not aside_btns:
+        aside_btns = '<a class="btn-primary" href="../contact.html">Inquire About This Project →</a>'
+    else:
+        aside_btns += '<a class="btn-link" href="../contact.html">Discuss a Similar Build <span class="arrow">→</span></a>'
+
+    case_body = f"""
+<section class="band-obsidian page-header" style="padding-bottom:44px">
   <div class="container">
-    <a class="back-link" href="../work.html">← Back to all 12 projects</a>
-    <div>{stage_pill}</div>
+    <a class="btn-link" href="../work.html" style="margin-bottom:28px;color:var(--champagne)">← Back to Selected Work</a>
+    <div class="eyebrow" style="display:flex">{e(p['index'])} — {e(p['category_label'])}</div>
     <h1>{e(p['name'])}<em>.</em></h1>
     <p>{e(p['tagline'])}</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:10px">
+<section class="band-obsidian" style="padding-bottom:clamp(52px,6vw,84px)">
   <div class="container">
-    {hero_media_html}
+    {media_block}
+  </div>
+</section>
 
-    <div class="case-grid">
-      <div class="case-content">
-        <h2>The Challenge</h2>
-        <p>{e(p['problem'])}</p>
-
-        <h2>What I Built &amp; Directed</h2>
+<section class="band-ivory section">
+  <div class="container">
+    <div class="case-layout">
+      <div class="case-prose">
+        <h2>Overview</h2>
         <p>{e(p['overview'])}</p>
 
-        <h2>Key Proof &amp; Outcomes</h2>
-        <ul class="case-list">
-          {''.join(f'<li>{e(item)}</li>' for item in p['impact'])}
+        <h2>The Problem</h2>
+        <p>{e(p['problem'])}</p>
+
+        <h2>Product Concept</h2>
+        <p>{e(p['concept'])}</p>
+
+        <h2>Approach &amp; Implementation</h2>
+        <p>{e(p['approach'])}</p>
+
+        <h2>Key Features</h2>
+        <ul class="editorial-list">
+          {''.join(f'<li>{e(f)}</li>' for f in p['features'])}
         </ul>
 
-        <h2>Core Features &amp; Architecture</h2>
-        <ul class="case-list">
-          {''.join(f'<li>{e(feat)}</li>' for feat in p['features'])}
-        </ul>
+        <h2>Challenges &amp; Decisions</h2>
+        <p>{e(p['decisions'])}</p>
+
+        <h2>Outcome &amp; Current Status</h2>
+        <p>{e(p['outcome'])}</p>
 
         {gallery_html}
       </div>
 
-      <aside class="case-aside" aria-label="Project specifications">
+      <aside class="case-aside" aria-label="Project metadata">
         <dl>
-          <dt>Discipline</dt>
-          <dd>{e(p['category_name'])}</dd>
           <dt>Status</dt>
           <dd>{e(p['stage'])}</dd>
+          <dt>Category</dt>
+          <dd>{e(p['category_label'])}</dd>
           <dt>My Role</dt>
           <dd>{e(p['role'])}</dd>
           <dt>Year</dt>
           <dd>{e(p['year'])}</dd>
-          <dt>Stack &amp; Tooling</dt>
-          <dd><div class="tag-row" style="margin-top:6px">{''.join(f'<span class="tag">{e(s)}</span>' for s in p['stack'])}</div></dd>
+          <dt>Technology Stack</dt>
+          <dd>{e(' · '.join(p['stack']))}</dd>
         </dl>
-        <div class="aside-actions">
+        <div class="case-aside-actions">
           {aside_btns}
         </div>
       </aside>
     </div>
 
-    <div style="margin-top:72px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
-      <a class="btn btn-ghost" href="{e(prev_p['slug'])}.html">← {e(prev_p['name'])}</a>
-      <a class="btn btn-secondary" href="{e(next_p['slug'])}.html">Next: {e(next_p['name'])} →</a>
+    <div class="case-nav">
+      <a class="btn-link" href="{e(prev_p['slug'])}.html">← {e(prev_p['index'])} {e(prev_p['name'])}</a>
+      <a class="btn-link" href="{e(next_p['slug'])}.html">{e(next_p['index'])} {e(next_p['name'])} →</a>
     </div>
   </div>
 </section>
 """
 
     (ROOT / "projects" / f"{p['slug']}.html").write_text(
-        page_shell("work", f"{p['name']} — Case Study", p["tagline"], detail_body, prefix="../"),
+        page_shell(
+            "work",
+            f"{p['name']} — Case Study",
+            p["tagline"],
+            case_body,
+            prefix="../",
+            light_top=False,
+        ),
         encoding="utf-8",
     )
 
 
-# 6. FAVICON & README
+# =========================================================
+# 6. REFINED OBSIDIAN & CHAMPAGNE FAVICON + README
+# =========================================================
 (ROOT / "assets" / "favicon.svg").write_text(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
-    '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
-    '<stop offset="0%" stop-color="#f4c462"/><stop offset="100%" stop-color="#c4841c"/>'
-    '</linearGradient></defs>'
-    '<rect width="64" height="64" rx="16" fill="url(#g)"/>'
-    '<text x="32" y="42" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="26" fill="#09090b" letter-spacing="-1.5">HO</text>'
+    '<rect width="64" height="64" rx="4" fill="#10131A"/>'
+    '<rect x="5" y="5" width="54" height="54" rx="2" fill="none" stroke="#C5A879" stroke-width="2"/>'
+    '<text x="32" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#F4F1EA" letter-spacing="1">HO</text>'
     '</svg>',
     encoding="utf-8",
 )
 
 (ROOT / "README.md").write_text(
-    """# Dr. Henry Okechi — Portfolio (v3.1)
+    """# Henry Okechi — Portfolio (Obsidian & Ivory Editorial Redesign)
 
-A conversion-engineered, editorial static portfolio showcasing clinical AI training & RLHF evaluation, Web3 growth & account management, full-stack products, and generative cinema.
+An editorial, minimalist personal portfolio built around the **Obsidian & Ivory** design system (`Instrument Serif` + `Manrope` + `IBM Plex Mono`).
 
 ## Preview Locally
 ```bash
-python -m http.server 8000
+python -m http.server 4173
 ```
-Then open `http://localhost:8000`.
+Then visit `http://localhost:4173`.
 
-## Deploy
-Zero build step required for hosting—drag and drop the folder or connect the repository directly to **Netlify**, **Cloudflare Pages**, **Vercel**, or **GitHub Pages**. All embedded Azarun `.mp4` clips are under 8.1 MB each (well within Cloudflare Pages' 25 MB single-file limit).
-
-## Updating Content
-- Edit `projects.json` for project copy, links, video clips, or gallery frames.
-- Edit `TESTIMONIALS` or `EXPERIENCE` in `build.py` to swap in named client/manager references.
-- Run `python build.py` to regenerate all static HTML pages.
+## Regenerating Static Pages
+`projects.json` is the single source of truth for all 12 project entries and case studies. After editing `projects.json` or `build.py`, run:
+```bash
+python build.py
+```
 """,
     encoding="utf-8",
 )
 
-print(f"Built v3.1 portfolio successfully: index, work, about, contact + {len(PROJECTS)} case studies.")
+print(f"Built Obsidian & Ivory editorial redesign: index, work, about, contact + {len(PROJECTS)} case studies.")

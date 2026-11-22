@@ -1,169 +1,136 @@
 [
   {
-    "slug": "mcq-recall",
-    "name": "MedFlash",
-    "short": "Clinical Board Review, Sharpened",
-    "category": "health",
-    "category_name": "Clinical & MedTech",
-    "tracks": ["ai", "product"],
-    "stage": "Live · Web App",
-    "live": true,
-    "featured": true,
-    "year": "2026",
-    "image": "assets/images/live-medflash.png",
-    "image_style": "cover-dark",
-    "image_caption": "Live dark-mode medical board review workspace at mcqrecall.netlify.app.",
-    "tagline": "A physician-built medical board review engine that converts raw MCQ PDFs into structured active-recall study sessions.",
-    "problem": "Medical students and house officers lose hours manually re-formatting past-question PDFs instead of drilling clinical reasoning under timed exam pressure.",
-    "overview": "Built from firsthand MBBS clinical board preparation, MedFlash transforms multi-file MCQ PDFs into focused active-recall study sessions—paired with an integrated Pomodoro focus timer and longitudinal revision history.",
-    "impact": [
-      "Automates medical question ingestion via multi-PDF drag-and-drop parsing (Correct Answer X format).",
-      "Combines clinical active recall, timed Pomodoro blocks, and session history inside a low-fatigue dark interface.",
-      "Live and immediately testable with zero signup friction on Netlify."
-    ],
-    "features": [
-      "Multi-file drag-and-drop PDF uploader with automatic MCQ & answer-key extraction",
-      "Each uploaded PDF becomes an organized, resumable active-recall study session",
-      "Integrated Pomodoro timer engineered for high-volume medical exam revision",
-      "Persistent study history, progress tracking, and customizable review settings"
-    ],
-    "stack": ["Clinical EdTech", "PDF Parsing", "JavaScript", "Active Recall UX", "Netlify"],
-    "role": "Physician Founder, Clinical UX Designer & Builder",
-    "links": [
-      { "label": "Launch MedFlash Live", "url": "https://mcqrecall.netlify.app", "primary": true }
-    ]
-  },
-  {
     "slug": "azarun",
+    "index": "01",
     "name": "Azarun",
-    "short": "Playable AI Trailer & Custom Runpod LoRA",
+    "short": "African Mythology in Generative Cinema",
     "category": "creative",
-    "category_name": "AI Training & Cinema",
-    "tracks": ["ai", "creative"],
-    "stage": "Playable Reel · LoRA",
+    "category_label": "GENERATIVE CINEMA / AI MODEL TRAINING",
+    "stage": "Playable AI Trailer Reel & Custom LoRA",
     "live": true,
     "featured": true,
+    "feature_layout": "obsidian-full",
     "year": "2026",
-    "image": "assets/images/azarun-cover.jpg",
+    "image": "assets/images/azarun-chains.jpg",
     "image_style": "cover-dark",
-    "image_caption": "Official Azarun key frame — powered by custom Runpod character-consistency LoRA (azarun_god_v1) and Kling AI.",
-    "tagline": "Cinematic AI trailer introducing an African mythological hero—backed by custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.",
-    "problem": "Generative video pipelines break down across edits when characters morph between cuts. Achieving studio-grade continuity requires disciplined dataset curation, custom GPU LoRA training, and strict visual evaluation.",
-    "overview": "Azarun is the debut installment in a generative cinema series showcasing African mythological heroes. I trained custom character-consistency LoRA checkpoints (azarun_god_v1) on Runpod GPUs, audited outputs across checkpoints, and directed shot-by-shot motion across Kling AI, Seedance, Gemini, and GPT.",
-    "impact": [
-      "Trained and evaluated custom azarun_god_v1 LoRA checkpoints on Runpod GPU infrastructure to lock facial identity, armor engravings, and proportions across shots.",
-      "Directed end-to-end shot planning, camera choreography, and audio-synced sequences across Kling AI and Seedance.",
-      "Watch 4 real rendered trailer shots and inspect the cross-shot LoRA consistency renders directly below."
-    ],
+    "media_label": "ACTUAL PRODUCTION FRAME · KLING AI + RUNPOD LORA",
+    "image_caption": "Production environment keyframe from the Azarun trailer pipeline (Kling AI, Seedance & custom Runpod LoRA azarun_god_v1).",
+    "tagline": "A cinematic AI trailer introducing an African mythological hero—engineered with custom Runpod GPU LoRA training (azarun_god_v1) for cross-shot character consistency.",
+    "overview": "Azarun is the debut installment in a generative visual storytelling series showcasing African mythological heroes. Developed across Kling AI, Seedance, Gemini, and ChatGPT—and anchored by custom character-consistency models trained on Runpod GPU infrastructure—the project demonstrates disciplined visual continuity across multi-shot AI cinema.",
+    "problem": "Generative video pipelines frequently break immersion across edits as character anatomy, facial features, and wardrobe drift from shot to shot. Sustaining cinematic credibility requires controlled dataset curation, custom model training, and iterative shot evaluation.",
+    "concept": "Treat AI video production with traditional film-direction discipline: lock hero identity through custom GPU LoRA weights first, establish cohesive basalt-and-ember worldbuilding keyframes, and then direct controlled motion sequences shot by shot.",
+    "role": "AI & Content Specialist, Model Trainer (Runpod), Prompt Direction & Creative Production",
+    "approach": "Curated consistent character reference sets, trained multi-checkpoint LoRA weights (azarun_god_v1) on Runpod GPU infrastructure, evaluated outputs across checkpoints to eliminate drift, and orchestrated motion generation across Kling AI and Seedance.",
     "features": [
-      "Custom Runpod GPU LoRA training (azarun_god_v1, multi-checkpoint evaluation & dataset iteration)",
-      "Shot-by-shot cinematic prompt architecture across Kling AI, Seedance, Gemini, and GPT",
-      "Cross-shot visual identity lock (face, glowing amber eyes, ram-horn pauldrons, battle-axe & obsidian armor)",
-      "Audio-synced motion clips, volcanic environment worldbuilding, and trailer end-screen production"
+      "Custom character-consistency LoRA training (azarun_god_v1) and checkpoint evaluation on Runpod GPUs",
+      "Shot-by-shot prompt architecture and camera choreography across Kling AI, Seedance, Gemini, and GPT",
+      "Locked hero identity (facial geometry, braids, glowing eyes, pauldrons, obsidian armor, and battle-axe) across independent scenes",
+      "Four web-playable rendered trailer sequences spanning slow reveals, audio-synced motion, volcanic environments, and end-screen finishing"
     ],
-    "stack": ["Runpod GPU / LoRA", "Kling AI", "Seedance", "Dataset Evaluation", "Prompt Engineering"],
-    "role": "AI Model Trainer, Evaluator & Generative Creative Director",
+    "stack": ["Runpod GPU / LoRA", "Kling AI", "Seedance", "Gemini & ChatGPT", "Prompt Engineering"],
+    "decisions": "Rather than relying on zero-shot prompting alone, investing upfront in custom Runpod LoRA training reduced re-roll waste and preserved recognizable protagonist continuity across dramatic lighting shifts.",
+    "outcome": "Produced a multi-shot trailer reel and verified character-consistency checkpoint suite; four native MP4 clips and side-by-side LoRA renders are embedded directly on this page.",
     "links": [],
     "video_reel": [
       {
-        "title": "Shot 01 · Kling AI Cinematic Slow Reveal",
-        "meta": "Kling AI · Motion Direction",
+        "title": "Shot 01 — Kling AI Cinematic Slow Reveal",
+        "meta": "KLING AI · MOTION DIRECTION",
         "src": "assets/video/azarun-shot-1.mp4",
         "poster": "assets/images/azarun-cover.jpg"
       },
       {
-        "title": "Shot 02 · Audio-Synced Hero Sequence",
-        "meta": "Generative Video + Sound Design",
+        "title": "Shot 02 — Audio-Synced Hero Sequence",
+        "meta": "GENERATIVE VIDEO · SOUND DESIGN",
         "src": "assets/video/azarun-shot-2.mp4",
         "poster": "assets/images/azarun-hero-axe.jpg"
       },
       {
-        "title": "Shot 03 · Volcanic Chains Atmosphere",
-        "meta": "Environment Continuity & Lighting",
+        "title": "Shot 03 — Volcanic Chains Atmosphere",
+        "meta": "ENVIRONMENT CONTINUITY · LIGHTING",
         "src": "assets/video/azarun-shot-3.mp4",
         "poster": "assets/images/azarun-chains.jpg"
       },
       {
-        "title": "Shot 04 · Horizontal Trailer End Screen",
-        "meta": "Title Treatment & Finishing",
+        "title": "Shot 04 — Horizontal Trailer End Screen",
+        "meta": "TITLE TREATMENT · FINISHING",
         "src": "assets/video/azarun-endscreen.mp4",
         "poster": "assets/images/azarun-cover.jpg"
       }
     ],
-    "gallery_title": "Runpod Custom LoRA (azarun_god_v1) Consistency & Keyframes",
-    "gallery_subtitle": "Side-by-side renders demonstrating locked character anatomy, facial identity, armor engravings, and volcanic lighting across independent prompts and camera angles.",
+    "gallery_title": "Custom Runpod LoRA (azarun_god_v1) — Consistency & Keyframes",
+    "gallery_subtitle": "Actual generated stills verifying locked character anatomy, facial structure, armor engravings, and volcanic lighting across separate prompts and compositions.",
+    "gallery_style": "editorial-cover",
     "gallery": [
       {
         "src": "assets/images/azarun-hero-axe.jpg",
-        "caption": "Character Lock A — Lightning & Obsidian Battle-Axe (azarun_god_v1 consistency test)"
+        "caption": "Character Lock A — Lightning & Obsidian Battle-Axe (azarun_god_v1)"
       },
       {
         "src": "assets/images/azarun-corridor.jpg",
-        "caption": "Character Lock B — Same facial structure, braids, pauldrons & armor in volcanic hall"
+        "caption": "Character Lock B — Identical facial structure, braids & armor in volcanic hall"
       },
       {
         "src": "assets/images/azarun-chains.jpg",
-        "caption": "Environment Keyframe — Shattered Chains & Molten Abyss (widescreen shot setup)"
+        "caption": "Environment Plate — Shattered Chains & Molten Abyss"
       },
       {
         "src": "assets/images/azarun-pit.jpg",
-        "caption": "Worldbuilding Keyframe — Basalt Caldera Descent"
+        "caption": "Worldbuilding Plate — Basalt Caldera Descent"
       }
     ]
   },
   {
     "slug": "irysnameservice",
+    "index": "02",
     "name": "Irysnameservice",
-    "short": "#1 dApp in the Irys Ecosystem · Demo",
+    "short": "Permanent On-Chain Identity for Irys",
     "category": "web3",
-    "category_name": "Web3 & Account Growth",
-    "tracks": ["web3", "product"],
-    "stage": "#1 Irys dApp · Demo",
+    "category_label": "WEB3 / BLOCKCHAIN PRODUCT",
+    "stage": "Founded Product · Playable Demo",
     "live": true,
     "featured": true,
+    "feature_layout": "ivory-left",
     "year": "2024–Present",
     "image": "assets/images/irys-home.jpg",
-    "image_style": "framed-light",
-    "image_caption": "Live Irys Names dApp interface featuring EVM & Solana wallet support, Test SOL faucet, and .irys domain search.",
-    "tagline": "Founded an on-chain .irys domain-minting, transfer, and Proof-of-Vibe onboarding dApp with EVM & Solana support—scaling it to the #1 dApp in the Irys ecosystem.",
-    "problem": "Emerging datachain ecosystems need sticky consumer-facing identity primitives—plus interactive education and partner-led distribution—to convert testnet curiosity into real on-chain transaction volume.",
-    "overview": "Irysnameservice (Irys Names) lets users search, mint, and permanently store .irys domains on the Irys datachain across EVM and Solana wallets, transfer ownership via Irys mutable references, generate permanent on-chain Certificates of Ownership, and learn the ecosystem through interactive Proof-of-Vibe flashcards and rewards.",
-    "impact": [
-      "Founded and scaled product adoption to the #1 dApp rank in the Irys blockchain ecosystem.",
-      "Shipped complete end-to-end on-chain flows: multi-chain wallet connect (EVM + Solana), Test SOL faucet, 5-step mutable-reference domain transfers, and permanent on-chain Ownership Certificates.",
-      "Combined product building with ecosystem partnerships, Solana Ambassador outreach, and 75K+ Web3 community reach."
-    ],
+    "image_style": "framed-ui",
+    "media_label": "ACTUAL PRODUCT CAPTURE · PLAYABLE DEMO",
+    "image_caption": "Irys Names dApp interface featuring .irys domain search, EVM & Solana wallet integration, Test SOL faucet, and Rewards.",
+    "tagline": "Founded an on-chain .irys domain-minting, mutable-reference transfer, and Proof-of-Vibe onboarding dApp—documented in CV as reaching #1 dApp in the Irys ecosystem.",
+    "overview": "Irysnameservice (Irys Names) allows users to search, mint, and permanently store .irys domain identities on the Irys datachain across EVM and Solana wallets. Beyond minting, it includes a 5-step mutable-reference domain transfer workflow, permanent on-chain Certificates of Ownership, and interactive GraphQL flashcards.",
+    "problem": "Emerging blockchain datachains need approachable consumer identity products—paired with clear developer education and community distribution—to turn ecosystem interest into sustained on-chain interaction.",
+    "concept": "Combine permanent on-chain naming with frictionless multi-chain onboarding (EVM + Solana + built-in Test SOL faucet), verifiable ownership certificates, and bite-sized ecosystem learning cards.",
+    "role": "Founder, Product Direction & Ecosystem Partnerships",
+    "approach": "Defined the core minting, transfer, and certificate flows around Irys's permanent storage and mutable-reference primitives, while pairing product launches with community outreach and Solana Ambassador demonstration.",
     "features": [
-      "Permanent .irys domain search & minting stored directly on the Irys datachain",
-      "Multi-chain wallet integration (EVM + Solana) with built-in Test SOL faucet, Rewards, and Pricing tiers",
-      "5-step Domain Ownership Transfer flow (Verify → Configure → Confirm → Processing → Complete) using Irys mutable references",
-      "Verifiable on-chain Certificates of Ownership recording domain tier, mint cost, date, and transaction hash",
-      "Interactive IRYS Flashcards (Proof of Vibe) onboarding users on GraphQL data indexing and ecosystem fundamentals"
+      "Permanent .irys domain search and minting stored directly on the Irys datachain",
+      "Multi-chain wallet connection (EVM & Solana) with built-in Test SOL faucet, Rewards, and Pricing views",
+      "5-step Domain Ownership Transfer workflow (Verify → Configure → Confirm → Processing → Complete) built on Irys mutable references",
+      "On-chain Certificates of Ownership recording domain tier, mint cost, timestamp, and transaction hash",
+      "Interactive IRYS Flashcards (Proof of Vibe) teaching GraphQL indexing and datachain fundamentals"
     ],
-    "stack": ["Irys Datachain", "EVM & Solana", "Mutable References", "Web3 Product Founding", "Ecosystem Growth"],
-    "role": "Founder, Product Lead & Ecosystem Partnerships",
-    "links": [
-      { "label": "Message on Telegram (@enryvanie)", "url": "https://t.me/enryvanie", "primary": false }
-    ],
+    "stack": ["Irys Datachain", "EVM & Solana Wallets", "Mutable References", "GraphQL", "Ecosystem Growth"],
+    "decisions": "Pairing functional domain transfers with shareable Ownership Certificates and interactive flashcards turned one-off testnet mints into repeat community education and organic sharing.",
+    "outcome": "Documented in CV as becoming the #1 dApp in the Irys ecosystem; a 1-minute walkthrough video and four real product captures are preserved directly in this case study.",
+    "links": [],
     "video_reel": [
       {
-        "title": "Irysnameservice · Product Walkthrough & Solana Ambassador Demo",
-        "meta": "Real dApp Demo · .irys Minting & Ecosystem Proof",
+        "title": "Irysnameservice — Product Walkthrough & Solana Ambassador Demo",
+        "meta": "ACTUAL DAPP DEMO · 1:00",
         "src": "assets/video/irys-demo.mp4",
         "poster": "assets/images/irys-home.jpg"
       }
     ],
-    "gallery_title": "Real Product Screens & On-Chain Proof",
-    "gallery_subtitle": "Actual captures from Irys Names showing the multi-chain dApp homepage, 5-step mutable-reference transfer workflow, on-chain Certificate of Ownership, and Proof-of-Vibe educational flashcards.",
+    "gallery_title": "Product Screens & On-Chain Artifacts",
+    "gallery_subtitle": "Actual interface captures showing multi-chain domain search, mutable-reference transfers, permanent ownership certificates, and Proof-of-Vibe flashcards.",
     "gallery_style": "ui-contain",
     "gallery": [
       {
         "src": "assets/images/irys-home.jpg",
-        "caption": "Irys Names dApp — .irys search, EVM/Solana wallet connection, Test SOL faucet & Rewards"
+        "caption": "Irys Names dApp — .irys search, EVM/Solana wallet connection & Test SOL faucet"
       },
       {
         "src": "assets/images/irys-transfer.png",
-        "caption": "5-Step Domain Transfer — Ownership transfer powered by Irys network mutable references"
+        "caption": "5-Step Domain Transfer — Ownership transfers using Irys mutable references"
       },
       {
         "src": "assets/images/irys-cert.jpg",
@@ -171,313 +138,358 @@
       },
       {
         "src": "assets/images/irys-flashcard.png",
-        "caption": "IRYS Flashcards (Proof of Vibe) — Interactive GraphQL & datachain ecosystem onboarding"
+        "caption": "IRYS Flashcards (Proof of Vibe) — Interactive GraphQL ecosystem onboarding"
       }
     ]
   },
   {
-    "slug": "hermes-growth",
-    "name": "HERMES ALPHA ZONE & Gem Jungle",
-    "short": "50+ Paid Crypto Campaigns & 75K+ Reach",
-    "category": "web3",
-    "category_name": "Web3 & Account Growth",
-    "tracks": ["web3", "creative"],
-    "stage": "Active · 75K+ Reach",
-    "live": false,
-    "featured": false,
-    "year": "2024–Present",
-    "image": "assets/images/art-hermes-web3.jpg",
-    "image_style": "cover-dark",
-    "image_caption": "Editorial visualization of multi-channel Web3 campaign distribution across X, Telegram, and Discord.",
-    "tagline": "Founded and scaled owned Web3 distribution communities to 75K+ combined reach while closing and fulfilling 50+ paid client campaigns across DeFi, NFTs, and trading platforms.",
-    "problem": "Crypto protocols, exchanges, and token launches routinely burn marketing budgets on fragmented KOL blasts with poor positioning, zero narrative alignment, and unreliable execution across Telegram, X, and Discord.",
-    "overview": "As Founder and Partnerships Lead of HERMES ALPHA ZONE and Gem Jungle—alongside Account Sales at Cointracts and Growth at Beraskool—I built a repeatable B2B campaign and account-management engine covering client discovery, offer scoping, narrative translation, synchronized cross-channel rollout, and partner retention.",
-    "impact": [
-      "Delivered 50+ paid crypto client campaigns spanning NFT launches, DeFi protocols, and trading platforms across X, Telegram, and Discord.",
-      "Built and operated owned Web3 communities totaling 75K+ combined reach with active member engagement and partner deal flow.",
-      "Paired direct B2B account sales (Cointracts) and product marketing (Beraskool) with clear stakeholder reporting across global time zones."
-    ],
+    "slug": "project-mucci",
+    "index": "03",
+    "name": "Project Mucci",
+    "short": "Mentorship, Made Accountable",
+    "category": "products",
+    "category_label": "SAAS / MENTORSHIP PLATFORM",
+    "stage": "Deployed Platform · Evolving",
+    "live": true,
+    "featured": true,
+    "feature_layout": "ivory-right",
+    "year": "2026",
+    "image": "assets/images/live-mucci.png",
+    "image_style": "framed-ui",
+    "media_label": "ACTUAL DEPLOYED CAPTURE · LIVE",
+    "image_caption": "Live authentication entry portal at project-mucci.web.app (Google OAuth & invitation-gated cohort onboarding).",
+    "tagline": "A cohort mentorship command center for running structured programs, reviewing daily check-ins, and delivering image-annotated feedback with Firebase RBAC.",
+    "overview": "Project Mucci gives mentors and cohorts a dedicated workspace for daily accountability. Mentors create programs, invite cohorts securely, track daily mentee check-ins, and return annotated visual feedback—backed by Firebase authentication, Firestore membership rules, and automated authorization tests.",
+    "problem": "Mentorship cohorts frequently scatter across messaging apps and shared spreadsheets, making it difficult to enforce program membership boundaries, track consistent daily progress, or preserve structured feedback over time.",
+    "concept": "Build an invitation-gated mentor-and-mentee command center where daily progress logs, visual critique, and strict Firestore access controls live in a single reliable workspace.",
+    "role": "Product Direction, Full-Stack Implementation & Authorization Testing",
+    "approach": "Engineered the frontend in React, TypeScript, and Vite backed by Firebase Auth, Firestore, and Storage rules, with Vitest authorization tests validating program access and member removal.",
     "features": [
-      "Client scoping & account management: aligning campaign deliverables, KPIs, timelines, and messaging with crypto founders and BD teams",
-      "Narrative & content translation: turning dense tokenomics, DeFi mechanics, and trading product updates into clear, high-conversion threads and Telegram briefings",
-      "Multi-channel campaign orchestration across X, Telegram alpha groups, and Discord communities",
-      "Partner & KOL coordination, audience qualification, and post-campaign performance recaps for repeat engagements"
+      "Cohort program setup with Google OAuth and email-invitation onboarding",
+      "Daily mentee progress check-ins with status tracking and mentor review queues",
+      "Mentor feedback supporting direct image annotations for visual correction",
+      "Firebase authentication, Firestore-backed membership schema, and Storage security rules",
+      "Vitest security and authorization tests covering program access and member removal"
     ],
-    "stack": ["Account Management", "B2B Crypto Sales", "50+ Paid Campaigns", "Telegram & X Growth", "75K+ Reach"],
-    "role": "Founder, Account Manager & Partnerships Lead",
+    "stack": ["React", "TypeScript", "Firebase", "Firestore", "Vite", "Vitest"],
+    "decisions": "Assignments, grading, and analytics modules were intentionally kept locked in the current build so core check-in workflows and Firestore authorization boundaries could be hardened first.",
+    "outcome": "Deployed live on Firebase Hosting (project-mucci.web.app) with public source and authorization tests documented in GitHub.",
     "links": [
-      { "label": "Telegram (@enryvanie)", "url": "https://t.me/enryvanie", "primary": true },
-      { "label": "X (@Vanieofweb3)", "url": "https://x.com/Vanieofweb3", "primary": false }
+      { "label": "Visit Live Platform", "url": "https://project-mucci.web.app", "primary": true },
+      { "label": "View GitHub Repository", "url": "https://github.com/hermes-nietzesch/Project-Mucci", "primary": false }
     ]
   },
   {
-    "slug": "web3-community-ops",
-    "name": "Tier-1 Web3 Community & Ecosystem Ops",
-    "short": "DeGods · Pudgy Penguins · Beraskool · Webacy",
-    "category": "web3",
-    "category_name": "Web3 & Account Growth",
-    "tracks": ["web3"],
-    "stage": "4+ Yrs Operations",
-    "live": false,
-    "featured": false,
-    "year": "2021–2026",
-    "image": "assets/images/art-web3-communities.jpg",
-    "image_style": "cover-dark",
-    "image_caption": "Architectural representation of high-trust community stewardship and cross-ecosystem governance.",
-    "tagline": "Managed high-traffic community operations, trust & safety, product marketing, and advisory across blue-chip Web3 ecosystems including DeGods, Pudgy Penguins, Beraskool, Primates, and Webacy.",
-    "problem": "High-profile crypto and NFT ecosystems operate 24/7 under intense market volatility, sophisticated phishing attacks, and fast-moving product releases where a single communication misstep erodes holder trust.",
-    "overview": "From 2021 to 2026, I operated inside some of Web3's most scrutinized communities—leading moderation, trust & safety enforcement, community communications, and advisory workflows while also supporting product growth (Beraskool), security content advisory (Webacy), educational comms (DTCSI Academy), and DAO project management (Anavrin DAO).",
-    "impact": [
-      "Maintained high-trust, responsive moderation and crisis communications for DeGods, Pudgy Penguins, Beraskool, and Primates during peak traffic cycles.",
-      "Served across commercial and strategic ecosystem roles: Ambassador & Account Sales (Cointracts), Product Marketer & Growth (Beraskool), Project & Content Advisor (Webacy), and Project Manager (Anavrin DAO).",
-      "Communicates seamlessly with international Web3 teams and holders in English (Native), Russian (B1), and French (A2)."
-    ],
-    "features": [
-      "24/7 high-traffic community moderation, escalation protocols, and anti-phishing / trust & safety enforcement",
-      "Core-team-to-community communications: translating roadmap announcements, governance updates, and product launches clearly",
-      "Audience retention loops: onboarding flows, feedback synthesis for product teams, and community health tracking",
-      "Cross-ecosystem advisory covering security positioning (Webacy), technical Web3 education (DTCSI Academy), and DAO milestone delivery (Anavrin DAO)"
-    ],
-    "stack": ["Community Leadership", "Trust & Safety", "Ecosystem Comms", "Partner Advisory", "EN · RU (B1) · FR (A2)"],
-    "role": "Web3 Community Manager, Advisor & Project Manager",
-    "links": []
-  },
-  {
-    "slug": "project-mucci",
-    "name": "Project Mucci",
-    "short": "Accountable Mentorship Command Center",
-    "category": "products",
-    "category_name": "Full-Stack Products",
-    "tracks": ["product", "ai"],
-    "stage": "Live · Platform",
+    "slug": "mcq-recall",
+    "index": "04",
+    "name": "MedFlash (MCQ Recall)",
+    "short": "Medical Board Review, Sharpened",
+    "category": "health",
+    "category_label": "MEDICAL TECHNOLOGY / EDUCATION",
+    "stage": "Deployed Web Application",
     "live": true,
     "featured": true,
+    "feature_layout": "ivory-left",
     "year": "2026",
-    "image": "assets/images/live-mucci.png",
-    "image_style": "framed-light",
-    "image_caption": "Live Firebase-authenticated entry portal at project-mucci.web.app.",
-    "tagline": "A production cohort mentorship platform with daily progress check-ins, image-annotated feedback, and automated Firebase RBAC security tests.",
-    "problem": "Cohort mentorship programs routinely fragment across chat threads and spreadsheets, leaving mentors without structured visibility and mentees without consistent feedback loops.",
-    "overview": "Project Mucci is a mentor-and-mentee command center engineered in React, TypeScript, and Firebase. Mentors launch cohorts, onboard members via invite links or Google OAuth, review daily check-ins, and annotate visual feedback.",
-    "impact": [
-      "Implemented strict role-based access control using Firebase Auth, Firestore rules, and Storage rules.",
-      "Backed membership boundaries and member-removal authorization with automated Vitest security test suites.",
-      "Live on Firebase Hosting with Google OAuth and invitation-based onboarding."
-    ],
+    "image": "assets/images/live-medflash.png",
+    "image_style": "cover-dark",
+    "media_label": "ACTUAL DEPLOYED CAPTURE · LIVE",
+    "image_caption": "Live dark-mode board review workspace at mcqrecall.netlify.app.",
+    "tagline": "A physician-built board review application that converts raw multiple-choice question PDFs into structured active-recall study sessions.",
+    "overview": "Born directly from medical exam preparation, MedFlash (MCQ Recall) turns uploaded multi-file MCQ PDFs into focused active-recall study sessions—paired with a built-in Pomodoro timer, session history, and a low-fatigue dark interface.",
+    "problem": "Medical students and doctors preparing for board exams routinely waste hours reformatting past-question PDFs instead of practicing active recall under timed conditions.",
+    "concept": "Remove setup friction completely: drop one or more MCQ PDFs into the browser, treat each document as a resumable study session, and pair active recall with an integrated Pomodoro workflow.",
+    "role": "Clinical Creator, Product Design & Web Implementation",
+    "approach": "Built a zero-signup client-side web workflow deployed to Netlify, featuring multi-file PDF drag-and-drop ingestion (supporting 'Correct Answer X' formatting) and four focused navigation views: Sessions, Pomodoro, History, and Settings.",
     "features": [
-      "Cohort program creation with Google OAuth and email-invitation onboarding",
-      "Daily mentee progress check-ins with status tracking and mentor review queues",
-      "Direct image-annotation feedback tools for clear visual critique",
-      "Production Firebase Auth, Firestore membership schema, and Vitest security test coverage"
+      "Multi-file drag-and-drop PDF uploader with automatic MCQ and answer-key parsing",
+      "Session-based workspace turning every uploaded PDF into a resumable study deck",
+      "Built-in Pomodoro focus timer for high-volume medical revision blocks",
+      "Persistent study history and customizable review settings in a distraction-free dark UI"
     ],
-    "stack": ["React", "TypeScript", "Firebase Auth", "Firestore", "Vite", "Vitest"],
-    "role": "Product Architecture, Full-Stack Engineering & Security Testing",
+    "stack": ["Medical EdTech", "PDF Ingestion", "JavaScript", "Active Recall UX", "Netlify"],
+    "decisions": "Eliminating account walls and supporting multi-file PDF drops directly on the landing screen ensured students can move from raw past questions to active recall in seconds.",
+    "outcome": "Live and publicly accessible at mcqrecall.netlify.app.",
     "links": [
-      { "label": "Open Project Mucci", "url": "https://project-mucci.web.app", "primary": true },
-      { "label": "View GitHub Repo", "url": "https://github.com/hermes-nietzesch/Project-Mucci", "primary": false }
+      { "label": "Open MedFlash Live", "url": "https://mcqrecall.netlify.app", "primary": true }
     ]
   },
   {
     "slug": "kasala",
+    "index": "05",
     "name": "Kasala",
-    "short": "Computer Village Battle Royale",
+    "short": "Computer Village 3D Battle Royale",
     "category": "games",
-    "category_name": "3D Web Games",
-    "tracks": ["product", "creative"],
-    "stage": "Live · Playable",
+    "category_label": "GAME DEVELOPMENT / MULTIPLAYER",
+    "stage": "Launched Browser Game",
     "live": true,
     "featured": true,
+    "feature_layout": "obsidian-full",
     "year": "2026",
     "image": "assets/images/live-kasala.png",
     "image_style": "cover-dark",
-    "image_caption": "Live lobby capture from kasala.kasala.workers.dev featuring 4 playable 3D Lagos factions.",
-    "tagline": "A 10-player 3D browser battle royale & 5v5 arena shooter set in Computer Village, Lagos—shipped to Cloudflare Workers.",
-    "problem": "Browser multiplayer shooters rarely deliver distinct cultural identity and instant zero-install playability. Kasala proves an independent builder can direct, produce, and launch a full 3D multiplayer shooter end-to-end.",
-    "overview": "Kasala brings fast multiplayer combat to Computer Village, Ikeja—featuring Solo & Team Battle Royale, 5v5 Team Battle, Free-for-All, scalable AI bots, and a Gun Range running natively in the browser via Cloudflare Workers.",
-    "impact": [
-      "Directed the full pipeline: game design, AI-generated 3D character classes, audio direction, and Cloudflare Workers deployment.",
-      "4 distinct Lagos-inspired 3D playable classes (Chief, Zombie Mechanic, Cyber Hero, Task Force).",
-      "Instant zero-download play across Battle Royale, 5v5 Team Battle, Free-for-All, and Easy/Medium/Hard bot modes."
-    ],
+    "media_label": "ACTUAL DEPLOYED CAPTURE · PLAYABLE",
+    "image_caption": "Live lobby capture from kasala.kasala.workers.dev displaying four playable 3D Lagos character classes and match modes.",
+    "tagline": "A ten-player browser battle royale and 5v5 arena shooter set in Computer Village, Lagos—built with an AI-assisted 3D asset pipeline and deployed on Cloudflare Workers.",
+    "overview": "Kasala brings compact multiplayer 3D action directly to the browser without app-store downloads. Set in Computer Village, Lagos, it supports Solo and Team Battle Royale, 5v5 Team Battle, Free-for-All, configurable AI bots, and a Gun Range.",
+    "problem": "3D multiplayer shooters are traditionally locked behind heavy native installs and large studio pipelines, leaving culturally grounded West African settings rarely represented in instant web games.",
+    "concept": "Pair an AI-assisted 3D character and audio production workflow with lightweight browser delivery on Cloudflare Workers so players can launch matches in one click.",
+    "role": "Game Direction, AI-Assisted 3D Asset & Audio Pipeline, Cloudflare Deployment",
+    "approach": "Directed character creation across four recognizable Lagos archetypes, structured multiple match modes (Battle Royale, 5v5, Free-for-All, Bots, Gun Range), and shipped globally on Cloudflare Workers.",
     "features": [
-      "10-player online Battle Royale (Solo & Teams), 5v5 Team Battle, and Free-for-All modes",
-      "Play online, private friend rooms, Bot practice (Easy / Medium / Hard), and Gun Range",
-      "AI-assisted 3D character production pipeline optimized for browser WebGL performance",
-      "Full audio direction, customizable controls, and global edge delivery on Cloudflare Workers"
+      "Ten-player online Battle Royale (Solo & Teams) plus 5v5 Team Battle and Free-for-All",
+      "Online matchmaking, private friend lobbies, Bot difficulty levels (Easy / Medium / Hard), and Gun Range",
+      "Four custom AI-assisted 3D character renders and full audio/music direction",
+      "Zero-install browser play delivered via Cloudflare Workers"
     ],
-    "stack": ["WebGL / 3D", "Multiplayer Networking", "AI 3D Pipeline", "Cloudflare Workers", "JavaScript"],
-    "role": "Game Director, AI Asset Pipeline & Full-Stack Deployment",
+    "stack": ["3D WebGL", "Multiplayer Gaming", "AI-Assisted 3D Assets", "Cloudflare Workers"],
+    "decisions": "Including offline-friendly bot tiers and a dedicated Gun Range alongside online lobbies ensures solo visitors can experience gameplay immediately even outside peak lobby hours.",
+    "outcome": "Live and playable at kasala.kasala.workers.dev.",
     "links": [
       { "label": "Play Kasala Live", "url": "https://kasala.kasala.workers.dev", "primary": true }
     ]
   },
   {
     "slug": "wayo",
-    "name": "Wayo",
-    "short": "Naija Hide & Seek in 3D",
+    "index": "06",
+    "name": "Wayo: Naija Hide & Seek",
+    "short": "A Computer Village 3D Prop Hunt",
     "category": "games",
-    "category_name": "3D Web Games",
-    "tracks": ["product", "creative"],
-    "stage": "Live · Playable",
+    "category_label": "GAME DEVELOPMENT / MULTIPLAYER",
+    "stage": "Playable Web Game",
     "live": true,
     "featured": true,
+    "feature_layout": "ivory-right",
     "year": "2026",
     "image": "assets/images/live-wayo.png",
     "image_style": "cover-dark",
-    "image_caption": "Live multiplayer lobby at playwayo.netlify.app — Raid in Progress.",
-    "tagline": "A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force raids.",
-    "problem": "Most social party games ignore mobile-first browser ergonomics and local humor. Wayo turns an iconic Nigerian street-market dynamic into an instantly shareable multiplayer web game.",
-    "overview": "In Wayo, traders transform into ordinary Computer Village merchandise to survive a four-minute Task Force raid. Players spin up online lobbies with 5-letter room codes or jump straight into bot practice mode.",
-    "impact": [
-      "Open-source 3D multiplayer browser game playable instantly on mobile and desktop.",
-      "Frictionless 5-letter invite codes plus solo bot practice mode for zero-wait onboarding.",
-      "Distinctive visual identity, custom soundtrack, and configurable look sensitivity."
-    ],
+    "media_label": "ACTUAL DEPLOYED CAPTURE · PLAYABLE",
+    "image_caption": "Live lobby capture from playwayo.netlify.app — Raid in Progress.",
+    "tagline": "A phone-first 3D multiplayer prop hunt set in Computer Village, Ikeja—traders disguise as market goods while the Task Force searches before time runs out.",
+    "overview": "Wayo transforms an iconic Lagos street-market dynamic into an accessible 3D multiplayer game. Traders disguise themselves as everyday marketplace objects while the Task Force conducts a four-minute raid.",
+    "problem": "Social prop-hunt games are typically desktop-bound and detached from local Nigerian humor and mobile-first play patterns.",
+    "concept": "Design a landscape-first 3D browser prop hunt with instant five-letter room codes, host-controlled match starts, and solo bot practice.",
+    "role": "Game Direction & Implementation",
+    "approach": "Built as a lightweight HTML/JavaScript 3D web application with online room lobbies, configurable look-speed controls, custom soundtrack toggles, and Netlify deployment.",
     "features": [
       "3D prop-hunt gameplay modeled on Computer Village, Ikeja",
-      "Instant online multiplayer rooms via 5-letter join codes and host controls",
-      "Solo practice mode with AI bots for immediate onboarding",
-      "Four-minute timed raid matches, look-speed settings, and custom audio"
+      "Online multiplayer rooms with five-letter join codes and shareable invitations",
+      "Solo bot practice mode alongside timed four-minute multiplayer raids",
+      "Mobile landscape-first ergonomics with full desktop support and sensitivity settings"
     ],
-    "stack": ["3D Browser Game", "Multiplayer Rooms", "HTML / JavaScript", "Netlify"],
-    "role": "Game Director, Designer & Developer",
+    "stack": ["3D Web Game", "Multiplayer Rooms", "HTML / JavaScript", "Netlify"],
+    "decisions": "Keeping room joining to a five-letter code and adding a 'Practise with bots' link directly under the lobby actions minimized friction for mobile players.",
+    "outcome": "Live and playable at playwayo.netlify.app with source available on GitHub.",
     "links": [
       { "label": "Play Wayo Live", "url": "https://playwayo.netlify.app", "primary": true },
-      { "label": "View GitHub Repo", "url": "https://github.com/hermes-nietzesch/wayo", "primary": false }
+      { "label": "View GitHub Repository", "url": "https://github.com/hermes-nietzesch/wayo", "primary": false }
     ]
   },
   {
     "slug": "naija-undead",
+    "index": "07",
     "name": "Naija Undead",
     "short": "One Night. One Cutlass. Ojuelegba.",
     "category": "games",
-    "category_name": "3D Web Games",
-    "tracks": ["product", "creative"],
-    "stage": "Live · Playable",
+    "category_label": "GAME DEVELOPMENT / 3D SURVIVAL",
+    "stage": "Launched Browser Game",
     "live": true,
     "featured": false,
+    "feature_layout": "ivory-left",
     "year": "2026",
     "image": "assets/images/live-naija-undead.png",
     "image_style": "framed-portrait",
+    "media_label": "ACTUAL DEPLOYED CAPTURE · PLAYABLE",
     "image_caption": "Live 3D WebGL scene from naijaundead.fun — City 1: Ojuelegba, Lagos.",
-    "tagline": "A mobile-first 3D WebGL Lagos zombie survival game built end-to-end with an AI-accelerated character & audio pipeline.",
-    "problem": "Traditional 3D action games take full studio teams months to prototype and launch. Naija Undead proves how AI-directed character and audio workflows can ship a playable 3D survival game straight to the web.",
-    "overview": "Set in City 1: Ojuelegba, Lagos, players wield a cutlass to survive 12-minute nights against localized undead archetypes—Traffic Hawker, Mama Put, Conductor, Agbero, Mechanic, and Politician—while earning nightly Naira bounties.",
-    "impact": [
-      "Directed and shipped live to naijaundead.fun with mobile-first 3D WebGL rendering.",
-      "Executed full AI-generated 3D character, audio, and X viral launch pipeline.",
-      "Memorable cultural worldbuilding with nightly bounty jobs (₦1,900+) and persistent survival bests."
-    ],
+    "tagline": "A mobile-first 3D Lagos zombie survival game directed and launched end-to-end with an AI-assisted character and audio production workflow.",
+    "overview": "Set in City 1: Ojuelegba, Lagos, Naija Undead challenges players to survive twelve-minute nights with a cutlass against localized undead archetypes—Traffic Hawker, Mama Put, Conductor, Agbero, Mechanic, and Politician—while completing nightly bounty jobs.",
+    "problem": "Producing stylized 3D character rosters, atmospheric audio, and mobile browser combat normally demands multi-person studio budgets.",
+    "concept": "Use AI-assisted 3D character and sound workflows to rapidly direct and launch a culturally unmistakable Lagos survival game directly to the web.",
+    "role": "Game Director, AI Asset & Audio Pipeline, Web Launch",
+    "approach": "Combined mobile-vertical 3D WebGL framing, localized enemy design, Naira bounty progression, and personal-best tracking into an immediately playable browser deployment.",
     "features": [
-      "Real-time 3D WebGL combat in a stylized night-time Ojuelegba, Lagos skyline",
-      "Original Nigerian enemy archetypes: Traffic Hawker, Mama Put, Conductor, Agbero, Mechanic & Politician",
-      "12-minute survival runs with nightly Naira job bounties and personal-best tracking",
-      "Mobile-first vertical viewport with responsive sound and display controls"
+      "Real-time 3D WebGL survival action in a stylized Ojuelegba, Lagos nightscape",
+      "Localized undead roster (Traffic Hawker, Mama Put, Conductor, Agbero, Mechanic & Politician)",
+      "Twelve-minute night runs with nightly job bounties and persistent personal-best tracking",
+      "Mobile-first vertical viewport with audio and display toggles"
     ],
-    "stack": ["3D WebGL", "AI Character Pipeline", "Generative Audio", "Mobile-First Web"],
-    "role": "Creative Director, AI Asset Pipeline & Full Production",
+    "stack": ["3D Browser Game", "WebGL", "AI-Assisted Assets", "Audio Production"],
+    "decisions": "Embracing a centered vertical mobile-proportioned viewport kept frame pacing clean on phones while looking intentionally composed on desktop.",
+    "outcome": "Live and playable at naijaundead.fun.",
     "links": [
       { "label": "Play Naija Undead", "url": "https://naijaundead.fun", "primary": true }
     ]
   },
   {
-    "slug": "medforge",
-    "name": "MedForge AI",
-    "short": "Clinical Learning Workspace",
-    "category": "health",
-    "category_name": "Clinical & MedTech",
-    "tracks": ["ai", "product"],
-    "stage": "Clinical UI Prototype",
-    "live": false,
-    "featured": false,
-    "year": "2026",
-    "image": "assets/images/art-medforge.jpg",
-    "image_style": "cover-dark",
-    "image_caption": "Conceptual visual for MedForge AI's multi-screen clinical study workspace.",
-    "tagline": "A multi-screen React clinical learning workspace uniting generated study timetables, note ingestion, OSCE drills, MCQs, and AI mentoring.",
-    "problem": "Medical curricula overwhelm students with fragmented notes, ward rotations, and practical OSCE checklists that generic study apps fail to model accurately.",
-    "overview": "MedForge AI translates clinical training workflows into a cohesive React + TypeScript interface—combining automated timetable views, handwritten-note upload journeys, confidence heatmaps, OSCE station practice, and a clinical AI mentor view.",
-    "impact": [
-      "Designed from lived MBBS clinical rotations so study UX mirrors how doctors prepare for wards and boards.",
-      "Clean, componentized React + TypeScript + Tailwind architecture ready for LLM backend integration.",
-      "Open-source frontend demonstrating clinical domain translation into product design."
-    ],
-    "features": [
-      "Adaptive study dashboard and generated clinical timetable views",
-      "Handwritten-note and lecture-document upload workflow UX",
-      "High-yield notes, MCQ drill sets, and practical OSCE preparation modules",
-      "Conversational AI clinical mentor interface and weekly confidence heatmaps"
-    ],
-    "stack": ["React", "TypeScript", "Tailwind CSS", "Vite", "Clinical UX"],
-    "role": "Clinical Product Strategist & Frontend Prototyper",
-    "links": [
-      { "label": "View GitHub Repo", "url": "https://github.com/hermes-nietzesch/Medforge", "primary": true }
-    ]
-  },
-  {
     "slug": "hodos",
+    "index": "08",
     "name": "Hodos",
-    "short": "AI Career Direction Engine",
+    "short": "AI Career Direction & Skill Mapping",
     "category": "ai",
-    "category_name": "AI & Career Tech",
-    "tracks": ["ai", "product"],
-    "stage": "Serverless Codebase",
+    "category_label": "AI / CAREER TECHNOLOGY",
+    "stage": "Functional Codebase",
     "live": false,
     "featured": false,
+    "feature_layout": "ivory-right",
     "year": "2026",
     "image": "assets/images/art-hodos.jpg",
     "image_style": "cover-dark",
-    "image_caption": "Visual identity for Hodos — guided career pathways powered by Claude.",
-    "tagline": "A conversational AI career-navigation app integrating the Anthropic API, Netlify serverless functions, and Airtable.",
-    "problem": "Ambitious talent entering the AI economy face overwhelming noise and generic advice that ignores their existing strengths and local market realities.",
-    "overview": "Hodos guides users through a structured conversational assessment, calling serverless Anthropic Claude endpoints to synthesize tailored career directions, pinpoint skill gaps, and recommend starter projects—persisted via Airtable.",
-    "impact": [
-      "End-to-end serverless AI pipeline connecting frontend assessment flows to Anthropic Claude and Airtable.",
-      "Structured prompt engineering that outputs actionable skill-gap maps instead of generic advice.",
-      "Fast multi-page web architecture (index, assessment, results) built for global accessibility."
-    ],
+    "media_label": "CONCEPTUAL EDITORIAL PLATE · SOURCE ON GITHUB",
+    "image_caption": "Editorial visual plate representing Hodos's guided AI career-pathway architecture (codebase inspected on GitHub).",
+    "tagline": "An AI career-direction web application combining conversational assessment, personalized pathways, skill-gap diagnostics, and serverless Anthropic & Airtable functions.",
+    "overview": "Hodos is built for people entering the AI economy who want clarity on where their existing strengths fit. A guided conversational assessment routes through serverless Netlify Functions calling the Anthropic API to generate tailored career pathways, skill-gap breakdowns, and starter projects, persisted in Airtable.",
+    "problem": "Generic career advice ignores individual backgrounds, actionable skill gaps, and locally relevant opportunities in fast-moving AI markets.",
+    "concept": "Guide users through a lightweight multi-step web assessment (index, assessment, results) backed by structured Claude prompts and Airtable persistence.",
+    "role": "Product & Application Development",
+    "approach": "Implemented the frontend flow in HTML, CSS, and JavaScript connected to serverless Netlify Functions integrating the Anthropic API and Airtable.",
     "features": [
-      "Conversational career-strengths and goals assessment workflow",
+      "Conversational strengths and career-direction assessment workflow",
       "Serverless Netlify Functions orchestrating Anthropic Claude API calls",
-      "Personalized career-fit summaries, skill-gap diagnostics, and starter project blueprints",
-      "Airtable integration for structured response persistence"
+      "AI-generated personalized direction summaries, skill-gap diagnostics, and starter project ideas",
+      "Airtable integration for structured assessment persistence"
     ],
-    "stack": ["Anthropic API", "Netlify Functions", "Airtable", "JavaScript", "Prompt Engineering"],
-    "role": "Product Builder & Serverless AI Engineer",
+    "stack": ["HTML / CSS / JavaScript", "Netlify Functions", "Anthropic API", "Airtable"],
+    "decisions": "Keeping the frontend dependency-free while isolating Anthropic API keys inside Netlify Functions created a fast, auditable serverless architecture.",
+    "outcome": "Functional codebase published publicly on GitHub (hermes-nietzesch/hodos-site); public deployment pending.",
     "links": [
-      { "label": "View GitHub Repo", "url": "https://github.com/hermes-nietzesch/hodos-site", "primary": true }
+      { "label": "View GitHub Repository", "url": "https://github.com/hermes-nietzesch/hodos-site", "primary": true }
+    ]
+  },
+  {
+    "slug": "medforge",
+    "index": "09",
+    "name": "MedForge AI",
+    "short": "A Clinical Learning Workspace Concept",
+    "category": "health",
+    "category_label": "MEDICAL TECHNOLOGY / AI",
+    "stage": "Interface Prototype",
+    "live": false,
+    "featured": false,
+    "feature_layout": "ivory-left",
+    "year": "2026",
+    "image": "assets/images/art-medforge.jpg",
+    "image_style": "cover-dark",
+    "media_label": "CONCEPTUAL EDITORIAL PLATE · PROTOTYPE REPO",
+    "image_caption": "Editorial visualization representing MedForge AI's clinical study workspace prototype (React/TypeScript codebase on GitHub).",
+    "tagline": "A multi-screen React clinical learning prototype uniting generated study timetables, note ingestion flows, OSCE practice, MCQ views, and an AI mentor interface.",
+    "overview": "MedForge AI explores how clinical medical education can become more structured and personalized. The repository implements a multi-screen React, TypeScript, and Tailwind interface covering study planning, learning confidence analysis, OSCE drills, and mentor conversation views.",
+    "problem": "Medical students juggle dense lecture notes, ward rotations, MCQs, and practical OSCE stations across disconnected tools that rarely reflect clinical reasoning workflows.",
+    "concept": "Design a unified clinical learning studio modeled on real MBBS preparation—bringing timetables, note review, confidence heatmaps, and AI mentor guidance under one roof.",
+    "role": "Clinical Product Concept & Frontend Prototyping",
+    "approach": "Built modular React + TypeScript + Tailwind CSS views with Vite to validate information architecture and multi-screen study journeys using illustrative clinical data.",
+    "features": [
+      "Study dashboard and generated clinical timetable views",
+      "Handwritten-note and document-upload workflow concepts",
+      "High-yield notes, MCQ review, and OSCE preparation interfaces",
+      "AI mentor conversation view alongside confidence heatmaps and weekly learning insights"
+    ],
+    "stack": ["React", "TypeScript", "Tailwind CSS", "Vite", "Clinical UX Prototyping"],
+    "decisions": "Prototyping the complete multi-screen study UX first with structured illustrative datasets allows rapid iteration with medical students before wiring live clinical LLM backends.",
+    "outcome": "Public React/TypeScript interface prototype available on GitHub (live AI backend not yet connected).",
+    "links": [
+      { "label": "View GitHub Repository", "url": "https://github.com/hermes-nietzesch/Medforge", "primary": true }
     ]
   },
   {
     "slug": "vitalpulse",
+    "index": "10",
     "name": "VitalPulse",
-    "short": "Rapid-Response Blood Donation UX",
+    "short": "Rapid-Response Blood Donation Concept",
     "category": "health",
-    "category_name": "Clinical & MedTech",
-    "tracks": ["ai", "product"],
+    "category_label": "HEALTHCARE / EMERGENCY UX",
     "stage": "Interactive Prototype",
     "live": false,
     "featured": false,
+    "feature_layout": "ivory-right",
     "year": "2026",
     "image": "assets/images/art-vitalpulse.jpg",
     "image_style": "cover-dark",
-    "image_caption": "Visual showcase for VitalPulse's emergency donor-alert interface.",
-    "tagline": "An emergency blood-donation response prototype designed to turn urgent clinical requests into fast, frictionless donor mobilization.",
-    "problem": "In acute medical emergencies, sourcing matched blood donors often collapses into panicked social broadcasts with missing urgency context and high donor drop-off.",
-    "overview": "VitalPulse models a calm, high-clarity mobile donor network: presenting urgency-ranked emergency blood alerts, one-tap donor acceptance flows, donor eligibility education, and lives-impacted telemetry.",
-    "impact": [
-      "Applies frontline medical understanding of acute blood-shortage bottlenecks directly into mobile product UX.",
-      "Complete donor journey architecture built in React, TypeScript, and Tailwind CSS.",
-      "Available for live walkthrough during private healthtech interviews (private repository)."
-    ],
+    "media_label": "CONCEPTUAL EDITORIAL PLATE · PRIVATE PROTOTYPE",
+    "image_caption": "Editorial visualization representing VitalPulse's emergency blood-donor response concept (private repository prototype).",
+    "tagline": "A healthcare emergency-response prototype exploring blood-donor alerts, urgency prioritization, donor education, and rapid alert acceptance flows.",
+    "overview": "VitalPulse explores how mobile-first digital design can make urgent blood-donation needs clearer and more actionable. Built in a private React/TypeScript repository, the prototype models the full donor journey from urgent request alert to acceptance confirmation and impact reporting using illustrative emergency data.",
+    "problem": "Emergency blood requests frequently circulate as unstructured social messages lacking clarity on urgency, blood type, or next steps—creating friction when minutes matter.",
+    "concept": "Replace chaotic appeals with a calm, high-clarity mobile donor interface featuring structured urgency cards, guided confirmation flows, and donor education.",
+    "role": "Healthcare UX Design & Frontend Prototyping",
+    "approach": "Engineered mobile-friendly interactive flows in React, TypeScript, Tailwind CSS, and Vite demonstrating emergency donor alerts, profiles, educational sections, and confirmation states.",
     "features": [
-      "Urgency-tiered emergency donor-request feed with blood-type & proximity framing",
-      "Streamlined alert acceptance and confirmation demo workflow",
-      "Donor profile management, clinical eligibility learning, and personal impact metrics",
-      "Mobile-first responsive navigation and purposeful clinical micro-interactions"
+      "Emergency blood-donor request screens with clear urgency details",
+      "Alert acceptance and confirmation demonstration workflow",
+      "Donor profile, clinical eligibility learning, and personal impact views",
+      "Mobile-first navigation and restrained interface motion"
     ],
     "stack": ["React", "TypeScript", "Tailwind CSS", "Vite", "Healthcare UX"],
-    "role": "Physician Product Designer & Frontend Engineer",
+    "decisions": "Focusing the prototype on donor clarity and low-stress confirmation steps directly reflects clinical observations of blood-sourcing friction; uses illustrative example requests rather than live hospital matching.",
+    "outcome": "Interactive prototype maintained in a private repository; available for walkthrough upon request.",
+    "links": []
+  },
+  {
+    "slug": "hermes-growth",
+    "index": "11",
+    "name": "HERMES ALPHA ZONE & Gem Jungle",
+    "short": "Web3 Partnerships, Campaigns & Distribution",
+    "category": "web3",
+    "category_label": "WEB3 GROWTH / ACCOUNT MANAGEMENT",
+    "stage": "Active Operations · 2024–Present",
+    "live": false,
+    "featured": false,
+    "feature_layout": "ivory-left",
+    "year": "2024–Present",
+    "image": "assets/images/art-hermes-web3.jpg",
+    "image_style": "cover-dark",
+    "media_label": "CONCEPTUAL EDITORIAL PLATE · CV DOCUMENTED",
+    "image_caption": "Editorial visual plate representing multi-channel Web3 partnerships and community operations.",
+    "tagline": "Community founder and partnerships lead behind 50+ paid crypto campaigns across NFTs, DeFi, and trading platforms—operating communities with 75K+ combined reach.",
+    "overview": "Through HERMES ALPHA ZONE and Gem Jungle—alongside Ambassador & Account Sales at Cointracts (2025–2026) and Product Marketing & Growth at Beraskool—I built a structured Web3 partnerships and campaign-delivery practice spanning X, Telegram, and Discord.",
+    "problem": "Crypto projects and trading platforms routinely struggle to translate complex product updates into credible, coordinated community campaigns across fragmented channels.",
+    "concept": "Operate owned high-signal Telegram and X channels with disciplined partner scoping, narrative clarity, and reliable campaign fulfillment.",
+    "role": "Founder, Partnerships Lead & Account Manager",
+    "approach": "Scoped campaign objectives directly with project teams, aligned messaging across X, Telegram, and Discord, coordinated community activations, and maintained consistent client communication across time zones.",
+    "features": [
+      "Client scoping, partner onboarding, and commercial account management across DeFi, NFT, and trading verticals",
+      "Cross-channel campaign orchestration spanning X, Telegram, and Discord",
+      "Clear narrative translation of technical tokenomics and product releases",
+      "Multilingual stakeholder communication in English (native), Russian (B1), and French (A2)"
+    ],
+    "stack": ["Account Management", "Partnerships", "Web3 Campaigns", "Telegram & X", "DeFi & Trading"],
+    "decisions": "Treating Web3 promotion with structured client communication and honest positioning preserved long-term audience trust across both owned channels and partner projects.",
+    "outcome": "CV documents 50+ paid crypto campaigns delivered and 75K+ combined community reach across HERMES ALPHA ZONE and Gem Jungle.",
+    "links": [
+      { "label": "Message on Telegram (@enryvanie)", "url": "https://t.me/enryvanie", "primary": true },
+      { "label": "X Profile (@Vanieofweb3)", "url": "https://x.com/Vanieofweb3", "primary": false }
+    ]
+  },
+  {
+    "slug": "web3-community-ops",
+    "index": "12",
+    "name": "Web3 Community & Ecosystem Ops",
+    "short": "DeGods · Pudgy Penguins · Beraskool · Webacy",
+    "category": "web3",
+    "category_label": "COMMUNITY LEADERSHIP / ECOSYSTEM OPS",
+    "stage": "Multi-Project Track Record · 2021–2026",
+    "live": false,
+    "featured": false,
+    "feature_layout": "ivory-right",
+    "year": "2021–2026",
+    "image": "assets/images/art-web3-communities.jpg",
+    "image_style": "cover-dark",
+    "media_label": "CONCEPTUAL EDITORIAL PLATE · CV DOCUMENTED",
+    "image_caption": "Editorial architectural plate representing community stewardship, trust & safety, and ecosystem governance.",
+    "tagline": "High-traffic community management, trust & safety moderation, advisory, and project management across major Web3 ecosystems.",
+    "overview": "Across 2021–2026, I managed and moderated large, high-traffic communities for DeGods, Pudgy Penguins, Beraskool, and Primates while contributing across commercial and strategic roles at Cointracts, Webacy, DTCSI Academy, and Anavrin DAO.",
+    "problem": "High-visibility Web3 communities face constant moderation pressure, phishing threats, and rapid sentiment shifts during major announcements and volatile market cycles.",
+    "concept": "Apply disciplined guidelines, calm crisis communication, and clear technical writing to sustain resilient, trustworthy community spaces.",
+    "role": "Community Manager, Product Marketer, Content Advisor & Project Manager",
+    "approach": "Enforced community guidelines with consistent content review and trust-and-safety judgment, translated core team announcements for holders, and supported partner growth and security-focused content.",
+    "features": [
+      "Large-scale moderation and trust & safety operations for DeGods, Pudgy Penguins, Beraskool, and Primates",
+      "Ambassador & Account Sales (Cointracts, 2025–2026) and Product Marketer & Growth (Beraskool, 2025–2026)",
+      "Project & Content Advisor (Webacy, 2024–2025) and Project Manager (Anavrin DAO, 2022–2023)",
+      "Technical Web3 communications and educational copywriting (DTCSI Academy, 2021–2026)"
+    ],
+    "stack": ["Community Leadership", "Trust & Safety", "Ecosystem Comms", "Project Management", "Advisory"],
+    "decisions": "Combining calm frontline moderation with clear, accurate technical writing helped bridge core engineering teams and global communities without hype.",
+    "outcome": "Five years of documented multi-project stewardship across some of Web3's most active communities.",
     "links": []
   }
 ]
