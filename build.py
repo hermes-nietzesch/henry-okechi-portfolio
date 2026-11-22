@@ -63,61 +63,64 @@ EXPERIENCE = [
         "2026",
         "AI Model Trainer",
         "Runpod (GPU Infrastructure)",
+        "Trained custom character-consistency LoRA models (azarun_god_v1) on Runpod GPUs and evaluated checkpoint quality across multi-shot generations.",
         "Trained custom AI character-consistency LoRA models (azarun_god_v1) on Runpod GPUs; ran iterative training experiments, evaluated checkpoint outputs, and refined datasets and prompts to maintain visual continuity across shots.",
     ),
     (
         "2026 — Present",
         "AI & Content Specialist",
         "Kling AI",
+        "Directed and produced the Azarun AI cinematic trailer across Kling AI, Seedance, Gemini, and GPT.",
         "Created an AI-generated cinematic trailer introducing Azarun, an African mythological hero—leading prompt architecture, shot planning, and visual iteration across Kling AI, Seedance, Gemini, and GPT.",
     ),
     (
         "2026 — Present",
         "AI Product & Game Builder",
         "Independent",
+        "Built and deployed live web apps and 3D browser games including MedFlash, Project Mucci, Kasala, Wayo, and Naija Undead.",
         "Directed and deployed web products and mobile-first 3D browser games including Kasala (Cloudflare Workers), Wayo (Netlify), Naija Undead, Project Mucci (Firebase + Vitest), and MedFlash.",
+    ),
+    (
+        "2024 — Present",
+        "Founder & Partnerships Lead",
+        "Irysnameservice · HERMES ALPHA ZONE · Gem Jungle",
+        "Founded Irysnameservice (#1 Irys dApp per CV) and delivered 50+ paid crypto campaigns across 75K+ combined community reach.",
+        "Founded a blockchain domain-minting and on-chain identity service on Irys with EVM/Solana wallets, mutable-reference transfers, and interactive flashcards (documented in CV as reaching #1 dApp in the Irys ecosystem), while operating HERMES ALPHA ZONE & Gem Jungle (75K+ reach, 50+ paid campaigns).",
     ),
     (
         "2025 — 2026",
         "Account Sales, Marketing & Advisory",
         "Cointracts · Beraskool · Webacy",
+        "Account sales at Cointracts, product growth at Beraskool, and project/content advisory at Webacy.",
         "Ambassador & Account Sales at Cointracts (2025–2026); Product Marketer & Growth at Beraskool (2025–2026); Project & Content Advisor at Webacy (2024–2025).",
-    ),
-    (
-        "2024 — Present",
-        "Founder",
-        "Irysnameservice",
-        "Founded a blockchain domain-minting and on-chain identity service on Irys with EVM/Solana wallets, mutable-reference transfers, and interactive flashcards—documented in CV as reaching #1 dApp in the Irys ecosystem.",
-    ),
-    (
-        "2024 — Present",
-        "Partnerships & Community Founder",
-        "HERMES ALPHA ZONE & Gem Jungle",
-        "Operated Web3 communities with 75K+ combined reach and delivered 50+ paid campaigns for NFT, DeFi, and trading-platform clients across X, Telegram, and Discord (as documented in CV).",
-    ),
-    (
-        "2021 — 2026",
-        "Content Writer & Community Comms",
-        "DTCSI Academy",
-        "Authored educational program copy, announcements, and clear technical Web3 explanations for both newcomers and experienced members.",
-    ),
-    (
-        "2021 — 2025",
-        "Web3 Community & Project Manager",
-        "DeGods · Pudgy Penguins · Beraskool · Primates · Anavrin DAO",
-        "Managed and moderated high-traffic communities with disciplined guidelines, content review, and trust & safety judgment; previously Project Manager at Anavrin DAO (2022–2023).",
     ),
     (
         "2019 — 2021",
         "AI Data Annotator",
         "Appen",
+        "Annotated and evaluated multi-modal text, image, and audio ML datasets under strict quality guidelines.",
         "Annotated and labeled text, image, and audio datasets for machine-learning pipelines—executing categorization, relevance rating, and content evaluation under evolving quality rubrics.",
     ),
     (
         "2018 — 2024",
         "Research & Script Writer",
         "Savvy Economist",
+        "Six years researching and writing long-form finance and economics scripts for a public educational YouTube channel.",
         "Six years researching, structuring, and writing long-form finance and economics scripts for a public educational YouTube channel with consistent voice and editorial rigor.",
+    ),
+    (
+        "2021 — 2026",
+        "Content Writer & Community Comms",
+        "DTCSI Academy",
+        "Authored educational program copy, announcements, and technical Web3 explainers.",
+        "Authored educational program copy, announcements, and clear technical Web3 explanations for both newcomers and experienced members.",
+    ),
+    (
+        "2021 — 2025",
+        "Web3 Community & Project Manager",
+        "DeGods · Pudgy Penguins · Beraskool · Primates · Anavrin DAO",
+        "Managed high-traffic moderation, trust & safety, and DAO project operations across global Web3 communities.",
+        "Managed and moderated high-traffic communities with disciplined guidelines, content review, and trust & safety judgment; previously Project Manager at Anavrin DAO (2022–2023).",
     ),
 ]
 
@@ -180,24 +183,55 @@ def closing_contact_band(prefix: str = "", include_cta_block: bool = True) -> st
     cta_html = ""
     if include_cta_block:
         cta_html = f"""
-    <div class="reveal">
-      <div class="eyebrow">Contact</div>
-      <h2 class="closing-headline">Have something ambitious<br><em>in mind?</em></h2>
-      <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
-    </div>
+    <div class="closing-spread reveal">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 class="closing-headline">Have something ambitious <em>in mind?</em></h2>
+        <p class="closing-copy">I'm open to thoughtful collaborations, remote roles, and meaningful challenges across AI, healthcare, product engineering, and Web3 ecosystems.</p>
+        <div class="oversized-email-wrap">
+          <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
+          <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
+        </div>
+      </div>
 
-    <div class="oversized-email-wrap reveal">
-      <a class="oversized-email" href="mailto:enryvanie@gmail.com">enryvanie@gmail.com</a>
-      <button type="button" class="btn-primary" data-copy-email>Copy Email Address</button>
-    </div>
-
-    <div class="closing-links reveal">
-      <a class="btn-link" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">Telegram (@enryvanie) <span class="arrow">↗</span></a>
-      <a class="btn-link" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow">↗</span></a>
-      <a class="btn-link" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">X (@Vanieofweb3) <span class="arrow">↗</span></a>
-      <a class="btn-link" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
-      <a class="btn-link" href="{prefix}assets/Henry_Okechi_CV.pdf" download>Curriculum Vitae (PDF) <span class="arrow">↓</span></a>
-      <a class="btn-link" href="{prefix}contact.html">Write a Brief <span class="arrow">→</span></a>
+      <div class="closing-directory">
+        <dl class="closing-meta-grid">
+          <div>
+            <dt>Availability</dt>
+            <dd>Remote Worldwide · UTC+1</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>English · Russian (B1) · French (A2)</dd>
+          </div>
+        </dl>
+        <nav class="closing-dir-list" aria-label="Direct contact channels">
+          <a class="closing-dir-row" href="https://t.me/enryvanie" target="_blank" rel="noopener noreferrer">
+            <span>Telegram (@enryvanie)</span>
+            <span>Direct Message ↗</span>
+          </a>
+          <a class="closing-dir-row" href="https://www.linkedin.com/in/henry-okechi-b20283422" target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn</span>
+            <span>Profile ↗</span>
+          </a>
+          <a class="closing-dir-row" href="https://x.com/Vanieofweb3" target="_blank" rel="noopener noreferrer">
+            <span>X (@Vanieofweb3)</span>
+            <span>Social ↗</span>
+          </a>
+          <a class="closing-dir-row" href="https://github.com/hermes-nietzesch" target="_blank" rel="noopener noreferrer">
+            <span>GitHub (hermes-nietzesch)</span>
+            <span>Repositories ↗</span>
+          </a>
+          <a class="closing-dir-row" href="{prefix}assets/Henry_Okechi_CV.pdf" download>
+            <span>Curriculum Vitae (PDF)</span>
+            <span>Download ↓</span>
+          </a>
+          <a class="closing-dir-row" href="{prefix}contact.html">
+            <span>Compose a Structured Brief</span>
+            <span>Contact Page →</span>
+          </a>
+        </nav>
+      </div>
     </div>
 """
     return f"""
@@ -206,7 +240,7 @@ def closing_contact_band(prefix: str = "", include_cta_block: bool = True) -> st
     {cta_html}
     <div class="site-footer-bar">
       <span>© <span data-year>2026</span> Henry Okechi — Medicine, AI, Product &amp; Web3</span>
-      <span>Nigeria · Remote Worldwide (UTC+1) · English / Russian (B1) / French (A2)</span>
+      <span>Nigeria · Remote Worldwide (UTC+1)</span>
     </div>
   </div>
 </footer>
@@ -241,9 +275,10 @@ def page_shell(active: str, title: str, description: str, body: str, prefix: str
 """
 
 
-def render_work_item(p: dict, prefix: str = "", allow_dark_plate: bool = True, idx_pos: int = 0) -> str:
+def render_work_item(p: dict, prefix: str = "", allow_dark_plate: bool = True, idx_pos: int = 0, display_index: str = None) -> str:
     case_href = f"{prefix}projects/{e(p['slug'])}.html"
     img_src = f"{prefix}{e(p['image'])}"
+    shown_idx = display_index or p["index"]
     frame_cls = "work-media-frame"
     if p.get("image_style") == "framed-ui":
         frame_cls += " is-ui"
@@ -277,7 +312,7 @@ def render_work_item(p: dict, prefix: str = "", allow_dark_plate: bool = True, i
   </a>
   <div class="work-info">
     <div class="work-index">
-      <strong>{e(p['index'])}</strong>
+      <strong>{e(shown_idx)}</strong>
       <span>— {e(p['category_label'])}</span>
     </div>
     <h3 class="work-title"><a href="{case_href}">{e(p['name'])}</a></h3>
@@ -301,11 +336,48 @@ def render_work_item(p: dict, prefix: str = "", allow_dark_plate: bool = True, i
 """
 
 
+def render_capabilities_tiered() -> str:
+    primary = CAPABILITIES[:3]
+    secondary = CAPABILITIES[3:]
+    return f"""
+    <div class="cap-tier-label reveal">
+      <span>Primary Focus — AI, Healthcare &amp; Product Engineering</span>
+      <span>01 — 03</span>
+    </div>
+    <div class="cap-grid is-primary">
+      {''.join(f'''
+      <article class="cap-item is-primary reveal">
+        <span class="cap-num">{e(num)}</span>
+        <h3>{e(title)}</h3>
+        <p>{e(desc)}</p>
+        <div class="cap-detail">{e(detail)}</div>
+      </article>
+      ''' for num, title, desc, detail in primary)}
+    </div>
+
+    <div class="cap-tier-label is-secondary reveal">
+      <span>Extended Practice — Interactive Media, Research &amp; Web3</span>
+      <span>04 — 06</span>
+    </div>
+    <div class="cap-grid">
+      {''.join(f'''
+      <article class="cap-item is-secondary reveal">
+        <span class="cap-num">{e(num)}</span>
+        <h3>{e(title)}</h3>
+        <p>{e(desc)}</p>
+        <div class="cap-detail">{e(detail)}</div>
+      </article>
+      ''' for num, title, desc, detail in secondary)}
+    </div>
+"""
+
+
 # =========================================================
 # 1. HOMEPAGE (EXACT OBSIDIAN & IVORY EDITORIAL SEQUENCE)
 # =========================================================
-featured = [p for p in PROJECTS if p.get("featured")]
-archive_rest = [p for p in PROJECTS if not p.get("featured")]
+HOME_FEATURED_SLUGS = ["azarun", "mcq-recall", "project-mucci", "kasala"]
+featured = [next(p for p in PROJECTS if p["slug"] == slug) for slug in HOME_FEATURED_SLUGS]
+archive_rest = [p for p in PROJECTS if p["slug"] not in HOME_FEATURED_SLUGS]
 
 home_body = f"""
 <!-- 01. HERO: OBSIDIAN -->
@@ -335,8 +407,8 @@ home_body = f"""
             <img src="assets/images/henry-headshot.jpg" alt="Portrait of Dr. Henry Okechi">
           </div>
           <figcaption>
-            <span>Dr. Henry Okechi</span>
-            <span>MBBS · Builder</span>
+            <span class="portrait-name">Dr. Henry Okechi</span>
+            <span class="portrait-role">MBBS · AI · Product</span>
           </figcaption>
         </figure>
       </div>
@@ -405,13 +477,13 @@ home_body = f"""
     </div>
 
     <div class="editorial-works">
-      {''.join(render_work_item(p, allow_dark_plate=True, idx_pos=i) for i, p in enumerate(featured))}
+      {''.join(render_work_item(p, allow_dark_plate=True, idx_pos=i, display_index=f'{i+1:02d}') for i, p in enumerate(featured))}
     </div>
 
     <div class="archive-index reveal">
       <div class="archive-head">
-        <span class="eyebrow">Further Work &amp; Prototypes</span>
-        <a class="btn-link" href="work.html">View all 12 projects with filters <span class="arrow">→</span></a>
+        <span class="eyebrow">Catalogue Index — 8 Additional Projects</span>
+        <a class="btn-link" href="work.html">Explore full 12-project catalogue <span class="arrow">→</span></a>
       </div>
       <div>
         {''.join(f'''
@@ -435,19 +507,10 @@ home_body = f"""
         <div class="eyebrow"><span class="eyebrow-num">03</span> Capabilities</div>
         <h2 class="section-title">Six disciplines, one <em>cohesive practice.</em></h2>
       </div>
-      <p class="section-intro">Grounded domain depth paired with modern software execution—built for teams that need both clear judgment and shipped output.</p>
+      <p class="section-intro">Anchored in AI systems, clinical medicine, and product engineering—extended across interactive media, research, and Web3.</p>
     </div>
 
-    <div class="cap-grid">
-      {''.join(f'''
-      <article class="cap-item reveal">
-        <span class="cap-num">{e(num)}</span>
-        <h3>{e(title)}</h3>
-        <p>{e(desc)}</p>
-        <div class="cap-detail">{e(detail)}</div>
-      </article>
-      ''' for num, title, desc, detail in CAPABILITIES)}
-    </div>
+    {render_capabilities_tiered()}
   </div>
 </section>
 
@@ -543,17 +606,20 @@ home_body = f"""
           <h3>{e(role)}</h3>
           <span>{e(org)}</span>
         </div>
-        <p class="timeline-desc">{e(desc)}</p>
+        <p class="timeline-desc">{e(short_desc)}</p>
       </div>
-      ''' for dates, role, org, desc in EXPERIENCE)}
+      ''' for dates, role, org, short_desc, _full in EXPERIENCE[:6])}
       <div class="timeline-row reveal">
         <span class="timeline-date">MBBS</span>
         <div class="timeline-role">
           <h3>Bachelor of Medicine, Bachelor of Surgery</h3>
           <span>Ebonyi State University College of Health Sciences</span>
         </div>
-        <p class="timeline-desc">Licensed Medical Doctor. Additional technical certifications: IBM Watson AI, Google IT Support Specialization, and IT Security.</p>
+        <p class="timeline-desc">Licensed Medical Doctor. Certifications in IBM Watson AI, Google IT Support, and IT Security.</p>
       </div>
+    </div>
+    <div style="margin-top:28px" class="reveal">
+      <a class="btn-link" href="about.html#full-timeline">View complete experience archive (all roles &amp; details) <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -685,25 +751,16 @@ about_body = f"""
         <h2 class="section-title">Where I create <em>leverage.</em></h2>
       </div>
     </div>
-    <div class="cap-grid">
-      {''.join(f'''
-      <article class="cap-item">
-        <span class="cap-num">{e(num)}</span>
-        <h3>{e(title)}</h3>
-        <p>{e(desc)}</p>
-        <div class="cap-detail">{e(detail)}</div>
-      </article>
-      ''' for num, title, desc, detail in CAPABILITIES)}
-    </div>
+    {render_capabilities_tiered()}
   </div>
 </section>
 
-<section class="band-soft section-compact">
+<section class="band-soft section-compact" id="full-timeline">
   <div class="container">
     <div class="section-header">
       <div>
         <div class="eyebrow">Timeline</div>
-        <h2 class="section-title">Experience <em>archive.</em></h2>
+        <h2 class="section-title">Complete experience <em>archive.</em></h2>
       </div>
     </div>
     <div class="timeline">
@@ -714,9 +771,9 @@ about_body = f"""
           <h3>{e(role)}</h3>
           <span>{e(org)}</span>
         </div>
-        <p class="timeline-desc">{e(desc)}</p>
+        <p class="timeline-desc">{e(full_desc)}</p>
       </div>
-      ''' for dates, role, org, desc in EXPERIENCE)}
+      ''' for dates, role, org, _short, full_desc in EXPERIENCE)}
     </div>
   </div>
 </section>
